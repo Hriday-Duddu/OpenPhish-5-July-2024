@@ -1,0 +1,209 @@
+<!doctype html><html lang="it" style="font-size: 41.4px;" prefix="og: http://ogp.me/ns#" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://ogp.me/ns/fb#"><head> <script type="3e07e6f204cfad7f258ed982-text/javascript">class ArsiLazyLoadScripts {constructor(e) {this.triggerEvents = e, this.eventOptions = {passive: !0}, this.userEventListener = this.triggerListener.bind(this), this.delayedScripts = {normal: [],async: [],defer: []}, this.allJQueries = []}_addUserInteractionListener(e) {this.triggerEvents.forEach((t => window.addEventListener(t, e.userEventListener, e.eventOptions)))}_removeUserInteractionListener(e) {this.triggerEvents.forEach((t => window.removeEventListener(t, e.userEventListener, e.eventOptions)))}triggerListener() {this._removeUserInteractionListener(this), "loading" === document.readyState ? document.addEventListener("DOMContentLoaded", this._loadEverythingNow.bind(this)) : this._loadEverythingNow()}async _loadEverythingNow() {this._delayEventListeners(), this._delayJQueryReady(this), this._handleDocumentWrite(), this._registerAllDelayedScripts(), this._preloadAllScripts(), await this._loadScriptsFromList(this.delayedScripts.normal), await this._loadScriptsFromList(this.delayedScripts.defer), await this._loadScriptsFromList(this.delayedScripts.async), await this._triggerDOMContentLoaded(), await this._triggerWindowLoad(), window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts() {document.querySelectorAll("script[type=arsilazyloadscript]").forEach((e => {e.hasAttribute("src") ? e.hasAttribute("async") && !1 !== e.async ? this.delayedScripts.async.push(e) : e.hasAttribute("defer") && !1 !== e.defer || "module" === e.getAttribute("data-rocket-type") ? this.delayedScripts.defer.push(e) : this.delayedScripts.normal.push(e) : this.delayedScripts.normal.push(e)}))}async _transformScript(e) {return await this._requestAnimFrame(), new Promise((t => {const n = document.createElement("script");let i;[...e.attributes].forEach((e => {let t = e.nodeName;"type" !== t && ("data-rocket-type" === t && (t = "type", i = e.nodeValue), n.setAttribute(t, e.nodeValue))})), e.hasAttribute("src") && this._isValidScriptType(i) ? (n.addEventListener("load", t), n.addEventListener("error", t)) : (n.text = e.text, t()), e.parentNode.replaceChild(n, e)}))}_isValidScriptType(e) {return !e || "" === e || "string" == typeof e && ["text/javascript", "text/x-javascript", "text/ecmascript", "text/jscript", "application/javascript", "application/x-javascript", "application/ecmascript", "application/jscript", "module"].includes(e.toLowerCase())}async _loadScriptsFromList(e) {const t = e.shift();return t ? (await this._transformScript(t), this._loadScriptsFromList(e)) : Promise.resolve()}_preloadAllScripts() {var e = document.createDocumentFragment();[...this.delayedScripts.normal, ...this.delayedScripts.defer, ...this.delayedScripts.async].forEach((t => {const n = t.getAttribute("src");if (n) {const t = document.createElement("link");t.href = n, t.rel = "preload", t.as = "script", e.appendChild(t)}})), document.head.appendChild(e)}_delayEventListeners() {let e = {};function t(t, n) {! function(t) {function n(n) {return e[t].eventsToRewrite.indexOf(n) >= 0 ? "rocket-" + n : n}e[t] || (e[t] = {originalFunctions: {add: t.addEventListener,remove: t.removeEventListener},eventsToRewrite: []}, t.addEventListener = function() {arguments[0] = n(arguments[0]), e[t].originalFunctions.add.apply(t, arguments)}, t.removeEventListener = function() {arguments[0] = n(arguments[0]), e[t].originalFunctions.remove.apply(t, arguments)})}(t), e[t].eventsToRewrite.push(n)}function n(e, t) {let n = e[t];Object.defineProperty(e, t, {get: () => n || function() {},set(i) {e["rocket" + t] = n = i}})}t(document, "DOMContentLoaded"), t(window, "DOMContentLoaded"), t(window, "load"), t(window, "pageshow"), t(document, "readystatechange"), n(document, "onreadystatechange"), n(window, "onload"), n(window, "onpageshow")}_delayJQueryReady(e) {let t = window.jQuery;Object.defineProperty(window, "jQuery", {get: () => t,set(n) {if (n && n.fn && !e.allJQueries.includes(n)) {n.fn.ready = n.fn.init.prototype.ready = function(t) {e.domReadyFired ? t.bind(document)(n) : document.addEventListener("rocket-DOMContentLoaded", (() => t.bind(document)(n)))};const t = n.fn.on;n.fn.on = n.fn.init.prototype.on = function() {if (this[0] === window) {function e(e) {return e.split(" ").map((e => "load" === e || 0 === e.indexOf("load.") ? "rocket-jquery-load" : e)).join(" ")}"string" == typeof arguments[0] || arguments[0] instanceof String ? arguments[0] = e(arguments[0]) : "object" == typeof arguments[0] && Object.keys(arguments[0]).forEach((t => {delete Object.assign(arguments[0], {[e(t)]: arguments[0][t]})[t]}))}return t.apply(this, arguments), this}, e.allJQueries.push(n)}t = n}})}async _triggerDOMContentLoaded() {this.domReadyFired = !0, await this._requestAnimFrame(), document.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._requestAnimFrame(), window.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._requestAnimFrame(), document.dispatchEvent(new Event("rocket-readystatechange")), await this._requestAnimFrame(), document.rocketonreadystatechange && document.rocketonreadystatechange()}async _triggerWindowLoad() {await this._requestAnimFrame(), window.dispatchEvent(new Event("rocket-load")), await this._requestAnimFrame(), window.rocketonload && window.rocketonload(), await this._requestAnimFrame(), this.allJQueries.forEach((e => e(window).trigger("rocket-jquery-load"))), window.dispatchEvent(new Event("rocket-pageshow")), await this._requestAnimFrame(), window.rocketonpageshow && window.rocketonpageshow()}_handleDocumentWrite() {const e = new Map;document.write = document.writeln = function(t) {const n = document.currentScript;n || console.error("unable to document.write this: " + t);const i = document.createRange(),r = n.parentElement;let a = e.get(n);void 0 === a && (a = n.nextSibling, e.set(n, a));const o = document.createDocumentFragment();i.setStart(o, 0), o.appendChild(i.createContextualFragment(t)), r.insertBefore(o, a)}}async _requestAnimFrame() {return new Promise((e => requestAnimationFrame(e)))}static run() {const e = new ArsiLazyLoadScripts(["keydown", "mousemove", "touchmove", "touchstart", "touchend", "wheel"]);e._addUserInteractionListener(e)}}ArsiLazyLoadScripts.run();</script> <meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta charset="UTF-8"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" /><link rel="shortcut icon" href="../../images/favicon-spotify_c832e.jpg" type="image/x-icon" /><script type="3e07e6f204cfad7f258ed982-text/javascript">var site_base = 'https://spotifypremium.net/'; var base_url = 'https://spotifypremium.net/'; var base_cdn = 'https://spotifypremium.net/'; var base_img = 'https://spotifypremium.net/';</script><title>Scarica Spotify Premium MOD APK</title><meta name="keywords" content="spotify premium, apk premium spotify, apk mod spotify premium, spotify premium gratuito, mod spotify, apk mod spotify"><meta name="description" content="Spotify Premium APK Download gratuito su questa pagina, scarica il file dell&#039;app molto velocemente, installalo sul tuo cellulare e divertiti."><link rel="canonical" href="index.html"><link rel="alternate" href="https://spotifypremium.net/download/" hreflang="x-default" /><link rel="alternate" href="https://spotifypremium.net/download/" hreflang="en" /><link rel="alternate" href="https://spotifypremium.net/es/download/" hreflang="es" /><link rel="alternate" href="https://spotifypremium.net/br/download/" hreflang="br" /><link rel="alternate" href="https://spotifypremium.net/an/download/" hreflang="an" /><link rel="alternate" href="https://spotifypremium.net/ph/download/" hreflang="ph" /><link rel="alternate" href="https://spotifypremium.net/fi/download/" hreflang="fi" /><link rel="alternate" href="https://spotifypremium.net/fr/download/" hreflang="fr" /><link rel="alternate" href="https://spotifypremium.net/de/download/" hreflang="de" /><link rel="alternate" href="https://spotifypremium.net/in/download/" hreflang="in" /><link rel="alternate" href="https://spotifypremium.net/id/download/" hreflang="id" /><link rel="alternate" href="index.html" hreflang="it" /><link rel="alternate" href="https://spotifypremium.net/my/download/" hreflang="my" /><link rel="alternate" href="https://spotifypremium.net/pl/download/" hreflang="pl" /><link rel="alternate" href="https://spotifypremium.net/tr/download/" hreflang="tr" /><link rel="alternate" href="https://spotifypremium.net/vn/download/" hreflang="vn" /><link rel="dns-prefetch" href="https://fonts.gstatic.com/" /><link rel="dns-prefetch" href="https://securepubads.g.doubleclick.net/" /><link rel="dns-prefetch" href="https://pagead2.googlesyndication.com/" /><link rel="dns-prefetch" href="https://api.twitter.com/" /><link rel="dns-prefetch" href="https://adservice.google.com/" /><link rel="dns-prefetch" href="https://twitter.com/" /><link rel="dns-prefetch" href="https://platform.twitter.com/" /><link rel="dns-prefetch" href="https://connect.facebook.net/" /><link rel="dns-prefetch" href="https://static.ak.facebook.com/" /><link rel="dns-prefetch" href="https://s-static.ak.facebook.com/" /><link rel="dns-prefetch" href="https://fbstatic-a.akamaihd.net/" /><link rel="dns-prefetch" href="https://apis.google.com/" /><link rel="dns-prefetch" href="https://ssl.gstatic.com/" /><link rel="dns-prefetch" href="https://linkedin.com/" /><link rel="dns-prefetch" href="https://platform.linkedin.com/" /><link rel="dns-prefetch" href="https://static.licdn.com/" /><link rel="dns-prefetch" href="https://google-analytics.com/" /><link rel="dns-prefetch" href="https://ajax.googleapis.com/" /><link rel="dns-prefetch" href="https://themes.googleusercontent.com/" /><link rel="dns-prefetch" href="https://cdn.ampproject.org/" /><link rel="dns-prefetch" href="https://googletagservices.com/" /><link rel="dns-prefetch" href="https://tpc.googlesyndication.com/" /><link rel="dns-prefetch" href="https://cdn.jsdelivr.net/" /><link rel="dns-prefetch" href="https://youtube.com/" /><link rel="dns-prefetch" href="https://tags.bkrtx.com/" /><link rel="dns-prefetch" href="https://redirect.prod.experiment.routing.cloudfront.aws.a2z.com/" /><link rel="dns-prefetch" href="https://stags.bluekai.com/" /><link rel="dns-prefetch" href="https://google.com/" /><link rel="dns-prefetch" href="https://adtracker.ch/" /><link rel="dns-prefetch" href="https://hal900016.redintelligence.net/" /><link rel="dns-prefetch" href="https://hal9000.redintelligence.net/" /><link rel="dns-prefetch" href="https://track.adform.net/" /><link rel="dns-prefetch" href="https://s1.adform.net/" /><link href="https://fonts.gstatic.com/" crossorigin rel="preconnect" /><script type="arsilazyloadscript" data-rocket-type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><meta property="og:url" content="https://spotifypremium.net/it/download/" /><meta property="og:title" content="Scarica Spotify Premium MOD APK" /><meta property="og:description" content="Spotify Premium APK Download gratuito su questa pagina, scarica il file dell&#039;app molto velocemente, installalo sul tuo cellulare e divertiti." /><meta property="og:site_name" content="SPOTIFYPREMIUM" /><meta property="og:image" content="https://spotifypremium.net/images/spotifypremium-social_ca9fe.png" /><meta property="og:image:url" content="https://spotifypremium.net/images/spotifypremium-social_ca9fe.png" /><meta property="og:image:type" content="image/png" /><meta property="og:image:width" content="600" /><meta property="og:image:height" content="400" /><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Scarica Spotify Premium MOD APK"><meta name="twitter:description" content="Spotify Premium APK Download gratuito su questa pagina, scarica il file dell&#039;app molto velocemente, installalo sul tuo cellulare e divertiti."><meta name="twitter:image" content="https://spotifypremium.net/images/spotifypremium-social_ca9fe.png"><meta name="twitter:image:alt" content="Scarica Spotify Premium MOD APK" /><meta name="twitter:domain" content="spotifypremium.net">
+<script type="application/ld+json">{"@context": "http://schema.org","@type": "Organization","url": "https://spotifypremium.net/","logo": "https://spotifypremium.net/images/spotifypremium-2_cd3bc.png","contactPoint": [{"@type": "ContactPoint","telephone": "+(929) 469-5297","contactType": "customer service"}]}</script><script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "SPOTIFYPREMIUM","url": "https://spotifypremium.net/"}</script><script data-schema="WebPage" type="application/ld+json">{"@id":"https://spotifypremium.net/it/download/","@type":"WebPage","@context":"http://schema.org"}</script>
+<style type="text/css">a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline; outline: 0; background: transparent;} article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}.clear{ clear:both; line-height:0px; margin:0; padding:0;}*{ box-sizing:border-box; transition-duration:.2s;}/*::-webkit-scrollbar {width: 8px; height: 60px;}::-webkit-scrollbar-thumb {background-color: #0b7465;}*/::selection {background-color: #0b7465; color:#ffffff;}body{ background: #fff; font: 12px/1.14 arial,\5b8b\4f53; color: #333; }#main_wrap{ position:relative; width:100%; float:left; user-select: none;-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none; overflow:hidden;}p,h1,h2,h3,h4,h5,h6{margin-bottom: 10px;}h1,h2,h3,h4,h5,h6{font-weight:700; position:relative;}.nobl{ border-left:none;}a{color: #182e7c; text-decoration:none;}a:hover{ color:#888; }p{ font-size: 16px;line-height: 26px;}h1{ font-size: 36px;line-height: 46px;}h2{ font-size: 32px;line-height: 42px;}h3{ font-size: 28px;line-height: 38px;}h4{ font-size: 24px;line-height: 34px;}h5{ font-size: 20px;line-height: 30px;}h6{ font-size: 16px;line-height: 26px;}strong{ font-size:inherit; font-weight:700;}iframe,img{max-width:100%;}figure{ text-align:center;}.container{display: block;width: 1120px; margin: 0px auto; position:relative;}.main_bar{ width: 800px;float: left;position: relative;}.side_bar{ width: 300px;float: right; max-width: 100%;word-break: break-all;}@media(max-width:1120px){.container{width:100%; padding: 0 10px;}    .main_bar{ width:70%; }    .side_bar{ width:28%;}}@media(max-width:1080px){    .main_bar{ width:100%; margin-bottom:15px;}    .side_bar{ width:100%;}}header{width: 100%;height: 60px;margin-bottom: 20px;     border-bottom: 1px solid #ededed; position:relative;}header .logo_wrap{float: left;width: 25%;height: 60px;line-height: 60px;}header #nav_wrap{float: left;width: 75%; padding-right: 150px;}header .lang_box{ position: absolute; width:140px; height:36px;border: 0.02415rem solid #333;right: 0;top: 12px; }header .lang_box #lang_hndlr{margin-bottom: 0;line-height: 36px;text-align: center;cursor: pointer;}header .lang_box .lang_box_1{position:relative;}header .lang_box .lang_box_1 .lang_inn{position: absolute;top: 36px;left: 0;background: #fbfbfb;max-height: 300px;overflow-y: scroll;z-index: 999; display:none;}header .lang_box .lang_box_1 .lang_inn a{float: left;width: 100%;margin: 1px 0; padding:1px 0;font-size: 14px;line-height: 25px;text-align: center;color: #000;}header .lang_box .lang_box_1 .lang_inn a:hover{background:#E0E0E0;}header .lang_box:hover > .lang_box_1 .lang_inn{ display:inline-block;}@media(max-width:1120px){header .lang_box{right: 15px; width:100px;}}header .logo_wrap img.logo{ vertical-align: middle;} header #nav_wrap ul.main_nav{ float:left; width:100%; text-align: right;}header #nav_wrap ul.main_nav li{ position:relative; display: inline-block;}header #nav_wrap ul.main_nav li a{float: left;height: 60px;line-height: 60px;padding: 0 12px;color: #333;font-size: 24px;}header #nav_wrap ul.main_nav li:hover > a{ background:linear-gradient(119deg, #0e6c30 0%, #17b04e 31%, #18DF88 100%); color:#fff;}header #nav_wrap ul.main_nav li>ul{ display:none; position: absolute;left: 0;top: 60px;background: #26272b;min-width: 180px;}header #nav_wrap ul.main_nav li>ul li{ float:left; width:100%; border-bottom: solid 1px #ccc;}header #nav_wrap ul.main_nav li>ul li a{float: left;width: 100%;padding: 10px;line-height: 22px;height: auto;}header #nav_wrap ul.main_nav li:hover > ul{ display:block;}header .menu_hndlr{ display:none;position:absolute; left:0; top:0; padding: 12px; cursor:pointer;}header .menu_hndlr i{color:#fff; font-size:20px;}@media(max-width:1080px){  header #nav_wrap{padding-right: 0px;}header #nav_wrap ul.main_nav li a{ padding:0 10px;}header .logo_wrap{ width:100%; text-align:center;}header .menu_hndlr{ display:block;}header #nav_wrap{display:none; position: fixed;width: 250px;background: #fff;top: 0px;left: 0;height: 100%;overflow-y: auto;box-shadow: 5px 0 12px rgba(18,26,33,.1);padding-bottom: 60px; z-index:999999;}header #nav_wrap ul.main_nav li {width: 100%;border-bottom: 1px solid #ccc; text-align:left;}header #nav_wrap ul.main_nav li a{ padding: 8px;float: left;width: 100%;font-size: 15px;font-weight: normal;line-height: 23px;height: auto; color:#000 !important;}header #nav_wrap ul.main_nav li>ul{ display:inline-block; width:100%;  position: static; background: #ececec;}header #nav_wrap ul.main_nav li>ul li{padding-left:15px;}header #nav_wrap ul.main_nav li>ul li:last-child{ border-bottom:none;}}@media(max-width:600px){header .logo_wrap{ width:70%; padding-left:45px;} header .logo_wrap img.logo{ max-width:140px !important;}}@media(max-width:400px){header .btnsearch{ padding:18px 5px;} header .logo_wrap img.logo{ max-width:100px !important;}}.mob_menu_close{ background: #26272b;margin-bottom: 0;height: 60px; display:none;}.mob_menu_close i{padding: 15px;color: #fff;font-size: 18px;}header .show_mob_menu{ display:block !important;}header .show_mob_menu .mob_menu_close{ display:block;}footer{ margin-top:30px; text-align:center;}footer .footer_top{background: linear-gradient(135deg, #17b04e 0%, #17b04e 100%); padding:30px 0 20px 0; color:#fff;}footer .ftr_links {text-align: center;}footer .ftr_links a {display: inline-block;font-size: 16px;line-height: 26x;color: #fff;margin: 2px 5px;}footer .ftr_links a:after {content: "|";color: rgba(255,255,255,.2);padding-left: 15px;}footer .ftr_links a:last-child:after{ content:"";}footer .footer_bottom{ background:whitesmoke;color: #b2b2b2; padding:15px;}.suprt_box h2{color: #212121;font-size: 1.25604rem;text-align: center;line-height: 1.47343rem;}.suprt_box .suprt_list{display: flex;flex-wrap: wrap;align-items: center;justify-content: center;}.suprt_box .suprt_list .suprt_item{width:14.66%; margin:1%; text-align: center;}.suprt_box .suprt_list .suprt_item p{font-size: 18px;line-height: 28px; font-weight:bold;text-align: center; text-transform:capitalize; margin:5px 0 15px 0;}@media(max-width:1020px){.suprt_box .suprt_list .suprt_item{ width:18%;}}@media(max-width:800px){.suprt_box .suprt_list .suprt_item{ width:23%;}}@media(max-width:600px){.suprt_box .suprt_list .suprt_item{ width:31.33%;}}@media(max-width:480px){.suprt_box .suprt_list .suprt_item{ width:48%;}}@media(max-width:320px){.suprt_box .suprt_list .suprt_item{ width:100%; margin:0 0 15px 0;}}.faqs_box{width: 100%;background: #212121;text-align: center; float:left;}    .faqs_box h2{margin: 0 auto 61px;text-align: center;padding-top: 1.8599rem;font-size: 1.25604rem;font-weight: bold;color: white;letter-spacing: 0.12077rem;background: linear-gradient(334deg, #45c660 0%, #ece34e 50%, #ff6635 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}.faqs_box .faq-list {margin-bottom: 0.65217rem;}.faqs_box .bl-title {margin: 0 auto;text-align: left;display: flex;align-items: center;font-size: 0.57971rem;line-height: 0.67633rem;color: #ffffff;letter-spacing: 0;}.faqs_box .bl-title span:nth-child(1) {display: inline-flex;align-items: center;justify-content: center;background: #333333;height: 0.72464rem;width: 0.72464rem;border-radius: 50%;font-size: 0.48309rem;color: #fff;letter-spacing: 0;margin-right: 0.22464rem;}.faqs_box .bl-content {margin: 0 auto;margin-top: 0.31401rem;margin-bottom: 1.47343rem;display: flex;align-items: center;}.faqs_box .bl-content .bl-text {padding: 0.36232rem 0.28986rem;font-size: 0.33816rem;color: #9a9a9a;letter-spacing: 0;line-height: 0.43478rem;text-align: left;background: #333333;border-radius: 0.24155rem;}.faqs_box .bl-content .triangle-left {width: 0;height: 0;position: relative;left: -0.60386rem;z-index: 1;margin-bottom: -1.20773rem;top: -0.36232rem;border: 0.62802rem solid transparent;border-top: 0.62802rem solid #333333;border-radius: 0.36232rem;}.faqs_box .bl-content .answ {font-size: 13px;line-height: 0.45894rem;border-radius: 0.50725rem;border-top-left-radius: 0;margin-left: 0.12077rem;position: relative;}#ScrollToTop {display: none;position: fixed;bottom: 20px;right: 30px;z-index: 99;font-size: 18px;border: none;outline: none;background:linear-gradient(135deg, #17b04e 0%, #17b04e 100%); color: #fff;cursor: pointer;border-radius: 50%;width: 40px;height: 40px;text-align: center;line-height: 35px;vertical-align: middle;}#ScrollToTop:hover {filter: brightness(85%);}.more_link{color: #fff;cursor: pointer;font-size: 15px;font-weight: 700;padding: 10px 10%;border-radius: 5px;margin: 20px auto 0;text-transform: uppercase;border: 1px solid #f34042;-webkit-transition: all .5s ease-in-out;transition: all .5s ease-in-out;background: linear-gradient(135deg, #17b04e 0%, #17b04e 100%) ;-webkit-box-shadow: 2px 2px 5px #ccc;box-shadow: 2px 2px 5px #ccc;display: inline-block;}.more_link:hover{ background:#fff; color:#182e7c !important}.blog_wrap {width: 100%; margin:0 auto;}.blog_wrap .blog_item{width: 100%;border-bottom: 0.02415rem solid #ededed; padding:10px; padding-bottom:20px; margin-bottom:20px; display:flex;}.blog_item .bl_content{ width:75%;}.blog_item .bl_content .bl_title {text-align: left;font-size: 0.57971rem;font-weight: bold;color: black;line-height: 0.67633rem;}.blog_item .bl_content .bl_text {height: 2.31884rem;overflow: hidden;text-align: left;font-size: 0.38647rem;font-weight: 400;color: #757575;line-height: 0.57971rem;margin-top: 20px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}.blog_item .bl_img { padding-left:15px; width:25%;}.blog_wrap .blog_item:hover{ background:#D9F0FF;}@media(max-width:800px){.blog_item .bl_img { width:32%;}}@media(max-width:600px){.blog_item .bl_img { width:38%;}}.youtube_embed {background-color: #000;margin-bottom: 30px;position: relative;padding-top: 56.25%;overflow: hidden;cursor: pointer;}.youtube_embed img {width: 100%;top: -16.82%;left: 0;opacity: 0.7;}.youtube_embed .yt_play_btn {width: 90px;height: 60px;background-color: #333;box-shadow: 0 0 30px rgba( 0,0,0,0.6 );z-index: 1;opacity: 0.8;border-radius: 6px;}.youtube_embed .yt_play_btn:before {content: "";border-style: solid;border-width: 15px 0 15px 26.0px;border-color: transparent transparent transparent #fff;}.youtube_embed img, .youtube_embed .yt_play_btn {cursor: pointer;}.youtube_embed img, .youtube_embed iframe, .youtube_embed .yt_play_btn, .youtube_embed .yt_play_btn:before {position: absolute;}.youtube_embed .yt_play_btn, .youtube_embed .yt_play_btn:before {top: 50%;left: 50%;transform: translate3d( -50%, -50%, 0 );}.youtube_embed iframe {height: 100%;width: 100%;top: 0;left: 0;}.social_sharer {width: 100%;box-sizing: border-box;text-align: center;}.social_sharer .ss_btn{box-shadow: inset 0 -4px 0 rgb(0 0 0 / 15%);border-radius: 50%;-webkit-border-radius: 50%;-webkit-box-shadow: inset 0 -4px 0 rgb(0 0 0 / 20%);color: #fff;display: inline-block;cursor: pointer;width: 50px;height: 50px;line-height: 50px;text-align: center;}.social_sharer .ss_btn i{font-size: 22px;line-height: 50px;}.social_sharer .ss_btn.facebook{ background:#3a579a;}.social_sharer .ss_btn.twitter{ background:#00abf0;}.social_sharer .ss_btn.reddit{ background:#D63C1A;}.social_sharer .ss_btn.pinterest{ background:#cd1c1f;}.social_sharer .ss_btn.whatsapp{ background:#5CBE4A;}.cnt_box i{ font-style:italic;}.cnt_box u{text-decoration:underline;}.cnt_box a{text-decoration: underline !important;}.cnt_box ol, .cnt_box ul{ padding-left:20px !important; margin-bottom: 10px !important; text-align:left;}.cnt_box ol{list-style: decimal !important;}.cnt_box ul{list-style: disc !important;}.show{ display:block !important;}.hide{ display:none !important;}.full{ width:100% !important;}.fl{ float:left !important;}.fr{ float:right !important;}.mb0{ margin-bottom:0px !important; }.mb10{ margin-bottom:10px !important; }.mb15{ margin-bottom:15px !important; }.mb20{ margin-bottom:20px !important; }.mb25{ margin-bottom:25px !important; }.mb30{ margin-bottom:30px !important; }.mb40{ margin-bottom:40px !important; }.mb50{ margin-bottom:50px !important; }.mt0{ margin-top:0px !important; }.mt10{ margin-top:10px !important; }.mt15{ margin-top:15px !important; }.mt20{ margin-top:20px !important; }.mt25{ margin-top:25px !important; }.mt30{ margin-top:30px !important; }.pb0{ padding-bottom:0px !important; }.pb10{ padding-bottom:10px !important; }.pb15{ padding-bottom:15px !important; }.pb20{ padding-bottom:20px !important; }.pb25{ padding-bottom:25px !important; }.pb30{ padding-bottom:30px !important; }.pt0{ padding-top:0px !important; }.pt10{ padding-top:10px !important; }.pt15{ padding-top:15px !important; }.pt20{ padding-top:20px !important; }.pt25{ padding-top:25px !important; }.pt30{ padding-top:30px !important; }.vam{ vertical-align:middle;}.ac{ text-align:center !important;}.aj{ text-align:justify !important;}.db{ display:block !important;}.dib{ display: inline-block !important;}.rtl{ direction:rtl !important;}.ltr{ direction:ltr !important;}.pad10{ padding:10px;}.pad15{ padding:15px;}.hide {display: none;}.show {display: block;}.fs17{ font-size:17px;}.txt_red{ color:#C14D44 !important;}.txt_green{ color:#063F4F !important;}.txt_suc{ color:#008000;}.txt_err{ color:#C14D44;}.txt_blue{ color:#084888 !important;}.txt_gray{ color:#333 !important;}.txt_white{ color:#fff !important;}.txt_black{ color:#000 !important;}.txt_orange{ color:#f29423  !important;}.blue_bg{ background:#F1F5FD; float: left;width: 100%;padding: 15px 0;}.hwa{ height: auto !important; width:auto !important;}</style><style>
+.box-file {max-width: 480px;margin: 0 auto; text-align: center;}
+.box-file>.foot {padding-top: 0;margin-top: 2.25rem}
+.box-file>.spec {opacity: .65;margin-top: 0;font-size: .875rem}
+@media (max-width:500px) {
+	.box-file>.spec {display: inline-block;text-align: left}
+	.box-file>.spec>li {display: block;margin-right: 0!important}
+}
+.box-file>.title {margin-bottom: 2.25rem;font-size: 1.25rem}
+.box-file .btn {height: 4rem;line-height: 2rem;padding: 1rem 1.5rem;border-radius: 2rem;font-size: 1.25rem}
+.timer {display: block;margin: 0 auto;width: 6rem;height: 6rem;padding: 1rem;position: relative;border-radius: 50%;font-weight: 700;font-size: 3rem;line-height: 4rem;color: #fff!important;background-color: #357e38;box-shadow: 0 .25rem 1rem 0 rgba(58, 121, 50, .25), 0 0 0 .5rem rgba(104, 203, 91, .15); text-align:center;}
+.timer::after {content: "";position: absolute;left: 50%;top: 50%;margin: -3rem 0 0 -3rem;width: 6rem;height: 6rem;background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><path fill='%23fff' d='M24,46A22,22,0,0,1,24,2V0A24,24,0,1,0,48,24H46A22,22,0,0,1,24,46Z'/></svg>");background-size: 100% 100%;opacity: .5;animation: load-rotate 2s infinite linear}
+@keyframes load-rotate {100% {transform: rotate(360deg)}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1211175972738825" crossorigin="anonymous" type="3e07e6f204cfad7f258ed982-text/javascript"></script></head><body id="webpage">
+<div id="main_wrap"><header>
+<div class="container">
+<span id="menu_hndlr" class="menu_hndlr"><img onClick="if (!window.__cfRLUnblockHandlers) return false; show_menu_mob();" width="30" height="30" src="../../images/icon-menu.png" alt="Menu" data-cf-modified-3e07e6f204cfad7f258ed982-></span>
+<div class="logo_wrap">
+<a href="https://spotifypremium.net/"><img height="45" width="250" class="logo hwa" src="../../images/spotifypremium-2_cd3bc.png" alt="SPOTIFYPREMIUM" /></a>
+</div>
+<div id="nav_wrap">
+<p class="mob_menu_close"><i onClick="if (!window.__cfRLUnblockHandlers) return false; hide_menu_mob();" class="fa fa-times" data-cf-modified-3e07e6f204cfad7f258ed982-></i></p>
+<ul class="main_nav">
+<li><a href="../index.html">Casa</a></li><li><a href="../index.html">Blog</a></li><li><a href="../index.html">Scaricamento</a></li> </ul>
+</div>
+<div class="lang_box">
+<div class="lang_box_1">
+<p id="lang_hndlr">Italy &#9660;</p>
+<div class="lang_inn">
+<a href="https://spotifypremium.net/download/">English</a><a href="https://spotifypremium.net/es/download/">Español</a><a href="https://spotifypremium.net/br/download/">Português</a><a href="https://spotifypremium.net/an/download/">Netherlands</a><a href="https://spotifypremium.net/ph/download/">Philippines</a><a href="https://spotifypremium.net/fi/download/">Finland</a><a href="https://spotifypremium.net/fr/download/">France</a><a href="https://spotifypremium.net/de/download/">Germany</a><a href="https://spotifypremium.net/in/download/">India</a><a href="https://spotifypremium.net/id/download/">indonesia</a><a href="index.html">Italy</a><a href="https://spotifypremium.net/my/download/">Malaysia</a><a href="https://spotifypremium.net/pl/download/">Poland</a><a href="https://spotifypremium.net/tr/download/">Turkey</a><a href="https://spotifypremium.net/vn/download/">Vietnam</a> </div>
+</div>
+</div>
+</div>
+</header>
+<div class="clear"></div>
+<div class="ac"><script type="text/javascript" src="https://whaurgoopou.com/5/7661761" async data-cfasync="false"></script>
+<script async data-cfasync="false">
+  (function() {
+      const url = new URL(window.location.href);
+      const clickID = url.searchParams.get("click_id");
+      const sourceID = url.searchParams.get("source_id");
+
+      const s = document.createElement("script");
+      s.dataset.cfasync = "false";
+      s.src = "https://push-sdk.com/f/sdk.js?z=1216141";
+      s.onload = (opts) => {
+          opts.zoneID = 1216141;
+          opts.extClickID = clickID;
+          opts.subID1 = sourceID;
+          opts.actions.onPermissionGranted = () => {};
+          opts.actions.onPermissionDenied = () => {};
+          opts.actions.onAlreadySubscribed = () => {};
+          opts.actions.onError = () => {};
+      };
+      document.head.appendChild(s);
+  })()
+</script></div><div class="clear mb20"></div>
+<div class="container">
+<div class="cnt_box ac">
+<h1>L&#39;APK di Spotify Premium è in fase di download</h1>
+<p>Spotify Premium con un file diretto, scaricalo e installalo sul tuo telefono e divertiti. Spotify &egrave; sicuro, non virus o malware, grazie per la tua fiducia.</p> </div>
+<div class="clear mb20"></div>
+<div class="ac" id="download_data_wrap">
+<a class="more_link" href="https://spotifypremium.net/file/spotify-premium-mod-apk-8-10-9-722.apk" rel="nofollow"><i class="fa fa-cloud-download fs25" aria-hidden="true" title="Download"></i> Scarica ora v8.10.9.722 [76.59 MB] APK</a><div class="clear mb20"></div><a class="more_link" href="https://spotifypremium.net/file/Spotify_com.spotify.music_8.9.18.512_mod.apk" rel="nofollow"><i class="fa fa-cloud-download fs25" aria-hidden="true" title="Download"></i> Scarica ora v8.9.18.512 [78.86 MB] APK</a><div class="clear mb20"></div><a class="more_link" href="https://spotifypremium.net/file/Spotify-v8.9.42.575.spotifypremium.net.apk" rel="nofollow"><i class="fa fa-cloud-download fs25" aria-hidden="true" title="Download"></i> Scarica ora v8.9.42.575 [76.6 MB] APK</a><div class="clear mb20"></div><a class="more_link" href="https://spotifypremium.net/file/Spotify_v8.10.9.722_Premium.apk" rel="nofollow"><i class="fa fa-cloud-download fs25" aria-hidden="true" title="Download"></i> Scarica ora Premium v8.10.9.722 [78.5 MB] APK</a><div class="clear mb20"></div><a class="more_link" href="https://spotifymodapp.download/" rel="nofollow"><i class="fa fa-cloud-download fs25" aria-hidden="true" title="Download"></i> Scarica ora Latest Version [76 MB] APK</a><div class="clear mb20"></div><a class="more_link" href="https://spotifymode.com/" rel="nofollow"><i class="fa fa-cloud-download fs25" aria-hidden="true" title="Download"></i> Scarica ora New Version [78 MB] APK</a><div class="clear mb20"></div> </div>
+<div class="clear mb20"></div>
+<div class="clear mb50"></div>
+<div class="cnt_box"><h2>Come installare?</h2>
+<p>Segui questa guida completa per scaricare e installare Spotify sul tuo dispositivo Android:</p>
+<p>Ottieni l'apk Spotify Premium pi&ugrave; recente facendo clic sul collegamento per il download nella parte superiore di questa pagina.</p>
+<p>Avvia l'installazione toccando il file scaricato, che dovrebbe essere chiamato Spotify-mod-8.8.22.510.apk</p>
+<p>Se il tuo sistema operativo Android visualizza un avviso di sicurezza che indica "Per la tua sicurezza, il tuo telefono non &egrave; autorizzato a installare app sconosciute da questa fonte", premi il pulsante Impostazioni.</p>
+<p>Abilita l'installazione da fonti sconosciute: verr&agrave; visualizzato un nuovo menu con un'opzione denominata "Consenti da questa fonte". Attiva l'interruttore accanto ad esso per consentire l'installazione.</p>
+<p>Procedi con l'installazione dell'app: torna alla schermata di installazione ed esamina le autorizzazioni dell'app (se presenti). Fare clic sul pulsante Installa per continuare.</p>
+<p>Avvia l'app Spotify: premi il pulsante Apri per aprire l'app Spotify Premium.</p>
+<p>Accedi al tuo account Spotify: per accedere al tuo account, utilizza le tue credenziali Spotify (indirizzo e-mail e password) per accedere. Se non disponi di un account, valuta la possibilit&agrave; di crearne uno. In alternativa, puoi utilizzare l'opzione Facebook Connect per accedere.</p></div>
+</div>
+</div>
+<div class="clear"></div>
+<footer>
+<div class="footer_top">
+<div class="container">
+<div class="ftr_links mb15">
+<a href="../info/about-us/index.html">Chi Siamo</a> </div>
+<p class="mb0">Contattaci: <a href="https://spotifypremium.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f19e9797989294b182819e859897888183949c98849cdf9f9485">[email&#160;protected]</a></p>
+</div>
+</div>
+<div class="footer_bottom">
+<p class="mb0">Copyright © SPOTIFYPREMIUM Tutti i diritti riservati</p>
+</div>
+</footer>
+</div>
+<span onClick="if (!window.__cfRLUnblockHandlers) return false; topFunction()" id="ScrollToTop" aria-label="Go to top" title="Go to top" data-cf-modified-3e07e6f204cfad7f258ed982-><i class="fa fa-angle-up"></i></span>
+<noscript id="deferred-styles">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+</noscript>
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="3e07e6f204cfad7f258ed982-text/javascript">var loadDeferredStyles=function(){var a=document.getElementById("deferred-styles"),b=document.createElement("div");b.innerHTML=a.textContent,document.body.appendChild(b),a.parentElement.removeChild(a)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?raf(function(){window.setTimeout(loadDeferredStyles,0)}):window.addEventListener("load",loadDeferredStyles);</script>
+<script type="3e07e6f204cfad7f258ed982-text/javascript">
+	function lang_toggler()
+	{
+		var element = document.getElementById("lang_box_inner");
+		element.classList.toggle("show");
+	}
+	
+	function show_menu_mob()
+	{
+		document.getElementById("nav_wrap").className += 'show_mob_menu';
+	}
+	
+	function hide_menu_mob()
+	{
+		document.getElementById("nav_wrap").className = '';
+	}
+	
+	
+	var ScrollButton = document.getElementById("ScrollToTop");
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+	  if (window.pageYOffset > 20) {
+		ScrollButton.style.display = "block";
+	  } else {
+		ScrollButton.style.display = "none";
+	  }
+	}
+	function topFunction() {
+	  document.body.scrollIntoView({behavior: "smooth"});
+	}
+	
+	function scrollToi(id) 
+	{
+		this.event.preventDefault();	
+		const yOffset = 0; 
+		const element = document.getElementById(id);
+		const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+		window.scrollTo({top: y, behavior: 'smooth'});
+	}
+	
+	function scrollToc(to_id) 
+	{
+		this.event.preventDefault();
+		var element = document.getElementById(to_id);
+		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+		setTimeout(function(){window.location.hash = to_id; }, 100);
+	}
+	
+	function share_this(elem)
+	{
+		var url = document.getElementById(elem).getAttribute('data-url');
+		var title = document.getElementById(elem).getAttribute('data-title');
+		
+		var pop_url = '';
+		
+		//console.log(url);
+		
+		if(elem == 'share_facebook')
+		{
+			pop_url = 'https://www.facebook.com/sharer/sharer.php?u='+url;
+		}
+		else if(elem == 'share_twitter')
+		{
+			pop_url = 'https://twitter.com/intent/tweet?text='+title+'&url='+url;
+		}
+		else if(elem == 'share_reddit')
+		{
+			pop_url = 'http://www.reddit.com/submit?url='+url+'&title='+title;
+		}
+		else if(elem == 'share_pinterest')
+		{
+			pop_url = 'http://www.pinterest.com/pin/create/button/?url='+url+'&description='+title;
+		}
+		
+		window.open(pop_url, "PopupWindow", "width=500,height=500,scrollbars=yes,resizable=no");
+	}
+</script>
+<script type="arsilazyloadscript">
+  ( function() {
+
+	if(document.querySelectorAll( ".youtube_embed" ))
+	{
+		var youtube = document.querySelectorAll( ".youtube_embed" );
+		
+		for (var i = 0; i < youtube.length; i++) 
+		{
+		
+		var source = "https://img.youtube.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
+		
+		var image = new Image();
+		image.src = source;
+		image.addEventListener( "load", function() {
+			youtube[ i ].appendChild( image );
+		}( i ) );
+
+		youtube[i].addEventListener( "click", function() {
+
+			var iframe = document.createElement( "iframe" );
+			iframe.setAttribute( "frameborder", "0" );
+			iframe.setAttribute( "allowfullscreen", "" );
+			iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ this.dataset.embed +"?rel=0&showinfo=0&autoplay=1" );
+			this.innerHTML = "";
+			this.appendChild( iframe );
+		} );    
+	};
+	}
+	
+} )();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.2.2/lazysizes-umd.min.js" type="3e07e6f204cfad7f258ed982-text/javascript"></script><script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="3e07e6f204cfad7f258ed982-|49" defer></script></body></html> 

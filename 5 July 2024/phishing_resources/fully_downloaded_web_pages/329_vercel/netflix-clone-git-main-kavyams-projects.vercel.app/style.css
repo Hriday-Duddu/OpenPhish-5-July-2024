@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@600&family=Poppins:wght@300&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+body{
+    background-color: black;
+}
+
+.main{
+    background-image: url(assets/IN-en-20231225-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+    height: 100vh;
+    width: 100%;
+    background-position: center center;
+    /* background-repeat: no-repeat; */
+    background-size: cover;
+}
+
+.box{
+    background: rgba(0, 0, 0, 0.477);
+    /* opacity: 0.5; */
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    box-shadow: inset 100px 100px 150px rgba(0, 0, 0, 0.619), inset -100px -100px 150px rgba(0, 0, 0, 0.619);
+}
+
+nav{
+    padding: 20px;
+    display: flex;
+    /* justify-content: space-around; */
+    width:70vw;
+    margin: auto;
+    justify-content: space-between;/*?ye bhi kr skte hai*/
+    align-items: center;
+    position: relative;
+    z-index: 10;
+    
+}
+
+.logo{
+    display: flex;
+}   
+
+nav .items{
+    display: flex;
+    gap: 20px;
+}
+
+nav .items select option{
+    background-color: black;
+    color: white;
+
+}
+
+.btn{
+    padding: 10px;
+    border: 1px solid white;
+    background:none;
+    color: white;
+    border-radius: 3px;
+    position: relative;
+}
+
+.btn .display{
+    position: relative;
+    z-index: 20;
+
+}
+
+.btn select{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+}
+
+.btn-red{
+    background-color: red;
+    border: none;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.btn-red-small{
+    background-color: red;
+    border: none;
+}
+
+
+
+.hero{
+    
+    height: calc(100% - 85px);
+    position: relative;
+    z-index: 10;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero span:nth-child(1){
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.hero span:nth-child(2){
+    font-size: 24px;
+    font-weight: 400;
+}
+.hero span:nth-child(3){
+    font-size: 20px;
+    font-weight: 400;
+}
+
+
+.inputs input{
+    padding: 16px 16px 10px 16px;
+    border: none;
+    border-radius: 3px;
+    width:30vw;
+    max-width: 375px;
+    font-family: 'martel sans', sans-serif;
+    background-color: rgba(0, 0, 0, 0.463);
+    border: 1px solid #f9f9f99e;
+    color: #f9f9f99e;
+}
+
+.inputs input::placeholder{
+    font-size: 16px;
+    color: #f9f9f99e;
+}
+
+.inputs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.inputs button{
+    display: flex;
+    gap: 10px;
+}
+
+.line{
+    height: 7px;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.459);
+}
+
+.first{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    height: 90vh;
+    padding:20px;
+    color: white;
+}
+
+.first .text{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.first .image{
+    width: 40%;
+    overflow: hidden;
+    position: relative;
+}
+
+.first .text span:nth-child(1){
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.first .text span:nth-child(2){
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.first .image img{
+    width: 100%;
+    height: 100%;
+    object-position: center center;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.first .image video{
+    position:absolute;
+    z-index: -1;
+    top: 0px;
+    right: 0px;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+}
+
+.faq{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.faq-header{
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.question{
+    display: flex;
+    flex-direction: column;
+}
+
+.question-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+
+.question-title{
+    background-color: #2d2d2d;
+    width: 80vw;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px 0px 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+/* .question-title:hover{
+    cursor: pointer;
+} */
+
+/* .question:hover .question-answer{
+    display: block;
+} */
+
+.question-answer{
+    display: none;
+    position: absolute;
+}
+
+.faq-end span{
+    font-size: 20px;
+    font-weight: 400;
+    padding: 20px;
+}
+
+footer{
+    /* height: 30vh; */
+    background-color:black;
+    padding: 40px 85px;
+}
+
+.row{
+    display: flex;
+    /* justify-content:space-around; */
+    /* justify-content: center; */
+    align-items: center;
+    width: 60vw;
+    margin: auto;
+}
+
+.column{
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.column span{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 15px;
+    color: (255, 255, 255, 0.7)
+}
+
+.column .sm-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.column span a{
+    color: rgba(255, 255, 255, 0.7);
+
+}
+
+@media screen and (max-width: 550px){
+
+    
+}

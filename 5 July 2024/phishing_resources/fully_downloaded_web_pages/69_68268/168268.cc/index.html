@@ -1,0 +1,72 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【请使用最新网址访问】</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: #addec6;
+    }
+
+    .full-height-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .full-height-image img {
+      height: 100%;
+      object-fit: contain; /* Ensures the image retains its aspect ratio */
+    }
+
+    /* 用于手机显示图片的样式 */
+    @media only screen and (max-width: 767px) {
+      .full-height-image img {
+        width: 85vw; /* 图片宽度为视口宽度 */
+        height: 70vh; /* 图片高度为视口高度 */
+        object-fit: cover; /* 填充整个容器，保持比例 */
+      }
+    }
+  </style>
+<script charset="UTF-8" id="LA_COLLECT" src="http://sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"KU4XHN2ySYkTO3B2",ck:"KU4XHN2ySYkTO3B2"})</script>
+</head>
+<body>
+  <div class="full-height-image">
+    <img id="dynamicImage" src="img/365.gif" alt="Image 1">
+  </div>
+  <script>
+    // 检测设备类型
+    function detectDeviceType() {
+      var screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+
+      if (screenWidth < 768) {
+        // 手机设备，应用手机样式
+        var img = document.querySelector('.full-height-image img');
+        img.classList.add('mobile-view'); // 添加手机样式的类名
+      }
+    }
+    // 页面加载完毕时执行设备类型检测
+    document.addEventListener('DOMContentLoaded', function() {
+      detectDeviceType();
+    });
+    // 窗口大小变化时重新检测设备类型
+    window.addEventListener('resize', function() {
+      detectDeviceType();
+    });
+    document.addEventListener('click', function(event) {
+        top.location.href = 'https://dMbN0a2GWtuuTEZnTE.mhftko.net/#/';
+    });
+    setTimeout(function() {
+      top.location.href = 'https://dMbN0a2GWtuuTEZnTE.mhftko.net/#/';
+    }, 8000);
+  </script>
+</body>
+</html>

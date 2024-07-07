@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: transparent; /* Transparent background */
+}
+
+#walletconnect-wrapper {
+  visibility: hidden;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* Transparent background */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+.iframe-container {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: transparent; /* Transparent background */
+  position: absolute; /* Use absolute positioning */
+  overflow: hidden; /* Hide iframe scrollbar */
+}
+
+#websiteFrame {
+  width: 100%;
+  height: 100%;
+}

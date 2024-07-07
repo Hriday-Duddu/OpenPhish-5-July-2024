@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /*?*anchorElement=
+Disallow: /*?*scrollMargin=
+Disallow: /*?*lightbox=
+Disallow: /*?*forcePageWithoutCdn=
+Sitemap: https://vcn7pm.webwave.dev/sitemap.xml
+Sitemap: https://vcn7pm.webwave.dev/sitemap

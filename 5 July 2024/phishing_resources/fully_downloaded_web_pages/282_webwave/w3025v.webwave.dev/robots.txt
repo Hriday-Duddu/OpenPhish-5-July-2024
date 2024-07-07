@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /*?*anchorElement=
+Disallow: /*?*scrollMargin=
+Disallow: /*?*lightbox=
+Disallow: /*?*forcePageWithoutCdn=
+Sitemap: https://w3025v.webwave.dev/sitemap.xml
+Sitemap: https://w3025v.webwave.dev/sitemap

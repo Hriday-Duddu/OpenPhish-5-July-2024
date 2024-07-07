@@ -1,0 +1,63 @@
+body,html {scroll-behavior:smooth;}
+.other-set-wrap {position:fixed;bottom:300px;right:60px;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;border-radius:3px;opacity:0;cursor:pointer;visibility:hidden;-webkit-transition:all .3s;-o-transition:all .3s;transition:all .3s;border-radius: 5px;text-align: center;font-size:16px;}
+.other-set-wrap p {
+    font-size: 14px;
+    text-align: center;
+	padding:0;
+	margin:0;
+}
+.other-set-wrap img {
+    vertical-align: middle;
+    margin: 10px 0;
+}
+.other-set-wrap.show {visibility:visible;opacity:1;}
+.other-set-wrap.show .other-top-container:hover {border-bottom: 4px solid #ff6c00;}
+.other-set-wrap .other-phone-container {
+    width:75px;
+    height:75px;
+    background: #e8e8e8;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+}
+.other-set-wrap .other-phone-container .other-phone-QRcode {
+    position: absolute;
+    right: 90px;
+    top: 0px;
+    background: red;
+    display: none;
+    width: 80px;
+    height: 80px;
+}
+.other-set-wrap .other-phone-container .other-phone-QRcode img {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+}
+.other-set-wrap .other-phone-container:hover .other-phone-QRcode {
+    display: block;
+}
+.other-set-wrap .other-phone-container img {
+    margin-bottom:5px ;
+}
+.other-set-wrap .other-phone-container p {
+    color: #1d2645;
+	padding:0;
+	margin:0;
+}
+.other-set-wrap .other-top-container {
+    width:75px;
+    height:75px;
+    background: #e8e8e8;
+    background: #1d2645;
+    border-radius: 5px;
+    border-bottom: 4px solid transparent;
+}
+@media screen and (max-width:768px) {
+    .backtop-container{
+        display: none !important;
+    }
+	.other-set-wrap{
+        display: none !important;
+	}
+}

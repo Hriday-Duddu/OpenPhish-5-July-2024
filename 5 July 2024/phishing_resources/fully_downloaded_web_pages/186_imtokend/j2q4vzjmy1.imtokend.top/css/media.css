@@ -1,0 +1,36 @@
+.mobile-menu-btn {
+	width: 26px;
+	height: 26px;
+	background: url('../img/mobile-menu.png') no-repeat;
+	background-size: cover;
+}
+
+.flex-reverse {
+	flex-direction: row-reverse !important;
+}
+.scroll-top {
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translate(0%, -80%);
+}
+.hide {
+	display: none !important;
+}
+.show {
+	display: block !important;
+}
+
+@media (max-width:600px) { 
+    .hidden {
+        display: none !important;
+    }
+	.active {
+		display: block !important;
+	}
+	.is-active {
+		background: url('../img/menu-closed.png') no-repeat;
+		background-size: cover;
+	}
+}
+

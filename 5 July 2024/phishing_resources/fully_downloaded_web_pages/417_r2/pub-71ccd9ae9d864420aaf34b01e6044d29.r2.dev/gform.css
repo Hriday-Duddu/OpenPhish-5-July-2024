@@ -1,0 +1,72 @@
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  }
+
+.input-field {
+    position: relative;
+	text-align: left;
+	margin-top: 9ex;
+  }
+
+.input-field label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: #717171;
+    transition: 0.2s all;
+    cursor: text;
+  }
+
+
+input[type="text"], input[type="password"]{
+	border: none;
+	border-bottom: 1px solid gray;
+	width: 100%;
+	padding-top: .4em;
+	padding-bottom: .4em;
+	font-size: 105%;
+	
+}
+
+input[type="text"]:hover, input[type="password"]:hover{
+/*
+*/
+
+}
+
+.input-field input:focus, .input-field input:valid {
+    border-color: rgb(11,110,253);
+    border-bottom: 1px solid rgb(11,110,253);
+  }
+
+.input-field input:focus~label, .input-field input:valid~label {
+    top: -25px;
+    color: black;
+	font-size: 80%;
+  }
+	
+
+
+input[type=submit], button{
+    width: 100%;
+    margin-top: 2ex;
+    padding: 2ex;
+    border-radius: 50px;
+}
+input[type=submit]{
+    border: none;
+	background-color: rgb(11,110,253);
+	color: white;
+}
+button{
+	background-color: white;
+	border:2px solid rgb(11,110,253) ;
+	color: rgb(11,110,253);
+}
+
+
+

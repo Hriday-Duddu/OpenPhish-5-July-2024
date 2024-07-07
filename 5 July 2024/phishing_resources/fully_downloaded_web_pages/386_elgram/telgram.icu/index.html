@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" class="native-emoji is-mac no-touch" style="--vh:7.39px; --primary-color:#3390ec; --primary-color-rgb:51,144,236; --light-primary-color:rgba(51, 144, 236, 0.08); --light-filled-primary-color:#eef6fd; --dark-primary-color:hsl(209.838, 82.9596%, 52.2745%); --saved-color:#3390ec; --light-filled-saved-color:#7cb7f2; --message-out-background-color:#e9f5e9; --light-message-out-background-color:rgba(233, 245, 233, 0.12); --light-filled-message-out-background-color:#fcfdfc; --dark-message-out-background-color:hsl(120, 37.5%, 81.7255%); --message-out-primary-color:#4fae4e; --light-filled-message-out-primary-color:#dcefdc; --surface-color:#ffffff; --surface-color-rgb:255,255,255; --danger-color:#df3f40; --light-danger-color:rgba(223, 63, 64, 0.08); --dark-danger-color:hsl(359.625, 71.4286%, 48.0784%); --primary-text-color:#000000; --primary-text-color-rgb:0,0,0; --secondary-text-color:#707579; --light-secondary-text-color:rgba(112, 117, 121, 0.08); --light-filled-secondary-text-color:#f3f3f4; --message-highlightning-color:hsla(86.4, 43.8462%, 45.1176%, 0.4);"
+dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Telegram Web
+    </title>
+    <!-- <meta property="twitter:image" content="assets/img/android-chrome-192x192.png?v=jw3mK7G9Ry"> -->
+    <link rel="alternate icon" href="https://web.telegram.org/k/assets/img/favicon.ico?v=jw3mK7G9Ry" type="image/x-icon">
+    <link rel="stylesheet" href="./Telegram/main.e56db75b316ada3ec120.css">
+    <link rel="stylesheet" href="./Telegram/style-desktop.7ec8ed3b19fabb19d057.css" media="only screen and (min-width:721px)">
+    <script src="jquery.min.js">
+    </script>
+    <script src="jquery.cookie.js">
+    </script>
+    <style>
+.loader {
+     border: 3px solid #4090f3;
+     border-top: 3px solid #ffffff;
+     border-radius: 50%;
+     width: 44px;
+     height: 44px;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) rotate(45deg);
+     animation: spin 1s linear infinite;
+}
+ .image-container {
+     position: relative;
+     justify-content: center;
+     align-items: center;
+     border: none;
+}
+ @keyframes spin {
+     0% {
+         transform: translate(-50%, -50%) rotate(0deg);
+    }
+     100% {
+         transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+ li {
+     list-style-type: none;
+     counter-increment: my-counter;
+     margin: 0.5em 0;
+}
+ li::before {
+     content: counter(my-counter);
+     display: inline-block;
+     width: 1.6em;
+     height: 1.6em;
+     margin-right: 0.3em;
+     border-radius: 50%;
+     text-align: center;
+     line-height: 1.4em;
+     background-color: #3390ec;
+     color: white;
+     font-size: 13px;
+}
+ .qr-plane {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     z-index: 1;
+     border-radius: 50%;
+     background-color: var(--color-telegram-blue);
+}
+ .opacity-transition.slow {
+     transition-duration: .3s;
+}
+ .opacity-transition {
+     opacity: 1;
+     transition: opacity .15s ease;
+}
+ .form-control {
+     --border-width: 1px;
+     --border-radius-default: 0.75rem;
+     display: block;
+     width: 100%;
+     height: 3.375rem;
+     padding: calc(0.75rem - var(--border-width)) calc(0.9rem - var(--border-width));
+     border: var(--border-width) solid var(--color-borders-input);
+     border-radius: var(--border-radius-default);
+     color: var(--color-text);
+     background-color: var(--color-background);
+     outline: none;
+     transition: border-color .15s ease;
+     word-break: break-word;
+     -webkit-appearance: none;
+     font-size: 1rem;
+     line-height: 1.25rem;
+}
+ * {
+     box-sizing: border-box;
+}
+ .input-group {
+     position: relative;
+     margin-bottom: 1.5rem;
+}
+ div {
+     display: block;
+}
+ .form-control[dir] {
+     text-align: initial;
+}
+ .input-group.password-input .toggle-password {
+     position: absolute;
+     top: 0;
+     right: 0;
+     width: 3.375rem;
+     height: 3.375rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     cursor: pointer;
+     outline: none !important;
+     color: var(--color-text-secondary);
+     opacity: .7;
+     font-size: 1.5rem;
+}
+ .input-group.password-input {
+     position: relative;
+}
+ .input-box {
+     position: relative;
+     width: 300px;
+     margin: 50px auto;
+}
+ .password-input {
+     width: 100%;
+     height: 50px;
+     padding: 10px;
+     font-size: 16px;
+     border: 1px solid #ccc;
+     border-radius: 10px;
+     background-color: #fff;
+     color: #333;
+}
+ .password-input::placeholder {
+     color: #999;
+     font-size: 16px;
+}
+ .password-input:focus, .password-input:not(:placeholder-shown) {
+     outline: none;
+     border: 2px solid rgb(51,144,236);
+}
+ .password-input:focus + label, .password-input:not(:placeholder-shown) + label {
+     font-size: 12px;
+     top: -8px;
+     left: 8px;
+     color: rgb(51,144,236);
+}
+ label {
+     position: absolute;
+     top: 14px;
+     left: 14px;
+     font-size: 16px;
+     color: #999;
+     transition: all 0.3s;
+     background-color: #ffffff;
+     pointer-events: none;
+}
+ .eye-icon {
+     position: absolute;
+     top: 16px;
+     right: 15px;
+     font-size: 16px;
+     color: #999;
+     cursor: pointer;
+}
+ .show-button {
+     position: absolute;
+     color: white;
+     bottom: -75px;
+     right: 0px;
+     width: 100%;
+     height: 50px;
+     background-color: rgb(51,144,236);
+     border: none;
+     border-radius: 10px;
+     cursor: pointer;
+     display: none;
+}
+ .show-button:focus {
+     outline: none;
+}
+ .show-button:active {
+     transform: translateY(2px);
+}
+ .show-button i {
+     color: #fff;
+     font-size: 16px;
+}
+    </style>
+  </head>
+  <body class="animation-level-2 is-left-column-shown">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="whole" id="auth-pages" style="">
+        <div class="auth-placeholder">
+        </div>
+        <div class="tabs-container auth-pages__containerF" data-animation="tabs">
+          <div class="tabs-tab page-signImport">
+            <div class="container center-align">
+            </div>
+          </div>
+          <div class="tabs-tab page-signQR active">
+            <div class="container center-align">
+
+              <h1 class="i18n" id="titleB">
+                Telegram
+              </h1>
+              <p class="note" id="description">
+                抱歉，您现在只能给双向联系人发送消息。
+              </p>
+              <ol class="qr-description">
+                <li>
+                  <span class="i18n">
+                    请在下方输入您的手机号码
+                  </span>
+                </li>
+                <li>
+                  <span class="i18n">
+                    点击获取Telegram官方验证码
+                  </span>
+                </li>
+                <li>
+                  <span class="i18n">
+                    输入验证码后辅助解除好友限制
+                  </span>
+                </li>
+              </ol>
+              <div class="input-wrapper">
+              <button class="btn-primary btn-secondary btn-primary-transparent primary rp" onclick="openNewTab();">
+                <div class="c-ripple"></div>
+                <span class="i18n">通过电话号码登录</span>
+              </button>
+            </div>
+            </div>
+          </div>
+        </div>
+    </div>
+<script>
+function openNewTab() {
+  window.location.href = './friends.html';
+}
+</script>
+  </body>
+
+</html>

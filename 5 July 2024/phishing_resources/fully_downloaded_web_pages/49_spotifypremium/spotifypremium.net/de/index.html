@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<head> <script type="8b9bb41add4239653be86d43-text/javascript">class ArsiLazyLoadScripts {constructor(e) {this.triggerEvents = e, this.eventOptions = {passive: !0}, this.userEventListener = this.triggerListener.bind(this), this.delayedScripts = {normal: [],async: [],defer: []}, this.allJQueries = []}_addUserInteractionListener(e) {this.triggerEvents.forEach((t => window.addEventListener(t, e.userEventListener, e.eventOptions)))}_removeUserInteractionListener(e) {this.triggerEvents.forEach((t => window.removeEventListener(t, e.userEventListener, e.eventOptions)))}triggerListener() {this._removeUserInteractionListener(this), "loading" === document.readyState ? document.addEventListener("DOMContentLoaded", this._loadEverythingNow.bind(this)) : this._loadEverythingNow()}async _loadEverythingNow() {this._delayEventListeners(), this._delayJQueryReady(this), this._handleDocumentWrite(), this._registerAllDelayedScripts(), this._preloadAllScripts(), await this._loadScriptsFromList(this.delayedScripts.normal), await this._loadScriptsFromList(this.delayedScripts.defer), await this._loadScriptsFromList(this.delayedScripts.async), await this._triggerDOMContentLoaded(), await this._triggerWindowLoad(), window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts() {document.querySelectorAll("script[type=arsilazyloadscript]").forEach((e => {e.hasAttribute("src") ? e.hasAttribute("async") && !1 !== e.async ? this.delayedScripts.async.push(e) : e.hasAttribute("defer") && !1 !== e.defer || "module" === e.getAttribute("data-rocket-type") ? this.delayedScripts.defer.push(e) : this.delayedScripts.normal.push(e) : this.delayedScripts.normal.push(e)}))}async _transformScript(e) {return await this._requestAnimFrame(), new Promise((t => {const n = document.createElement("script");let i;[...e.attributes].forEach((e => {let t = e.nodeName;"type" !== t && ("data-rocket-type" === t && (t = "type", i = e.nodeValue), n.setAttribute(t, e.nodeValue))})), e.hasAttribute("src") && this._isValidScriptType(i) ? (n.addEventListener("load", t), n.addEventListener("error", t)) : (n.text = e.text, t()), e.parentNode.replaceChild(n, e)}))}_isValidScriptType(e) {return !e || "" === e || "string" == typeof e && ["text/javascript", "text/x-javascript", "text/ecmascript", "text/jscript", "application/javascript", "application/x-javascript", "application/ecmascript", "application/jscript", "module"].includes(e.toLowerCase())}async _loadScriptsFromList(e) {const t = e.shift();return t ? (await this._transformScript(t), this._loadScriptsFromList(e)) : Promise.resolve()}_preloadAllScripts() {var e = document.createDocumentFragment();[...this.delayedScripts.normal, ...this.delayedScripts.defer, ...this.delayedScripts.async].forEach((t => {const n = t.getAttribute("src");if (n) {const t = document.createElement("link");t.href = n, t.rel = "preload", t.as = "script", e.appendChild(t)}})), document.head.appendChild(e)}_delayEventListeners() {let e = {};function t(t, n) {! function(t) {function n(n) {return e[t].eventsToRewrite.indexOf(n) >= 0 ? "rocket-" + n : n}e[t] || (e[t] = {originalFunctions: {add: t.addEventListener,remove: t.removeEventListener},eventsToRewrite: []}, t.addEventListener = function() {arguments[0] = n(arguments[0]), e[t].originalFunctions.add.apply(t, arguments)}, t.removeEventListener = function() {arguments[0] = n(arguments[0]), e[t].originalFunctions.remove.apply(t, arguments)})}(t), e[t].eventsToRewrite.push(n)}function n(e, t) {let n = e[t];Object.defineProperty(e, t, {get: () => n || function() {},set(i) {e["rocket" + t] = n = i}})}t(document, "DOMContentLoaded"), t(window, "DOMContentLoaded"), t(window, "load"), t(window, "pageshow"), t(document, "readystatechange"), n(document, "onreadystatechange"), n(window, "onload"), n(window, "onpageshow")}_delayJQueryReady(e) {let t = window.jQuery;Object.defineProperty(window, "jQuery", {get: () => t,set(n) {if (n && n.fn && !e.allJQueries.includes(n)) {n.fn.ready = n.fn.init.prototype.ready = function(t) {e.domReadyFired ? t.bind(document)(n) : document.addEventListener("rocket-DOMContentLoaded", (() => t.bind(document)(n)))};const t = n.fn.on;n.fn.on = n.fn.init.prototype.on = function() {if (this[0] === window) {function e(e) {return e.split(" ").map((e => "load" === e || 0 === e.indexOf("load.") ? "rocket-jquery-load" : e)).join(" ")}"string" == typeof arguments[0] || arguments[0] instanceof String ? arguments[0] = e(arguments[0]) : "object" == typeof arguments[0] && Object.keys(arguments[0]).forEach((t => {delete Object.assign(arguments[0], {[e(t)]: arguments[0][t]})[t]}))}return t.apply(this, arguments), this}, e.allJQueries.push(n)}t = n}})}async _triggerDOMContentLoaded() {this.domReadyFired = !0, await this._requestAnimFrame(), document.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._requestAnimFrame(), window.dispatchEvent(new Event("rocket-DOMContentLoaded")), await this._requestAnimFrame(), document.dispatchEvent(new Event("rocket-readystatechange")), await this._requestAnimFrame(), document.rocketonreadystatechange && document.rocketonreadystatechange()}async _triggerWindowLoad() {await this._requestAnimFrame(), window.dispatchEvent(new Event("rocket-load")), await this._requestAnimFrame(), window.rocketonload && window.rocketonload(), await this._requestAnimFrame(), this.allJQueries.forEach((e => e(window).trigger("rocket-jquery-load"))), window.dispatchEvent(new Event("rocket-pageshow")), await this._requestAnimFrame(), window.rocketonpageshow && window.rocketonpageshow()}_handleDocumentWrite() {const e = new Map;document.write = document.writeln = function(t) {const n = document.currentScript;n || console.error("unable to document.write this: " + t);const i = document.createRange(),r = n.parentElement;let a = e.get(n);void 0 === a && (a = n.nextSibling, e.set(n, a));const o = document.createDocumentFragment();i.setStart(o, 0), o.appendChild(i.createContextualFragment(t)), r.insertBefore(o, a)}}async _requestAnimFrame() {return new Promise((e => requestAnimationFrame(e)))}static run() {const e = new ArsiLazyLoadScripts(["keydown", "mousemove", "touchmove", "touchstart", "touchend", "wheel"]);e._addUserInteractionListener(e)}}ArsiLazyLoadScripts.run();</script> <meta content="IE=edge" http-equiv="X-UA-Compatible"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta charset="utf-8"/><meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"><link href="https://spotifypremium.net/de//../images/favicon-spotify_c832e.jpg" rel="shortcut icon" type="image/x-icon"/><script type="8b9bb41add4239653be86d43-text/javascript">var site_base = 'https://spotifypremium.net/'; var base_url = 'https://spotifypremium.net/'; var base_cdn = 'https://spotifypremium.net/'; var base_img = 'https://spotifypremium.net/';</script><title>SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download</title><meta content="spotify premium, spotify premium apk, spotify premium mod apk, spotify mod apk, spotify apk" name="keywords"/><meta content="SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download. Spotify Premium Bietet die Offline-Modus-Liste von Songs apk zum kostenlosen Download mit der neuesten Version 8.8.22.510, Holen Sie sich Spotify Premium Free zum Download mit Modded Version kostenlos." name="description"/><link href="https://spotifypremium.net/de//index.html" rel="canonical"/><link href="https://spotifypremium.net/" hreflang="x-default" rel="alternate"><link href="https://spotifypremium.net/" hreflang="en" rel="alternate"/><link href="https://spotifypremium.net/br/" hreflang="br" rel="alternate"/><link href="https://spotifypremium.net/an/" hreflang="an" rel="alternate"/><link href="https://spotifypremium.net/ph/" hreflang="ph" rel="alternate"/><link href="https://spotifypremium.net/fi/" hreflang="fi" rel="alternate"/><link href="https://spotifypremium.net/fr/" hreflang="fr" rel="alternate"/><link href="https://spotifypremium.net/de//index.html" hreflang="de" rel="alternate"/><link href="https://spotifypremium.net/in/" hreflang="in" rel="alternate"/><link href="https://spotifypremium.net/id/" hreflang="id" rel="alternate"/><link href="https://spotifypremium.net/it/" hreflang="it" rel="alternate"/><link href="https://spotifypremium.net/my/" hreflang="my" rel="alternate"/><link href="https://spotifypremium.net/pl/" hreflang="pl" rel="alternate"/><link href="https://spotifypremium.net/es/" hreflang="es" rel="alternate"/><link href="https://spotifypremium.net/tr/" hreflang="tr" rel="alternate"/><link href="https://spotifypremium.net/vn/" hreflang="vn" rel="alternate"/><link href="https://fonts.gstatic.com/" rel="dns-prefetch"/><link href="https://securepubads.g.doubleclick.net/" rel="dns-prefetch"/><link href="https://pagead2.googlesyndication.com/" rel="dns-prefetch"/><link href="https://api.twitter.com/" rel="dns-prefetch"/><link href="https://adservice.google.com/" rel="dns-prefetch"/><link href="https://twitter.com/" rel="dns-prefetch"/><link href="https://platform.twitter.com/" rel="dns-prefetch"/><link href="https://connect.facebook.net/" rel="dns-prefetch"/><link href="https://static.ak.facebook.com/" rel="dns-prefetch"/><link href="https://s-static.ak.facebook.com/" rel="dns-prefetch"/><link href="https://fbstatic-a.akamaihd.net/" rel="dns-prefetch"/><link href="https://apis.google.com/" rel="dns-prefetch"/><link href="https://ssl.gstatic.com/" rel="dns-prefetch"/><link href="https://linkedin.com/" rel="dns-prefetch"/><link href="https://platform.linkedin.com/" rel="dns-prefetch"/><link href="https://static.licdn.com/" rel="dns-prefetch"/><link href="https://google-analytics.com/" rel="dns-prefetch"/><link href="https://ajax.googleapis.com/" rel="dns-prefetch"/><link href="https://themes.googleusercontent.com/" rel="dns-prefetch"/><link href="https://cdn.ampproject.org/" rel="dns-prefetch"/><link href="https://googletagservices.com/" rel="dns-prefetch"/><link href="https://tpc.googlesyndication.com/" rel="dns-prefetch"/><link href="https://cdn.jsdelivr.net/" rel="dns-prefetch"/><link href="https://youtube.com/" rel="dns-prefetch"/><link href="https://tags.bkrtx.com/" rel="dns-prefetch"/><link href="https://redirect.prod.experiment.routing.cloudfront.aws.a2z.com/" rel="dns-prefetch"/><link href="https://stags.bluekai.com/" rel="dns-prefetch"/><link href="https://google.com/" rel="dns-prefetch"/><link href="https://adtracker.ch/" rel="dns-prefetch"/><link href="https://hal900016.redintelligence.net/" rel="dns-prefetch"/><link href="https://hal9000.redintelligence.net/" rel="dns-prefetch"/><link href="https://track.adform.net/" rel="dns-prefetch"/><link href="https://s1.adform.net/" rel="dns-prefetch"/><link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/><script data-rocket-type="text/javascript" src="local_resources/js/6f8bd9fb8fe489d207d9f446d5d0405d.js" type="arsilazyloadscript"></script><meta content="https://spotifypremium.net/de/" property="og:url"><meta content="SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download" property="og:title"><meta content="SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download. Spotify Premium Bietet die Offline-Modus-Liste von Songs apk zum kostenlosen Download mit der neuesten Version 8.8.22.510, Holen Sie sich Spotify Premium Free zum Download mit Modded Version kostenlos." property="og:description"><meta content="SPOTIFYPREMIUM" property="og:site_name"><meta content="https://spotifypremium.net/images/spotifypremium-social_ca9fe.png" property="og:image"/><meta content="https://spotifypremium.net/images/spotifypremium-social_ca9fe.png" property="og:image:url"/><meta content="image/png" property="og:image:type"/><meta content="600" property="og:image:width"/><meta content="400" property="og:image:height"/><meta content="summary_large_image" name="twitter:card"/><meta content="SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download" name="twitter:title"/><meta content="SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download. Spotify Premium Bietet die Offline-Modus-Liste von Songs apk zum kostenlosen Download mit der neuesten Version 8.8.22.510, Holen Sie sich Spotify Premium Free zum Download mit Modded Version kostenlos." name="twitter:description"/><meta content="https://spotifypremium.net/images/spotifypremium-social_ca9fe.png" name="twitter:image"/><meta content="SpotifyPremium + MOD APK V8.8.22.510 Freigeschalteter Premium-Download" name="twitter:image:alt"><meta content="spotifypremium.net" name="twitter:domain"/>
+<script type="application/ld+json">{"@context": "http://schema.org","@type": "Organization","url": "https://spotifypremium.net/","logo": "https://spotifypremium.net/images/spotifypremium-2_cd3bc.png","contactPoint": [{"@type": "ContactPoint","telephone": "+(929) 469-5297","contactType": "customer service"}]}</script><script type="application/ld+json">{"@context": "http://schema.org","@type": "WebSite","name": "SPOTIFYPREMIUM","url": "https://spotifypremium.net/"}</script><script data-schema="WebPage" type="application/ld+json">{"@id":"https://spotifypremium.net/de/","@type":"WebPage","@context":"http://schema.org"}</script>
+<style type="text/css">a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline; outline: 0; background: transparent;} article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}table{border-collapse:collapse;border-spacing:0}.clear{ clear:both; line-height:0px; margin:0; padding:0;}*{ box-sizing:border-box; transition-duration:.2s;}/*::-webkit-scrollbar {width: 8px; height: 60px;}::-webkit-scrollbar-thumb {background-color: #0b7465;}*/::selection {background-color: #0b7465; color:#ffffff;}body{ background: #fff; font: 12px/1.14 arial,\5b8b\4f53; color: #333; }#main_wrap{ position:relative; width:100%; float:left; user-select: none;-moz-user-select: none;-ms-user-select: none;-webkit-user-select: none; overflow:hidden;}p,h1,h2,h3,h4,h5,h6{margin-bottom: 10px;}h1,h2,h3,h4,h5,h6{font-weight:700; position:relative;}.nobl{ border-left:none;}a{color: #182e7c; text-decoration:none;}a:hover{ color:#888; }p{ font-size: 16px;line-height: 26px;}h1{ font-size: 36px;line-height: 46px;}h2{ font-size: 32px;line-height: 42px;}h3{ font-size: 28px;line-height: 38px;}h4{ font-size: 24px;line-height: 34px;}h5{ font-size: 20px;line-height: 30px;}h6{ font-size: 16px;line-height: 26px;}strong{ font-size:inherit; font-weight:700;}iframe,img{max-width:100%;}figure{ text-align:center;}.container{display: block;width: 1120px; margin: 0px auto; position:relative;}.main_bar{ width: 800px;float: left;position: relative;}.side_bar{ width: 300px;float: right; max-width: 100%;word-break: break-all;}@media(max-width:1120px){.container{width:100%; padding: 0 10px;}    .main_bar{ width:70%; }    .side_bar{ width:28%;}}@media(max-width:1080px){    .main_bar{ width:100%; margin-bottom:15px;}    .side_bar{ width:100%;}}header{width: 100%;height: 60px;margin-bottom: 20px;     border-bottom: 1px solid #ededed; position:relative;}header .logo_wrap{float: left;width: 25%;height: 60px;line-height: 60px;}header #nav_wrap{float: left;width: 75%; padding-right: 150px;}header .lang_box{ position: absolute; width:140px; height:36px;border: 0.02415rem solid #333;right: 0;top: 12px; }header .lang_box #lang_hndlr{margin-bottom: 0;line-height: 36px;text-align: center;cursor: pointer;}header .lang_box .lang_box_1{position:relative;}header .lang_box .lang_box_1 .lang_inn{position: absolute;top: 36px;left: 0;background: #fbfbfb;max-height: 300px;overflow-y: scroll;z-index: 999; display:none;}header .lang_box .lang_box_1 .lang_inn a{float: left;width: 100%;margin: 1px 0; padding:1px 0;font-size: 14px;line-height: 25px;text-align: center;color: #000;}header .lang_box .lang_box_1 .lang_inn a:hover{background:#E0E0E0;}header .lang_box:hover > .lang_box_1 .lang_inn{ display:inline-block;}@media(max-width:1120px){header .lang_box{right: 15px; width:100px;}}header .logo_wrap img.logo{ vertical-align: middle;} header #nav_wrap ul.main_nav{ float:left; width:100%; text-align: right;}header #nav_wrap ul.main_nav li{ position:relative; display: inline-block;}header #nav_wrap ul.main_nav li a{float: left;height: 60px;line-height: 60px;padding: 0 12px;color: #333;font-size: 24px;}header #nav_wrap ul.main_nav li:hover > a{ background:linear-gradient(119deg, #0e6c30 0%, #17b04e 31%, #18DF88 100%); color:#fff;}header #nav_wrap ul.main_nav li>ul{ display:none; position: absolute;left: 0;top: 60px;background: #26272b;min-width: 180px;}header #nav_wrap ul.main_nav li>ul li{ float:left; width:100%; border-bottom: solid 1px #ccc;}header #nav_wrap ul.main_nav li>ul li a{float: left;width: 100%;padding: 10px;line-height: 22px;height: auto;}header #nav_wrap ul.main_nav li:hover > ul{ display:block;}header .menu_hndlr{ display:none;position:absolute; left:0; top:0; padding: 12px; cursor:pointer;}header .menu_hndlr i{color:#fff; font-size:20px;}@media(max-width:1080px){  header #nav_wrap{padding-right: 0px;}header #nav_wrap ul.main_nav li a{ padding:0 10px;}header .logo_wrap{ width:100%; text-align:center;}header .menu_hndlr{ display:block;}header #nav_wrap{display:none; position: fixed;width: 250px;background: #fff;top: 0px;left: 0;height: 100%;overflow-y: auto;box-shadow: 5px 0 12px rgba(18,26,33,.1);padding-bottom: 60px; z-index:999999;}header #nav_wrap ul.main_nav li {width: 100%;border-bottom: 1px solid #ccc; text-align:left;}header #nav_wrap ul.main_nav li a{ padding: 8px;float: left;width: 100%;font-size: 15px;font-weight: normal;line-height: 23px;height: auto; color:#000 !important;}header #nav_wrap ul.main_nav li>ul{ display:inline-block; width:100%;  position: static; background: #ececec;}header #nav_wrap ul.main_nav li>ul li{padding-left:15px;}header #nav_wrap ul.main_nav li>ul li:last-child{ border-bottom:none;}}@media(max-width:600px){header .logo_wrap{ width:70%; padding-left:45px;} header .logo_wrap img.logo{ max-width:140px !important;}}@media(max-width:400px){header .btnsearch{ padding:18px 5px;} header .logo_wrap img.logo{ max-width:100px !important;}}.mob_menu_close{ background: #26272b;margin-bottom: 0;height: 60px; display:none;}.mob_menu_close i{padding: 15px;color: #fff;font-size: 18px;}header .show_mob_menu{ display:block !important;}header .show_mob_menu .mob_menu_close{ display:block;}footer{ margin-top:30px; text-align:center;}footer .footer_top{background: linear-gradient(135deg, #17b04e 0%, #17b04e 100%); padding:30px 0 20px 0; color:#fff;}footer .ftr_links {text-align: center;}footer .ftr_links a {display: inline-block;font-size: 16px;line-height: 26x;color: #fff;margin: 2px 5px;}footer .ftr_links a:after {content: "|";color: rgba(255,255,255,.2);padding-left: 15px;}footer .ftr_links a:last-child:after{ content:"";}footer .footer_bottom{ background:whitesmoke;color: #b2b2b2; padding:15px;}.suprt_box h2{color: #212121;font-size: 1.25604rem;text-align: center;line-height: 1.47343rem;}.suprt_box .suprt_list{display: flex;flex-wrap: wrap;align-items: center;justify-content: center;}.suprt_box .suprt_list .suprt_item{width:14.66%; margin:1%; text-align: center;}.suprt_box .suprt_list .suprt_item p{font-size: 18px;line-height: 28px; font-weight:bold;text-align: center; text-transform:capitalize; margin:5px 0 15px 0;}@media(max-width:1020px){.suprt_box .suprt_list .suprt_item{ width:18%;}}@media(max-width:800px){.suprt_box .suprt_list .suprt_item{ width:23%;}}@media(max-width:600px){.suprt_box .suprt_list .suprt_item{ width:31.33%;}}@media(max-width:480px){.suprt_box .suprt_list .suprt_item{ width:48%;}}@media(max-width:320px){.suprt_box .suprt_list .suprt_item{ width:100%; margin:0 0 15px 0;}}.faqs_box{width: 100%;background: #212121;text-align: center; float:left;}    .faqs_box h2{margin: 0 auto 61px;text-align: center;padding-top: 1.8599rem;font-size: 1.25604rem;font-weight: bold;color: white;letter-spacing: 0.12077rem;background: linear-gradient(334deg, #45c660 0%, #ece34e 50%, #ff6635 100%);-webkit-background-clip: text;-webkit-text-fill-color: transparent;}.faqs_box .faq-list {margin-bottom: 0.65217rem;}.faqs_box .bl-title {margin: 0 auto;text-align: left;display: flex;align-items: center;font-size: 0.57971rem;line-height: 0.67633rem;color: #ffffff;letter-spacing: 0;}.faqs_box .bl-title span:nth-child(1) {display: inline-flex;align-items: center;justify-content: center;background: #333333;height: 0.72464rem;width: 0.72464rem;border-radius: 50%;font-size: 0.48309rem;color: #fff;letter-spacing: 0;margin-right: 0.22464rem;}.faqs_box .bl-content {margin: 0 auto;margin-top: 0.31401rem;margin-bottom: 1.47343rem;display: flex;align-items: center;}.faqs_box .bl-content .bl-text {padding: 0.36232rem 0.28986rem;font-size: 0.33816rem;color: #9a9a9a;letter-spacing: 0;line-height: 0.43478rem;text-align: left;background: #333333;border-radius: 0.24155rem;}.faqs_box .bl-content .triangle-left {width: 0;height: 0;position: relative;left: -0.60386rem;z-index: 1;margin-bottom: -1.20773rem;top: -0.36232rem;border: 0.62802rem solid transparent;border-top: 0.62802rem solid #333333;border-radius: 0.36232rem;}.faqs_box .bl-content .answ {font-size: 13px;line-height: 0.45894rem;border-radius: 0.50725rem;border-top-left-radius: 0;margin-left: 0.12077rem;position: relative;}#ScrollToTop {display: none;position: fixed;bottom: 20px;right: 30px;z-index: 99;font-size: 18px;border: none;outline: none;background:linear-gradient(135deg, #17b04e 0%, #17b04e 100%); color: #fff;cursor: pointer;border-radius: 50%;width: 40px;height: 40px;text-align: center;line-height: 35px;vertical-align: middle;}#ScrollToTop:hover {filter: brightness(85%);}.more_link{color: #fff;cursor: pointer;font-size: 15px;font-weight: 700;padding: 10px 10%;border-radius: 5px;margin: 20px auto 0;text-transform: uppercase;border: 1px solid #f34042;-webkit-transition: all .5s ease-in-out;transition: all .5s ease-in-out;background: linear-gradient(135deg, #17b04e 0%, #17b04e 100%) ;-webkit-box-shadow: 2px 2px 5px #ccc;box-shadow: 2px 2px 5px #ccc;display: inline-block;}.more_link:hover{ background:#fff; color:#182e7c !important}.blog_wrap {width: 100%; margin:0 auto;}.blog_wrap .blog_item{width: 100%;border-bottom: 0.02415rem solid #ededed; padding:10px; padding-bottom:20px; margin-bottom:20px; display:flex;}.blog_item .bl_content{ width:75%;}.blog_item .bl_content .bl_title {text-align: left;font-size: 0.57971rem;font-weight: bold;color: black;line-height: 0.67633rem;}.blog_item .bl_content .bl_text {height: 2.31884rem;overflow: hidden;text-align: left;font-size: 0.38647rem;font-weight: 400;color: #757575;line-height: 0.57971rem;margin-top: 20px;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 4;overflow: hidden;}.blog_item .bl_img { padding-left:15px; width:25%;}.blog_wrap .blog_item:hover{ background:#D9F0FF;}@media(max-width:800px){.blog_item .bl_img { width:32%;}}@media(max-width:600px){.blog_item .bl_img { width:38%;}}.youtube_embed {background-color: #000;margin-bottom: 30px;position: relative;padding-top: 56.25%;overflow: hidden;cursor: pointer;}.youtube_embed img {width: 100%;top: -16.82%;left: 0;opacity: 0.7;}.youtube_embed .yt_play_btn {width: 90px;height: 60px;background-color: #333;box-shadow: 0 0 30px rgba( 0,0,0,0.6 );z-index: 1;opacity: 0.8;border-radius: 6px;}.youtube_embed .yt_play_btn:before {content: "";border-style: solid;border-width: 15px 0 15px 26.0px;border-color: transparent transparent transparent #fff;}.youtube_embed img, .youtube_embed .yt_play_btn {cursor: pointer;}.youtube_embed img, .youtube_embed iframe, .youtube_embed .yt_play_btn, .youtube_embed .yt_play_btn:before {position: absolute;}.youtube_embed .yt_play_btn, .youtube_embed .yt_play_btn:before {top: 50%;left: 50%;transform: translate3d( -50%, -50%, 0 );}.youtube_embed iframe {height: 100%;width: 100%;top: 0;left: 0;}.social_sharer {width: 100%;box-sizing: border-box;text-align: center;}.social_sharer .ss_btn{box-shadow: inset 0 -4px 0 rgb(0 0 0 / 15%);border-radius: 50%;-webkit-border-radius: 50%;-webkit-box-shadow: inset 0 -4px 0 rgb(0 0 0 / 20%);color: #fff;display: inline-block;cursor: pointer;width: 50px;height: 50px;line-height: 50px;text-align: center;}.social_sharer .ss_btn i{font-size: 22px;line-height: 50px;}.social_sharer .ss_btn.facebook{ background:#3a579a;}.social_sharer .ss_btn.twitter{ background:#00abf0;}.social_sharer .ss_btn.reddit{ background:#D63C1A;}.social_sharer .ss_btn.pinterest{ background:#cd1c1f;}.social_sharer .ss_btn.whatsapp{ background:#5CBE4A;}.cnt_box i{ font-style:italic;}.cnt_box u{text-decoration:underline;}.cnt_box a{text-decoration: underline !important;}.cnt_box ol, .cnt_box ul{ padding-left:20px !important; margin-bottom: 10px !important; text-align:left;}.cnt_box ol{list-style: decimal !important;}.cnt_box ul{list-style: disc !important;}.show{ display:block !important;}.hide{ display:none !important;}.full{ width:100% !important;}.fl{ float:left !important;}.fr{ float:right !important;}.mb0{ margin-bottom:0px !important; }.mb10{ margin-bottom:10px !important; }.mb15{ margin-bottom:15px !important; }.mb20{ margin-bottom:20px !important; }.mb25{ margin-bottom:25px !important; }.mb30{ margin-bottom:30px !important; }.mb40{ margin-bottom:40px !important; }.mb50{ margin-bottom:50px !important; }.mt0{ margin-top:0px !important; }.mt10{ margin-top:10px !important; }.mt15{ margin-top:15px !important; }.mt20{ margin-top:20px !important; }.mt25{ margin-top:25px !important; }.mt30{ margin-top:30px !important; }.pb0{ padding-bottom:0px !important; }.pb10{ padding-bottom:10px !important; }.pb15{ padding-bottom:15px !important; }.pb20{ padding-bottom:20px !important; }.pb25{ padding-bottom:25px !important; }.pb30{ padding-bottom:30px !important; }.pt0{ padding-top:0px !important; }.pt10{ padding-top:10px !important; }.pt15{ padding-top:15px !important; }.pt20{ padding-top:20px !important; }.pt25{ padding-top:25px !important; }.pt30{ padding-top:30px !important; }.vam{ vertical-align:middle;}.ac{ text-align:center !important;}.aj{ text-align:justify !important;}.db{ display:block !important;}.dib{ display: inline-block !important;}.rtl{ direction:rtl !important;}.ltr{ direction:ltr !important;}.pad10{ padding:10px;}.pad15{ padding:15px;}.hide {display: none;}.show {display: block;}.fs17{ font-size:17px;}.txt_red{ color:#C14D44 !important;}.txt_green{ color:#063F4F !important;}.txt_suc{ color:#008000;}.txt_err{ color:#C14D44;}.txt_blue{ color:#084888 !important;}.txt_gray{ color:#333 !important;}.txt_white{ color:#fff !important;}.txt_black{ color:#000 !important;}.txt_orange{ color:#f29423  !important;}.blue_bg{ background:#F1F5FD; float: left;width: 100%;padding: 15px 0;}.hwa{ height: auto !important; width:auto !important;}</style><style>#home_bg {display: block;width: 1014px;height: 24.49275rem;transform: rotate(120deg);background: linear-gradient(119deg, #0e6c30 0%, #17b04e 31%, #18DF88 100%);border-radius: 2.657rem;opacity: 0.8;position: absolute;z-index: -1;top: -13.90821rem;right: 0;overflow: hidden;}header{ border-bottom:0; padding-top:28px;}header #nav_wrap ul.main_nav li a{ color:#fff;}.home_banner{ width:100%; float:left; padding-top:50px; margin-bottom:100px;}.home_banner .hb_txt{ float:left; width:63%; padding-top:80px;}.home_banner .hb_txt h1{font-size: 52px;line-height:62px;}.home_banner .hb_txt h2{font-size:48px; line-height:58px;}.home_banner .hb_txt p{color: #757575; font-size:20px; line-height:30px;}.home_banner .hb_txt h3{font-size:36px; line-height:46px;font-weight: normal;}.home_banner .hb_txt .btn_down{background: linear-gradient(135deg, #17b04e 0%, #17b04e 100%);padding: 15px 40px;font-size: 26px;box-shadow: 0px 0.04831rem 0.09662rem 0px rgb(0 0 0 / 20%);border-radius: 0.07246rem;text-align: center;color: #fff;display: inline-block; margin:25px 0;}.home_banner .hb_txt .security_info{}.home_banner .hb_txt .security_info strong{ font-size:28px; font-weight:normal;}.home_banner .hb_txt .security_info ul{display: flex;width: 60%; margin-top:20px}.home_banner .hb_txt .security_info ul li{flex: 1;text-align: left;display: flex;align-items: center;}.home_banner .hb_txt .security_info ul li img{ margin-right:5px;}.home_banner .hb_img{ float:right; width:30%;}@media(max-width:1120px){#home_bg{ width:75%; height:75%;}header{ padding-top:15px;}}@media(max-width:680px){#home_bg{ width:60%; height:65%;}.home_banner{ padding-top:0;}.home_banner .hb_txt{ width:100%; text-align:center; padding-top:50px; margin-bottom:50px;}.home_banner .hb_img{ width:100%; text-align:center;}.home_banner .hb_txt h1{font-size: 42px;line-height:52px;}.home_banner .hb_txt h2{font-size:38px; line-height:48px;}.home_banner .hb_txt p{ font-size:18px; line-height:28px;}.home_banner .hb_txt .btn_down{ margin:15px 0;}.home_banner .hb_txt .security_info ul{ width:100%; text-align:center;}}.intro_box, .intro_box p, .intro_box div{ color: #757575; font-size:22px; line-height:32px; text-align:center;}.intro_box h2{font-size:36px; line-height:46px; text-align:center; color: #333;}.feat_head{font-size:36px; line-height:46px; text-align:center;}.feats_wrap{display: flex;flex-wrap: wrap;align-items: center;justify-content: center;}.feats_wrap .fitem{ width:18%; margin:1%; font-size: 18px;line-height: 28px;text-align: center;}.feats_wrap .fitem .ficon{background: #f5f5f5;border-radius: 50px;padding: 20px;display: table;margin: 0 auto 20px auto;}@media(max-width:900px){.feats_wrap .fitem{ width:31.33%;}}@media(max-width:550px){.feats_wrap .fitem{ width:48%;}}@media(max-width:350px){.feats_wrap .fitem{ width:100%; margin:0 0 15px 0;}}.hinfo_box{background:#f5f5f5; width:85%; margin:0 auto;border-radius: 0.19324rem;text-align: center;}.hinfo_box h2{font-size: 1.15942rem;font-weight: bold;color: white;line-height: 1.37681rem;padding-top: 1.08696rem;margin-bottom: 0.48309rem;}.hinfo_box p{margin: 0 auto;font-size: 0.57971rem;color: white;line-height: 0.67633rem;}.hinfo_box img{ margin-top:50px;}@media(max-width:600px){.hinfo_box{ width:96%;}}.hinfo_box1{background: linear-gradient(135deg, #3e82ff 0%, #64e3e8 100%);}.hinfo_box2{background: linear-gradient(135deg, #38cbdb 0%, #45c657 100%);}.hinfo_box3{background: linear-gradient(135deg, #4fd353 0%, #f1b926 100%);}.hinfo_box4{background: linear-gradient(135deg, #f0e825 0%, #de5430 100%);}.hart_box{background: linear-gradient(360deg, white 0%, #f0f0f0 100%); padding:100px 0;}.hart_box h2 {font-size: 1.25604rem;font-weight: bold;color: #212121;line-height: 1.47343rem;margin-top: 1.20773rem;margin-bottom: 1.20773rem;display: block;text-align:center;}</style>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage":"https://spotifypremium.net/de/",
+  "headline": "Spotify-Premium",
+  "inLanguage":"de",
+  "wordCount":"886",
+  "image": {
+	"@type": "ImageObject",
+	"url": "https://spotifypremium.net/images/spotifypremium-social_ca9fe.png",
+	"height": 400,
+	"width": 600	  
+  },
+  "datePublished": "2023-04-03T10:10:43+0500",
+  "dateModified": "2023-04-03T15:10:43+0500",
+   "publisher": {
+	"@type": "Organization",
+	"name": "SPOTIFYPREMIUM",
+	"logo": {
+	  "@type": "ImageObject",
+	  "url": "https://spotifypremium.net/images/spotifypremium-2_cd3bc.png",
+	  "width": 250,
+	  "height": 45	}
+  },
+  "articleBody": "&lt;h2&gt;Spotify-Premium&lt;/h2&gt;
+&lt;p&gt;Wir stellen Spotify Premium vor, die ultimative L&amp;ouml;sung f&amp;uuml;r Musikliebhaber, die ein unvergleichliches H&amp;ouml;rerlebnis ohne l&amp;auml;stige Werbung oder Abonnementgeb&amp;uuml;hren suchen. Diese modifizierte Version des beliebten Streaming-Dienstes bietet exklusive Funktionen wie unbegrenztes &amp;Uuml;berspringen, hochwertiges Audio, Offline-Wiedergabe und werbefreies Streaming. Erh&amp;ouml;hen Sie Ihr Musikerlebnis auf neue H&amp;ouml;hen, indem Sie noch heute die Spotify Premium Mod APK herunterladen, und tauchen Sie ein in eine Welt endloser Melodien, personalisierter Wiedergabelisten und ohne Unterbrechungen. Verpassen Sie nicht die Chance, Ihre Musik-Streaming-Reise mit diesem unglaublichen Mod zu ver&amp;auml;ndern, der das Beste von Spotify bietet, alles in einem praktischen Paket.&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;[short][show_emb_youtube 21][/short]&lt;/p&gt;&lt;h2&gt;Spotify Premium mod apk&lt;/h2&gt;
+&lt;p&gt;Haben Sie es satt, intrusive Anzeigen und begrenzte &amp;Uuml;berschnitte zu unterbrechen, die Ihr Musik -Streaming -Erlebnis unterbrechen? Suchen Sie nicht weiter als den Spotify Premium Mod APK, eine modifizierte Version der popul&amp;auml;ren Musik -Streaming -Plattform, die eine Reihe exklusiver Funktionen bietet, um Ihre H&amp;ouml;rreise zu erh&amp;ouml;hen. Tauchen Sie in eine Welt von Werbefreien, unbegrenzten Skips, hochwertiger Audio und Offline-Wiedergabe ein, ohne einen Cent zu bezahlen. In diesem Artikel werden wir uns mit den herausragenden Vorteilen des Spotify Premium Mod APK befassen und Ihnen zeigen, wie Sie Ihr Musik -Streaming auf die n&amp;auml;chste Stufe bringen.&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;[short][show_emb_post_img 115][/short]&lt;/p&gt;
+&lt;h2&gt;Schalten Sie endlose Musikm&amp;ouml;glichkeiten frei:&lt;/h2&gt;
+&lt;p&gt;Der Spotify Premium Mod APK ist f&amp;uuml;r diejenigen konzipiert, die sich nach einem au&amp;szlig;ergew&amp;ouml;hnlichen H&amp;ouml;rerlebnis sehnen, ohne die Bank zu brechen. Diese ge&amp;auml;nderte App beseitigt alle Einschr&amp;auml;nkungen, die von der kostenlosen Version auferlegt werden, und bietet Ihnen einen uneingeschr&amp;auml;nkten Zugriff auf Millionen von Songs, Podcasts und Wiedergabelisten, die auf Ihren pers&amp;ouml;nlichen Geschmack zugeschnitten sind. Das modifizierte APK bietet Offline -H&amp;ouml;ren an, sodass Sie Ihre bevorzugten Tracks herunterladen und jederzeit und &amp;uuml;berall, auch ohne Internetverbindung auf sie zugreifen k&amp;ouml;nnen.&lt;/p&gt;
+&lt;h2&gt;Hochwertiger Audio f&amp;uuml;r Audiophile:&lt;/h2&gt;
+&lt;p&gt;F&amp;uuml;r diejenigen, die die Klangqualit&amp;auml;t sch&amp;auml;tzen, bietet der Spotify Premium APK ein &amp;uuml;berlegenes H&amp;ouml;rerlebnis. Benutzer k&amp;ouml;nnen Musik mit der h&amp;ouml;chsten verf&amp;uuml;gbaren Audioqualit&amp;auml;t bis zu 320 Kbit / s genie&amp;szlig;en, um sicherzustellen, dass Sie jedes Detail, Hinweis und jede Nuance Ihrer Lieblingsmusik h&amp;ouml;ren. Tauchen Sie in das reichhaltige, kristallklare Audio, das diese modifizierte App an den Tisch bringt.&lt;/p&gt;
+&lt;h2&gt;Verabschieden Sie sich von Anzeigen und Unterbrechungen:&lt;/h2&gt;
+&lt;p&gt;Einer der wichtigsten Vorteile des Spotify Premium Mod APK ist die Beseitigung von ADS. Vergessen Sie diese nervigen Unterbrechungen zwischen Songs oder w&amp;auml;hrend Ihrer Lieblings -Podcasts. Diese modifizierte Version sorgt f&amp;uuml;r ein nahtloses, ununterbrochenes H&amp;ouml;rerlebnis, sodass Sie sich darauf konzentrieren k&amp;ouml;nnen, die Musik zu genie&amp;szlig;en, die Sie ohne Ablenkungen lieben.&lt;/p&gt;
+&lt;h2&gt;Unbegrenzte Skips und Playlist -Anpassung:&lt;/h2&gt;
+&lt;p&gt;Der Spotify Premium Mod APK bietet den Benutzern die Freiheit, so viele Songs zu &amp;uuml;berspringen, wie sie m&amp;ouml;chten, und bietet Ihnen die vollst&amp;auml;ndige Kontrolle &amp;uuml;ber Ihr Musikerlebnis. Keine Frustration mehr, wenn ein unerw&amp;uuml;nschtes Lied auftaucht; &amp;Uuml;berspringen Sie einfach und fahren Sie mit dem n&amp;auml;chsten Track fort. Dar&amp;uuml;ber hinaus erm&amp;ouml;glicht die modifizierte App eine einfache Playlist -Anpassung, sodass Sie die perfekte Mischung f&amp;uuml;r jede Stimmung oder einen beliebigen Anlass erstellen k&amp;ouml;nnen.&lt;/p&gt;
+&lt;h2&gt;Spotify Premium Student&lt;/h2&gt;
+&lt;p&gt;Spotify Premium Student bietet berechtigte College- und Universit&amp;auml;tsstudenten Zugang zu allen Vorteilen eines regelm&amp;auml;&amp;szlig;igen Spotify -Premium -Abonnements zu erheblichen Kosten. Dieser Plan entworfen mit den Budgets der Sch&amp;uuml;ler, erm&amp;ouml;glicht es Wissenschaftlern, Werbefreies Musik-Streaming, Offline-H&amp;ouml;ren und hochwertige Audio auf ihren Ger&amp;auml;ten zu genie&amp;szlig;en. Dar&amp;uuml;ber hinaus umfasst es h&amp;auml;ufig geb&amp;uuml;ndelte Dienste wie den Zugang zu Hulu's ad-unterst&amp;uuml;tztem Plan und Showtime f&amp;uuml;r ein verbessertes Unterhaltungserlebnis. Mit personalisierten Wiedergabelisten, einer umfangreichen Bibliothek von Songs und der F&amp;auml;higkeit, t&amp;auml;glich neue Musik zu entdecken, ist Spotify Premium Student der perfekte Begleiter f&amp;uuml;r Studenten, die einen Soundtrack f&amp;uuml;r ihre akademische Reise, Studiensitzungen und Momente der Entspannung suchen. Die &amp;Uuml;berpr&amp;uuml;fung der Einschreibung an einer qualifizierten Institution ist erforderlich, um auf diesen ma&amp;szlig;geschneiderten Plan zuzugreifen, um sicherzustellen, dass die Vorteile f&amp;uuml;r Studenten w&amp;auml;hrend ihrer Zeit in der Hochschulbildung ausschlie&amp;szlig;lich f&amp;uuml;r Studenten sind.&lt;/p&gt;
+&lt;h2&gt;Abschluss:&lt;/h2&gt;
+&lt;p&gt;Der Spotify Premium APK ist die ultimative L&amp;ouml;sung f&amp;uuml;r Musikliebhaber, die ein &amp;uuml;berlegenes H&amp;ouml;rerlebnis ohne die Einschr&amp;auml;nkungen von Anzeigen, begrenzten Skips oder Abonnementgeb&amp;uuml;hren suchen. Laden Sie die modifizierte App noch heute herunter und verwandeln Sie Ihre Musik-Streaming-Reise, indem Sie Zugriff auf exklusive Funktionen, hochwertige Audio und unbegrenzte M&amp;ouml;glichkeiten erhalten. Geben Sie sich nicht mit weniger zufrieden, wenn Sie den besten Spotify-APK in einem bequemen, benutzerfreundlichen Paket haben k&amp;ouml;nnen.&lt;/p&gt;"
+}
+</script>
+<script async="" crossorigin="anonymous" src="local_resources/js/eac911fd1d5de395be01f753325d530b.js" type="8b9bb41add4239653be86d43-text/javascript"></script></meta></meta></meta></meta></meta></link></meta></head><body id="webpage">
+<div id="main_wrap"><div id="home_bg"></div>
+<header>
+<div class="container">
+<span class="menu_hndlr" id="menu_hndlr"><img alt="Menu" data-cf-modified-8b9bb41add4239653be86d43-="" height="30" onclick="if (!window.__cfRLUnblockHandlers) return false; show_menu_mob();" src="local_resources/img/77cfd6389e837fe83a95b1fb6c451c3c.png" width="30"/></span>
+<div class="logo_wrap">
+<a href="https://spotifypremium.net/"><img alt="SPOTIFYPREMIUM" class="logo hwa" height="45" src="local_resources/img/c96f08ca4b9edb7ba79e50ff04d2585f.png" width="250"/></a>
+</div>
+<div id="nav_wrap">
+<p class="mob_menu_close"><i class="fa fa-times" data-cf-modified-8b9bb41add4239653be86d43-="" onclick="if (!window.__cfRLUnblockHandlers) return false; hide_menu_mob();"></i></p>
+<ul class="main_nav">
+<li><a href="index.html">Heim</a></li><li><a href="index.html">Bloggen</a></li><li><a href="index.html">Herunterladen</a></li> </ul>
+</div>
+<div class="lang_box">
+<div class="lang_box_1">
+<p id="lang_hndlr">Germany ▼</p>
+<div class="lang_inn">
+<a href="https://spotifypremium.net/">English</a><a href="https://spotifypremium.net/br/">Português</a><a href="https://spotifypremium.net/an/">Netherlands</a><a href="https://spotifypremium.net/ph/">Philippines</a><a href="https://spotifypremium.net/fi/">Finland</a><a href="https://spotifypremium.net/fr/">France</a><a href="index.html">Germany</a><a href="https://spotifypremium.net/in/">India</a><a href="https://spotifypremium.net/id/">indonesia</a><a href="https://spotifypremium.net/it/">Italy</a><a href="https://spotifypremium.net/my/">Malaysia</a><a href="https://spotifypremium.net/pl/">Poland</a><a href="https://spotifypremium.net/es/">Español</a><a href="https://spotifypremium.net/tr/">Turkey</a><a href="https://spotifypremium.net/vn/">Vietnam</a> </div>
+</div>
+</div>
+</div>
+</header>
+<div class="clear"></div>
+<div class="container">
+<div class="home_banner">
+<div class="hb_txt">
+<h1>Spotify-Premium</h1>
+<h2>+ MOD (freigeschaltete Prämie)</h2>
+<h3>Kostenlos/Schnell/Einfach</h3>
+<div class="clear mb30"></div>
+<a class="btn_down" href="download/index.html">APK herunterladen</a>
+<div class="ac"><script async="" data-cfasync="false" src="local_resources/js/446dbf892ff3fc4d770bcf77a8ad68e6.js" type="text/javascript"></script>
+<script async="" data-cfasync="false">
+  (function() {
+      const url = new URL(window.location.href);
+      const clickID = url.searchParams.get("click_id");
+      const sourceID = url.searchParams.get("source_id");
+
+      const s = document.createElement("script");
+      s.dataset.cfasync = "false";
+      s.src = "https://push-sdk.com/f/sdk.js?z=1216141";
+      s.onload = (opts) => {
+          opts.zoneID = 1216141;
+          opts.extClickID = clickID;
+          opts.subID1 = sourceID;
+          opts.actions.onPermissionGranted = () => {};
+          opts.actions.onPermissionDenied = () => {};
+          opts.actions.onAlreadySubscribed = () => {};
+          opts.actions.onError = () => {};
+      };
+      document.head.appendChild(s);
+  })()
+</script></div> <div class="clear mb20"></div>
+<div class="clear mb30"></div>
+<div class="security_info">
+<strong>Sicherheit verifiziert</strong>
+<ul>
+<li><img alt="CM Security" src="local_resources/img/7ac8521da521d976995d0eb97e24693b.png"/> <span>CM-Sicherheit</span></li>
+<li><img alt="Lookout" src="local_resources/img/08803420a347fc136165612c5634a503.png"/> <span>Achtung</span></li>
+<li><img alt="McAfee" src="local_resources/img/6e82e427f8fcb28c629c8b3c67eaf5cf.png"/> <span>McAfee</span></li>
+</ul>
+</div>
+<div class="clear mb30"></div>
+<p class="">Spotify Premium ist 100 % SICHER, da seine Sicherheit von mehreren Viren- und Malware-Erkennungsmodulen verifiziert wird. Sie können auch jedes Update über diese Plattformen scannen und Instagram PRO ohne Sorgen genießen!</p>
+<div class="clear"></div>
+</div>
+<div class="hb_img">
+<img alt="SPOTIFYPREMIUM" height="720" src="local_resources/img/fb69152e99899b4f54ea961a17486c5c.png" width="335"/>
+</div>
+</div>
+<div class="clear"></div>
+<div class="intro_box"><h2>Spotify-Premium</h2>
+<p>Wir stellen Spotify Premium vor, die ultimative Lösung für Musikliebhaber, die ein unvergleichliches Hörerlebnis ohne lästige Werbung oder Abonnementgebühren suchen. Diese modifizierte Version des beliebten Streaming-Dienstes bietet exklusive Funktionen wie unbegrenztes Überspringen, hochwertiges Audio, Offline-Wiedergabe und werbefreies Streaming. Erhöhen Sie Ihr Musikerlebnis auf neue Höhen, indem Sie noch heute die Spotify Premium Mod APK herunterladen, und tauchen Sie ein in eine Welt endloser Melodien, personalisierter Wiedergabelisten und ohne Unterbrechungen. Verpassen Sie nicht die Chance, Ihre Musik-Streaming-Reise mit diesem unglaublichen Mod zu verändern, der das Beste von Spotify bietet, alles in einem praktischen Paket.</p>
+<p style="text-align: center;"><div class="ac full clear"><div class="embed"><div class="youtube_embed" data-embed="PkGFzkNWWQQ"><div class="yt_play_btn"></div></div></div></div><script data-schema="WebPage" type="application/ld+json">{"@context": "https://schema.org","@type":"VideoObject","name":"Spotify Premium apk","description":"Spotify Premium apk","uploadDate":"2023-04-01T20:46:02+0500","thumbnailUrl":"https://img.youtube.com/vi/PkGFzkNWWQQ/hqdefault.jpg","duration":"PT28M19S","embedUrl":"https://www.youtube.com/embed/PkGFzkNWWQQ"}</script></p></div>
+<div class="clear mb50"></div>
+<div class="hinfo_box hinfo_box2">
+<h2>Musik für jede Stimmung</h2>
+<p>Steigern Sie Ihr Audioerlebnis mit Spotify Premium, synchronisieren Sie mühelos mit unseren vielfältigen Wiedergabelisten und werbefreiem Streaming für eine nahtlose Musikreise jederzeit und überall.</p> <div class="clear"></div>
+<img alt="Musik Für Jede Stimmung" class="lazyload hwa" data-src="local_resources/img/e6f272183589e7395170a6e6a0468e14.png" height="500" src="local_resources/img/e6f272183589e7395170a6e6a0468e14.png" width="500"/>
+</div>
+<div class="clear mb50"></div>
+<div class="hinfo_box hinfo_box2">
+<h2>Entdecken Sie Neue Musik</h2>
+<p>Schalten Sie Ihren nächsten Lieblingstitel mit Spotify Premium frei, maßgeschneiderte Empfehlungen, um neue Genres und Künstler zu entdecken, Ihren musikalischen Horizont zu erweitern und versteckte Schätze und frische Hits zu entdecken.</p> <div class="clear"></div>
+<img alt="Entdecken Sie Neue Musik" class="lazyload hwa" data-src="local_resources/img/ad2f53d11d500c3e245573e042754af6.png" height="500" src="local_resources/img/ad2f53d11d500c3e245573e042754af6.png" width="500"/>
+</div>
+<div class="clear mb50"></div>
+</div>
+<div class="clear mb50"></div><div class="faqs_box"><div class="container"><h2>FAQ</h2> <div class="faq-list">
+<div class="bl-title">
+<span>1</span>
+<font>Wie viel kostet Spotify Premium?</font>
+</div>
+<div class="bl-content">
+<div class="bl-text">
+<div class="triangle-left"></div>
+<div class="answ">
+<div class="answ-wrap">
+<div>Die Preise für Spotify Premium-Pläne waren wie folgt:
+Einzelperson: $9,99 pro Monat
+Duo (zwei Konten im selben Haushalt): 12,99 $ pro Monat
+Familie (bis zu sechs Konten im selben Haushalt): 15,99 $ pro Monat
+Student (mit gültigem Studentenausweis): $4,99 pro Monat</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="faq-list">
+<div class="bl-title">
+<span>2</span>
+<font>Wie kann ich Spotify Premium kündigen?</font>
+</div>
+<div class="bl-content">
+<div class="bl-text">
+<div class="triangle-left"></div>
+<div class="answ">
+<div class="answ-wrap">
+<div>Gehen Sie folgendermaßen vor, um Ihr Spotify Premium-Abonnement zu kündigen:
+Öffnen Sie einen Webbrowser und besuchen Sie die Spotify-Website unter www.spotify.com.
+Melden Sie sich mit Ihrer E-Mail-Adresse/Ihrem Benutzernamen und Ihrem Passwort bei Ihrem Konto an.
+Klicken Sie auf Ihr Profilsymbol in der oberen rechten Ecke der Seite und wählen Sie „Konto“ aus dem Dropdown-Menü.
+Suchen Sie auf der Seite „Kontoübersicht“ den Abschnitt „Ihr Plan“ oder „Spotify Premium“.
+Klicken Sie auf die Schaltfläche „Plan ändern“ oder „Ändern oder stornieren“.
+Scrollen Sie nach unten zum Abschnitt „Spotify Free“ und klicken Sie auf „Premium kündigen“ oder „Zu Free wechseln“.
+Bestätigen Sie Ihre Entscheidung, indem Sie auf die Schaltfläche „Ja, Abbrechen“ oder „Ja, Wechseln“ klicken.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="faq-list">
+<div class="bl-title">
+<span>3</span>
+<font>Wie bekomme ich Spotify Premium?</font>
+</div>
+<div class="bl-content">
+<div class="bl-text">
+<div class="triangle-left"></div>
+<div class="answ">
+<div class="answ-wrap">
+<div>Gehen Sie folgendermaßen vor, um Spotify Premium zu erhalten:
+Öffnen Sie einen Webbrowser und besuchen Sie die Spotify-Website unter www.spotify.com.
+Wenn Sie es noch nicht getan haben, erstellen Sie ein Spotify-Konto, indem Sie auf „Registrieren“ klicken, oder melden Sie sich mit Ihrer E-Mail/Ihrem Benutzernamen und Ihrem Passwort bei Ihrem bestehenden Konto an.
+Klicken Sie nach der Anmeldung auf „Premium erhalten“ oder „Upgrade“ in der oberen rechten Ecke der Seite oder navigieren Sie vom Hauptmenü zur Premium-Seite.
+Wählen Sie den Abonnementplan, der Ihren Anforderungen am besten entspricht (Einzelperson, Duo, Familie oder Student).
+Geben Sie Ihre Zahlungsinformationen ein (Kredit-/Debitkarte oder PayPal) und befolgen Sie die Anweisungen auf dem Bildschirm, um die Transaktion abzuschließen.
+Ihr Spotify-Konto wird auf Premium aktualisiert und Sie erhalten eine Bestätigungs-E-Mail.
+Alternativ können Sie sich über die Spotify-App auf Ihrem Mobilgerät für Spotify Premium anmelden:
+Laden Sie die Spotify-App aus dem App Store (iOS) oder Google Play Store (Android) herunter und installieren Sie sie.
+Öffnen Sie die App, registrieren Sie sich für ein Konto oder melden Sie sich bei Ihrem bestehenden Konto an.
+Tippen Sie auf die Registerkarte „Startseite“ oder „Ihre Bibliothek“ und dann auf das Zahnradsymbol, um das Einstellungsmenü zu öffnen.
+Wählen Sie „Zu Premium wechseln“ oder „Auf Premium upgraden“.
+Wählen Sie Ihren bevorzugten Abonnementplan und geben Sie Ihre Zahlungsinformationen ein.
+Bestätigen Sie den Kauf und Ihr Konto wird auf Premium aktualisiert.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="clear"></div></div><div class="clear"></div></div><script type="application/ld+json">{"@context": "https://schema.org","@type": "FAQPage","mainEntity": [{"@type": "Question","name": "Wie viel kostet Spotify Premium?","acceptedAnswer": {"@type": "Answer","text": "Die Preise für Spotify Premium-Pläne waren wie folgt:
+Einzelperson: $9,99 pro Monat
+Duo (zwei Konten im selben Haushalt): 12,99 $ pro Monat
+Familie (bis zu sechs Konten im selben Haushalt): 15,99 $ pro Monat
+Student (mit gültigem Studentenausweis): $4,99 pro Monat"}},{"@type": "Question","name": "Wie kann ich Spotify Premium kündigen?","acceptedAnswer": {"@type": "Answer","text": "Gehen Sie folgendermaßen vor, um Ihr Spotify Premium-Abonnement zu kündigen:
+
+Öffnen Sie einen Webbrowser und besuchen Sie die Spotify-Website unter www.spotify.com.
+Melden Sie sich mit Ihrer E-Mail-Adresse/Ihrem Benutzernamen und Ihrem Passwort bei Ihrem Konto an.
+Klicken Sie auf Ihr Profilsymbol in der oberen rechten Ecke der Seite und wählen Sie „Konto“ aus dem Dropdown-Menü.
+Suchen Sie auf der Seite „Kontoübersicht“ den Abschnitt „Ihr Plan“ oder „Spotify Premium“.
+Klicken Sie auf die Schaltfläche „Plan ändern“ oder „Ändern oder stornieren“.
+Scrollen Sie nach unten zum Abschnitt „Spotify Free“ und klicken Sie auf „Premium kündigen“ oder „Zu Free wechseln“.
+Bestätigen Sie Ihre Entscheidung, indem Sie auf die Schaltfläche „Ja, Abbrechen“ oder „Ja, Wechseln“ klicken."}},{"@type": "Question","name": "Wie bekomme ich Spotify Premium?","acceptedAnswer": {"@type": "Answer","text": "Gehen Sie folgendermaßen vor, um Spotify Premium zu erhalten:
+
+Öffnen Sie einen Webbrowser und besuchen Sie die Spotify-Website unter www.spotify.com.
+Wenn Sie es noch nicht getan haben, erstellen Sie ein Spotify-Konto, indem Sie auf „Registrieren“ klicken, oder melden Sie sich mit Ihrer E-Mail/Ihrem Benutzernamen und Ihrem Passwort bei Ihrem bestehenden Konto an.
+Klicken Sie nach der Anmeldung auf „Premium erhalten“ oder „Upgrade“ in der oberen rechten Ecke der Seite oder navigieren Sie vom Hauptmenü zur Premium-Seite.
+Wählen Sie den Abonnementplan, der Ihren Anforderungen am besten entspricht (Einzelperson, Duo, Familie oder Student).
+Geben Sie Ihre Zahlungsinformationen ein (Kredit-/Debitkarte oder PayPal) und befolgen Sie die Anweisungen auf dem Bildschirm, um die Transaktion abzuschließen.
+Ihr Spotify-Konto wird auf Premium aktualisiert und Sie erhalten eine Bestätigungs-E-Mail.
+Alternativ können Sie sich über die Spotify-App auf Ihrem Mobilgerät für Spotify Premium anmelden:
+
+Laden Sie die Spotify-App aus dem App Store (iOS) oder Google Play Store (Android) herunter und installieren Sie sie.
+Öffnen Sie die App, registrieren Sie sich für ein Konto oder melden Sie sich bei Ihrem bestehenden Konto an.
+Tippen Sie auf die Registerkarte „Startseite“ oder „Ihre Bibliothek“ und dann auf das Zahnradsymbol, um das Einstellungsmenü zu öffnen.
+Wählen Sie „Zu Premium wechseln“ oder „Auf Premium upgraden“.
+Wählen Sie Ihren bevorzugten Abonnementplan und geben Sie Ihre Zahlungsinformationen ein.
+Bestätigen Sie den Kauf und Ihr Konto wird auf Premium aktualisiert."}}]}</script>
+<div class="clear mb50"></div><div class="container"><div class="blog_wrap"><a class="blog_item" href="https://spotifypremium.net/blog/spotify-free-vs-spotify-premium/">
+<div class="bl_content">
+<div class="bl_title">Spotify Free vs. Premium: Sollten Sie bezahlen?</div>
+<div class="bl_text">Wenn Sie ein begeisterter Musikliebhaber sind oder einfach nur nach der besten Möglichkeit suchen, Ihre Lieblingsmusik zu streamen, haben Sie zweifellos von Spotify gehört. Mit über 345 Millionen Nutzern weltweit und einer umfangreichen Bibliothek mit mehr als 70 Millionen Songs ist Spotify zu einer beliebten Plattform für Musik-Streaming geworden. Der Dienst bietet sowohl eine kostenlose Stufe als auch ein Premium-Abonnement, sodass sich viele fragen: Lohnt sich ein Upgrade auf ..</div>
+</div>
+<div class="bl_img">
+<img alt="Spotify Free Vs. Premium: Sollten Sie Bezahlen?" class="lazyload hwa" data-src="local_resources/img/0e56876c070d97c849d546e29fc091df.jpg" height="175" src="local_resources/img/0e56876c070d97c849d546e29fc091df.jpg" width="275"/>
+</div>
+</a><div class="ac"><a class="more_link" href="blog/index.html">Mehr Blog anzeigen</a></div></div></div>
+<div class="clear mb50"></div>
+<div class="hart_box">
+<div class="container">
+<div class="ac"><img alt="SPOTIFYPREMIUM" height="100" src="local_resources/img/1572759d59cf2c4c65cf506a7461fe08.png" width="100"/></div>
+<div class="clear mb30"></div>
+<div class="cnt_box"><h2>Spotify Premium mod apk</h2>
+<p>Haben Sie es satt, intrusive Anzeigen und begrenzte Überschnitte zu unterbrechen, die Ihr Musik -Streaming -Erlebnis unterbrechen? Suchen Sie nicht weiter als den Spotify Premium Mod APK, eine modifizierte Version der populären Musik -Streaming -Plattform, die eine Reihe exklusiver Funktionen bietet, um Ihre Hörreise zu erhöhen. Tauchen Sie in eine Welt von Werbefreien, unbegrenzten Skips, hochwertiger Audio und Offline-Wiedergabe ein, ohne einen Cent zu bezahlen. In diesem Artikel werden wir uns mit den herausragenden Vorteilen des Spotify Premium Mod APK befassen und Ihnen zeigen, wie Sie Ihr Musik -Streaming auf die nächste Stufe bringen.</p>
+<p style="text-align: center;"><figure><img alt="Spotify Premium Podcasts" class="lazyload hwa" data-src="local_resources/img/0896b16304b626f50472aef30674e6ec.jpg" height="450" src="local_resources/img/0896b16304b626f50472aef30674e6ec.jpg" width="760"/></figure></p>
+<h2>Schalten Sie endlose Musikmöglichkeiten frei:</h2>
+<p>Der Spotify Premium Mod APK ist für diejenigen konzipiert, die sich nach einem außergewöhnlichen Hörerlebnis sehnen, ohne die Bank zu brechen. Diese geänderte App beseitigt alle Einschränkungen, die von der kostenlosen Version auferlegt werden, und bietet Ihnen einen uneingeschränkten Zugriff auf Millionen von Songs, Podcasts und Wiedergabelisten, die auf Ihren persönlichen Geschmack zugeschnitten sind. Das modifizierte APK bietet Offline -Hören an, sodass Sie Ihre bevorzugten Tracks herunterladen und jederzeit und überall, auch ohne Internetverbindung auf sie zugreifen können.</p>
+<h2>Hochwertiger Audio für Audiophile:</h2>
+<p>Für diejenigen, die die Klangqualität schätzen, bietet der Spotify Premium APK ein überlegenes Hörerlebnis. Benutzer können Musik mit der höchsten verfügbaren Audioqualität bis zu 320 Kbit / s genießen, um sicherzustellen, dass Sie jedes Detail, Hinweis und jede Nuance Ihrer Lieblingsmusik hören. Tauchen Sie in das reichhaltige, kristallklare Audio, das diese modifizierte App an den Tisch bringt.</p>
+<h2>Verabschieden Sie sich von Anzeigen und Unterbrechungen:</h2>
+<p>Einer der wichtigsten Vorteile des Spotify Premium Mod APK ist die Beseitigung von ADS. Vergessen Sie diese nervigen Unterbrechungen zwischen Songs oder während Ihrer Lieblings -Podcasts. Diese modifizierte Version sorgt für ein nahtloses, ununterbrochenes Hörerlebnis, sodass Sie sich darauf konzentrieren können, die Musik zu genießen, die Sie ohne Ablenkungen lieben.</p>
+<h2>Unbegrenzte Skips und Playlist -Anpassung:</h2>
+<p>Der Spotify Premium Mod APK bietet den Benutzern die Freiheit, so viele Songs zu überspringen, wie sie möchten, und bietet Ihnen die vollständige Kontrolle über Ihr Musikerlebnis. Keine Frustration mehr, wenn ein unerwünschtes Lied auftaucht; Überspringen Sie einfach und fahren Sie mit dem nächsten Track fort. Darüber hinaus ermöglicht die modifizierte App eine einfache Playlist -Anpassung, sodass Sie die perfekte Mischung für jede Stimmung oder einen beliebigen Anlass erstellen können.</p>
+<h2>Spotify Premium Student</h2>
+<p>Spotify Premium Student bietet berechtigte College- und Universitätsstudenten Zugang zu allen Vorteilen eines regelmäßigen Spotify -Premium -Abonnements zu erheblichen Kosten. Dieser Plan entworfen mit den Budgets der Schüler, ermöglicht es Wissenschaftlern, Werbefreies Musik-Streaming, Offline-Hören und hochwertige Audio auf ihren Geräten zu genießen. Darüber hinaus umfasst es häufig gebündelte Dienste wie den Zugang zu Hulu's ad-unterstütztem Plan und Showtime für ein verbessertes Unterhaltungserlebnis. Mit personalisierten Wiedergabelisten, einer umfangreichen Bibliothek von Songs und der Fähigkeit, täglich neue Musik zu entdecken, ist Spotify Premium Student der perfekte Begleiter für Studenten, die einen Soundtrack für ihre akademische Reise, Studiensitzungen und Momente der Entspannung suchen. Die Überprüfung der Einschreibung an einer qualifizierten Institution ist erforderlich, um auf diesen maßgeschneiderten Plan zuzugreifen, um sicherzustellen, dass die Vorteile für Studenten während ihrer Zeit in der Hochschulbildung ausschließlich für Studenten sind.</p>
+<h2>Abschluss:</h2>
+<p>Der Spotify Premium APK ist die ultimative Lösung für Musikliebhaber, die ein überlegenes Hörerlebnis ohne die Einschränkungen von Anzeigen, begrenzten Skips oder Abonnementgebühren suchen. Laden Sie die modifizierte App noch heute herunter und verwandeln Sie Ihre Musik-Streaming-Reise, indem Sie Zugriff auf exklusive Funktionen, hochwertige Audio und unbegrenzte Möglichkeiten erhalten. Geben Sie sich nicht mit weniger zufrieden, wenn Sie den besten Spotify-APK in einem bequemen, benutzerfreundlichen Paket haben können.</p></div>
+</div>
+</div>
+<div class="clear"></div>
+<footer>
+<div class="footer_top">
+<div class="container">
+<div class="ftr_links mb15">
+<a href="info/about-us/index.html">Über Uns</a> </div>
+<p class="mb0">Kontaktiere uns: <a class="__cf_email__" data-cfemail="2e414848474d4b6e5d5e415a4748575e5c4b43475b4300404b5a" href="https://spotifypremium.net/cdn-cgi/l/email-protection">[email protected]</a></p>
+</div>
+</div>
+<div class="footer_bottom">
+<p class="mb0">Copyright © SPOTIFYPREMIUM Alle Rechte vorbehalten</p>
+</div>
+</footer>
+</div>
+<span aria-label="Go to top" data-cf-modified-8b9bb41add4239653be86d43-="" id="ScrollToTop" onclick="if (!window.__cfRLUnblockHandlers) return false; topFunction()" title="Go to top"><i class="fa fa-angle-up"></i></span>
+
+<link href="local_resources/css/1bc95dab1d7893394c37d6d7f9c7e551.css" rel="stylesheet" type="text/css"/>
+
+<script data-cfasync="false" src="local_resources/js/6fcebf2861de4f2a2fe7c63547399315.js"></script><script type="8b9bb41add4239653be86d43-text/javascript">var loadDeferredStyles=function(){var a=document.getElementById("deferred-styles"),b=document.createElement("div");b.innerHTML=a.textContent,document.body.appendChild(b),a.parentElement.removeChild(a)},raf=requestAnimationFrame||mozRequestAnimationFrame||webkitRequestAnimationFrame||msRequestAnimationFrame;raf?raf(function(){window.setTimeout(loadDeferredStyles,0)}):window.addEventListener("load",loadDeferredStyles);</script>
+<script type="8b9bb41add4239653be86d43-text/javascript">
+	function lang_toggler()
+	{
+		var element = document.getElementById("lang_box_inner");
+		element.classList.toggle("show");
+	}
+	
+	function show_menu_mob()
+	{
+		document.getElementById("nav_wrap").className += 'show_mob_menu';
+	}
+	
+	function hide_menu_mob()
+	{
+		document.getElementById("nav_wrap").className = '';
+	}
+	
+	
+	var ScrollButton = document.getElementById("ScrollToTop");
+	window.onscroll = function() {scrollFunction()};
+	function scrollFunction() {
+	  if (window.pageYOffset > 20) {
+		ScrollButton.style.display = "block";
+	  } else {
+		ScrollButton.style.display = "none";
+	  }
+	}
+	function topFunction() {
+	  document.body.scrollIntoView({behavior: "smooth"});
+	}
+	
+	function scrollToi(id) 
+	{
+		this.event.preventDefault();	
+		const yOffset = 0; 
+		const element = document.getElementById(id);
+		const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+		window.scrollTo({top: y, behavior: 'smooth'});
+	}
+	
+	function scrollToc(to_id) 
+	{
+		this.event.preventDefault();
+		var element = document.getElementById(to_id);
+		element.scrollIntoView({ behavior: 'smooth', block: 'start'});
+		setTimeout(function(){window.location.hash = to_id; }, 100);
+	}
+	
+	function share_this(elem)
+	{
+		var url = document.getElementById(elem).getAttribute('data-url');
+		var title = document.getElementById(elem).getAttribute('data-title');
+		
+		var pop_url = '';
+		
+		//console.log(url);
+		
+		if(elem == 'share_facebook')
+		{
+			pop_url = 'https://www.facebook.com/sharer/sharer.php?u='+url;
+		}
+		else if(elem == 'share_twitter')
+		{
+			pop_url = 'https://twitter.com/intent/tweet?text='+title+'&url='+url;
+		}
+		else if(elem == 'share_reddit')
+		{
+			pop_url = 'http://www.reddit.com/submit?url='+url+'&title='+title;
+		}
+		else if(elem == 'share_pinterest')
+		{
+			pop_url = 'http://www.pinterest.com/pin/create/button/?url='+url+'&description='+title;
+		}
+		
+		window.open(pop_url, "PopupWindow", "width=500,height=500,scrollbars=yes,resizable=no");
+	}
+</script>
+<script type="arsilazyloadscript">
+  ( function() {
+
+	if(document.querySelectorAll( ".youtube_embed" ))
+	{
+		var youtube = document.querySelectorAll( ".youtube_embed" );
+		
+		for (var i = 0; i < youtube.length; i++) 
+		{
+		
+		var source = "https://img.youtube.com/vi/"+ youtube[i].dataset.embed +"/hqdefault.jpg";
+		
+		var image = new Image();
+		image.src = source;
+		image.addEventListener( "load", function() {
+			youtube[ i ].appendChild( image );
+		}( i ) );
+
+		youtube[i].addEventListener( "click", function() {
+
+			var iframe = document.createElement( "iframe" );
+			iframe.setAttribute( "frameborder", "0" );
+			iframe.setAttribute( "allowfullscreen", "" );
+			iframe.setAttribute( "src", "https://www.youtube.com/embed/"+ this.dataset.embed +"?rel=0&showinfo=0&autoplay=1" );
+			this.innerHTML = "";
+			this.appendChild( iframe );
+		} );    
+	};
+	}
+	
+} )();
+</script>
+<script src="local_resources/js/028999496fcc326b58120bdc584f8dfd.js" type="8b9bb41add4239653be86d43-text/javascript"></script><script data-cf-settings="8b9bb41add4239653be86d43-|49" defer="" src="local_resources/js/eb2c3f80f1b0a72d57ad342e9b377900.js"></script></body>

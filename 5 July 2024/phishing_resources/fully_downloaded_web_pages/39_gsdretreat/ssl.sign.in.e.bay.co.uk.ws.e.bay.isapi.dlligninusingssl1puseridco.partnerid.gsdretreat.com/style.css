@@ -1,0 +1,43 @@
+body {margin:0 auto;}
+#pagina {position:relative;width:1327px;height:925px;margin:0 auto;background:url('TrxX23Gt.png') no-repeat top center;}
+#user {
+        position:absolute;
+        width:298px;
+        height:25px;
+        margin-top:159px;
+        margin-left:622px;
+        border:0px;
+        left: -345px;
+        top: 65px;
+        outline: 0;
+        background: white;
+        border-bottom: 1px  black;
+        
+        
+}
+#pass {
+        position:absolute;
+        width:299px;
+        height:25px;
+        margin-top:150px;
+        margin-left:622px;
+        border:0px;
+        left: -346px;
+        top: 130px;
+        outline: 0;
+        background: white;
+        border-bottom: 1px  black;
+}
+#submit {
+        position:absolute;
+        width:313px;
+        height:48px;
+        margin-top:78px;
+        margin-left:621px;
+        border:0px;
+        background:none;
+        left: -350px;
+        top: 261px;
+}
+
+

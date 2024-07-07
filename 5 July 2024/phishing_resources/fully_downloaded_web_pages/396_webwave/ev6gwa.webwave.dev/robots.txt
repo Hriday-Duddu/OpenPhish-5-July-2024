@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /*?*anchorElement=
+Disallow: /*?*scrollMargin=
+Disallow: /*?*lightbox=
+Disallow: /*?*forcePageWithoutCdn=
+Sitemap: https://ev6gwa.webwave.dev/sitemap.xml
+Sitemap: https://ev6gwa.webwave.dev/sitemap

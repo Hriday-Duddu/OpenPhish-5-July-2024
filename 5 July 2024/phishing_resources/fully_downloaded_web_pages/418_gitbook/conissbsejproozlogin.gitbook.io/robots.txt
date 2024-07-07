@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /~gitbook/
+Allow: /
+Sitemap: https://conissbsejproozlogin.gitbook.io/us/sitemap.xml

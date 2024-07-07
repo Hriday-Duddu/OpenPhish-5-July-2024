@@ -1,0 +1,91 @@
+@font-face {
+    font-family: poppinsRegular;
+    src: url(../fonts/poppins.regular.ttf);
+}
+
+body {
+    background-color: #c9c9c9;
+    font-family: poppinsRegular, sans-serif;
+}
+
+ a:hover, a:visited, a:link, a:active {
+     text-decoration: none;
+     color: #ffffff;
+ }
+
+ .nr_wrapper {
+     background-color: #c9c9c9;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .nr_content {
+     background-color: #ffffff;
+     width: 100%;
+     max-width: 500px;
+     min-height: 100vh;
+     height: auto;
+     display: flex;
+     flex-direction: column;
+     justify-content: start;
+     align-items: center;
+     padding: 2em 1.8em;
+ }
+
+ .nr_content img {
+     height: 35px;
+ }
+
+ .nr_footer_divider {
+     border-top: 1px dashed #c9c9c9;
+ }
+
+ .nr_footer_divider h6 {
+     font-size: 0.9em;
+     font-weight: normal;
+     color: #6c7378;
+     padding-top: 20px;
+ }
+
+ .nr_footer {
+     display: flex;
+     justify-self: end;
+     margin-top: auto;
+ }
+
+ .nr_body {
+     width: 90% !important;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-self: center;
+     margin-top: auto;
+ }
+
+ .nr_text-primary {
+     color: #ff6e14 !important;
+ }
+
+ .nr_custom-button {
+     background-color: #ff6e14;
+     color: #ffffff;
+     font-size: 0.95em;
+     text-align: center;
+     padding: 10px 25px;
+     border: 1px solid #ff6e14;
+     -webkit-border-radius: 12px;
+     -moz-border-radius: 12px;
+     border-radius: 12px;
+ }
+
+ .input-text {
+     outline: none !important;
+     border: 1px solid #6c7378;
+ }
+
+ .form-control:focus {
+     border-color: rgb(1 114 187) !important;
+     /*border-color: #6c7378 !important;*/
+     box-shadow: 0 0 0 0;
+ }

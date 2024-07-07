@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://bookingtool.azurewebsites.net/sitemap.xml
+Sitemap: https://bookingtool.azurewebsites.net/wzy.php?sitemap.xml
+Sitemap: https://bookingtool.azurewebsites.net/wps/wps.php?sitemap.xml

